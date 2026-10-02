@@ -19,7 +19,7 @@ PACK = os.path.join(ROOT, 'pack')
 NS = os.path.join(PACK, 'assets', 'knightsrealm')
 FORMAT = 84   # Minecraft 26.1.2 (resource_major in the client's version.json)
 SIZE = 64     # texture size: 4x vanilla, sharp at GUI scale 3-4
-INNER = 60    # the object's longest side inside the texture; the rest is room for the outline
+INNER = 58    # the object's longest side inside the texture; the rest is room for outline and drop shadow
 
 CONTRAST = 1.15     # "darker, sharper edges" (the user, 2026-10-03)
 SATURATION = 1.10
@@ -31,9 +31,28 @@ def icon_ids():
     return sorted(f[:-3] for f in os.listdir(ICONS) if f.endswith('.py') and not f.startswith('_'))
 
 
+def bevel(img, width=11.0, amount=0.65):
+    """Rounds the whole silhouette: edges facing the upper-left light brighten, the far edges darken."""
+    px = np.asarray(img).astype(np.float32) / 255.0
+    a = px[..., 3]
+    ab = np.asarray(Image.fromarray((a * 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(width)), np.float32) / 255.0
+    gy, gx = np.gradient(ab)
+    mag = np.hypot(gx, gy) + 1e-6
+    facing = (gx * 0.7 + gy * 0.7) / mag          # alpha grows inward, so +grad points away from the outside
+    edge = np.clip(mag * width * 2.2, 0, 1) * a
+    k = 1 + amount * facing * edge
+    # light falls off across the object, top-left to bottom-right: reads as one solid volume
+    ys, xs = np.nonzero(a > 0.03)
+    if len(xs):
+        u = ((np.arange(a.shape[1])[None, :] - xs.min()) / max(1, xs.max() - xs.min()) + (np.arange(a.shape[0])[:, None] - ys.min()) / max(1, ys.max() - ys.min())) / 2
+        k = k * (1.14 - 0.30 * np.clip(u, 0, 1))
+    rgb = np.clip(px[..., :3] * k[..., None] + 0.12 * np.clip(facing, 0, 1)[..., None] * edge[..., None], 0, 1)
+    return Image.fromarray((np.dstack([rgb, a]) * 255).astype(np.uint8), 'RGBA')
+
+
 def finish(render):
     """512 painting -> 64x64 icon: crop to the object, punch up, outline."""
-    img = render.convert('RGBA')
+    img = bevel(render.convert('RGBA'))
     a = np.asarray(img)[..., 3]
     ys, xs = np.nonzero(a > 8)
     x0, x1, y0, y1 = xs.min(), xs.max() + 1, ys.min(), ys.max() + 1
@@ -53,7 +72,12 @@ def finish(render):
     small = Image.fromarray((np.dstack([rgb, al]) * 255).astype(np.uint8), 'RGBA')
     small = small.filter(ImageFilter.UnsharpMask(radius=1.0, percent=70, threshold=1))
     out = Image.new('RGBA', (SIZE, SIZE))
-    off = (SIZE - INNER) // 2
+    off = (SIZE - INNER) // 2 - 1          # one pixel up-left: room for the drop shadow
+    # drop shadow: the silhouette, soft, two pixels down-right (light from the upper left)
+    sh = Image.new('L', (SIZE, SIZE)); sh.paste(small.getchannel('A'), (off + 2, off + 2))
+    sh = sh.filter(ImageFilter.GaussianBlur(1.1)).point(lambda v: int(v * 0.75))
+    shadow = Image.new('RGBA', (SIZE, SIZE), (0, 0, 0, 0)); shadow.putalpha(sh)
+    out.alpha_composite(shadow)
     # outline: the silhouette grown by one pixel, in dark brown, under the icon
     sil = Image.new('L', (SIZE, SIZE)); sil.paste(small.getchannel('A').point(lambda v: 255 if v > 40 else 0), (off, off))
     grown = sil.filter(ImageFilter.MaxFilter(3))

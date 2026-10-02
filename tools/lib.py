@@ -31,12 +31,31 @@ def noise(rng, scale, octaves=4):
     return out / tot
 
 
+# Depth (the user, 2026-10-03 "ทำให้ภาพดูมีมิติมากขึ้น"): every shaded part casts a soft shadow,
+# down and to the right of the light, onto whatever was painted before it.
+RELIEF = 1.6            # every height map reads 60% deeper than drawn: rounder, more solid shapes
+CAST_OFFSET = (15, 19)   # px at 512 (x, y): away from the upper-left light
+CAST_BLUR = 10
+CAST_STRENGTH = 0.68
+
+
 class Canvas:
     def __init__(self):
         self.px = np.zeros((N, N, 4), np.float32)
 
-    def over(self, rgb, alpha):
-        a = np.clip(alpha, 0, 1)[..., None]
+    def over(self, rgb, alpha, cast=None):
+        """Paints rgb with alpha on top. A shaded part (rgb varies) casts a soft shadow onto the
+        parts below it; flat paint (ink, glints, holes: one colour) does not, unless cast=True."""
+        a = np.clip(alpha, 0, 1)
+        if cast is None:
+            sel = a > 0.5
+            cast = bool(sel.sum() > 400) and float(np.asarray(rgb)[sel].std(axis=0).max()) > 0.02 if np.ndim(rgb) == 3 else False
+        if cast and self.px[..., 3].max() > 0:
+            dx, dy = CAST_OFFSET
+            sh = np.zeros_like(a); sh[dy:, dx:] = a[:-dy, :-dx]
+            sh = blur(sh, CAST_BLUR) * CAST_STRENGTH * (1 - a)
+            self.px[..., :3] *= (1 - sh * self.px[..., 3])[..., None]
+        a = a[..., None]
         self.px[..., :3] = self.px[..., :3] * (1 - a) + rgb * a
         self.px[..., 3:] = self.px[..., 3:] * (1 - a) + a
 
@@ -82,8 +101,9 @@ def pillow(mask, radius=12, power=0.6):
     return np.clip(blur(mask, radius) * 1.0, 0, 1) ** power * mask
 
 
-def light(height, albedo, depth=60.0, ambient=0.38, spec=0.25, gloss=30):
+def light(height, albedo, depth=60.0, ambient=0.26, spec=0.30, gloss=30):
     """Shades an albedo (N,N,3) by the normals of a height map (0..1, scaled by depth px)."""
+    depth = depth * RELIEF
     gy, gx = np.gradient(height * depth)
     n = np.dstack([-gx, -gy, np.ones_like(gx)])
     n /= np.linalg.norm(n, axis=2, keepdims=True)
@@ -157,6 +177,7 @@ def wax_seal(c, rng, cx, cy, r, color, symbol_mask):
 # ===== Stage 2 helpers =====
 
 def normals(height, depth):
+    depth = depth * RELIEF
     gy, gx = np.gradient(height * depth)
     n = np.dstack([-gx, -gy, np.ones_like(gx)])
     return n / np.linalg.norm(n, axis=2, keepdims=True)
