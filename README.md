@@ -16,6 +16,7 @@ plugin's config.yml, by a commit-pinned raw URL and SHA-1). A menu button shows 
 |---|---|---|
 | `knightsrealm:treasury` | ท้องพระคลัง (main menu, treasurer's menu) | ![treasury](preview/treasury.png) |
 | Stage 1 (draft, not handed out yet) | back, close, confirm, cancel, deny, locked, page_prev, page_next, info, empty, type_in, reset | ![stage 1](preview/stage1.png) |
+| Stage 2 (draft, not handed out yet) | main menu: skills, mastery, profession, transfer, my_land, clan, capital, travel, cities, border, positions, king, board, quests, market, trade, duel, caravan, free, leave, admin | ![stage 2](preview/stage2.png) |
 
 ## Adding or changing an icon
 

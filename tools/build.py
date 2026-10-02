@@ -72,7 +72,8 @@ def write_json(path, data):
 
 def slot_sheet(items, path, cols=6):
     S = 4; slot = 18 * S; rows = (len(items) + cols - 1) // cols
-    W = cols * 200 + 40; H = rows * 230 + 40 + slot + 40
+    W = cols * 200 + 40; per = (W - 40) // slot; srows = (len(items) + per - 1) // per
+    H = rows * 230 + 40 + srows * (slot + 8) + 32
     sh = Image.new('RGBA', (W, H), (32, 34, 40, 255)); d = ImageDraw.Draw(sh)
     for i, (n, big, tex) in enumerate(items):
         r, c = divmod(i, cols); x = 20 + c * 200; y = 20 + r * 230
@@ -80,7 +81,7 @@ def slot_sheet(items, path, cols=6):
         d.text((x + 4, y + 190), f'{i + 1} {n}', fill=(225, 225, 225))
     y0 = rows * 230 + 40; d.rectangle([0, y0 - 10, W, H], fill=(198, 198, 198))
     for i, (n, big, tex) in enumerate(items):
-        x = 20 + i * slot
+        x = 20 + (i % per) * slot; y0 = rows * 230 + 40 + (i // per) * (slot + 8)
         d.rectangle([x, y0, x + slot - 1, y0 + slot - 1], fill=(139, 139, 139))
         d.rectangle([x, y0, x + slot - 1, y0 + S - 1], fill=(55, 55, 55)); d.rectangle([x, y0, x + S - 1, y0 + slot - 1], fill=(55, 55, 55))
         d.rectangle([x, y0 + slot - S, x + slot - 1, y0 + slot - 1], fill=(255, 255, 255)); d.rectangle([x + slot - S, y0, x + slot - 1, y0 + slot - 1], fill=(255, 255, 255))

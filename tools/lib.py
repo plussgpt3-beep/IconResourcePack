@@ -152,3 +152,92 @@ def wax_seal(c, rng, cx, cy, r, color, symbol_mask):
     h = h + 0.16 * blur(symbol_mask, 2.5) * disc  # the symbol stands up out of the face
     col = np.array(color)[None, None, :] * (0.92 + 0.12 * noise(rng, 30, 2)[..., None])
     c.over(light(h, col, depth=90, ambient=0.3, spec=0.5, gloss=40), blob)
+
+
+# ===== Stage 2 helpers =====
+
+def normals(height, depth):
+    gy, gx = np.gradient(height * depth)
+    n = np.dstack([-gx, -gy, np.ones_like(gx)])
+    return n / np.linalg.norm(n, axis=2, keepdims=True)
+
+
+def chrome(height, tint, depth=80.0, sky=1.0, ground=0.18, spec=0.9):
+    """Polished metal: reflects a bright sky above a dark horizon, plus the key light's glint.
+    tint (r, g, b) colours the reflection (steel ~ grey-blue, gold ~ warm yellow)."""
+    n = normals(height, depth)
+    up = -n[..., 1] * 0.8 + n[..., 0] * -0.35 + n[..., 2] * 0.25      # how much the surface looks "up and left"
+    horizon = 1 / (1 + np.exp(-up * 9))                                # sharp sky/ground split
+    env = ground + (sky - ground) * horizon
+    hl = np.clip(n @ VIEW_HALF, 0, 1) ** 40
+    rgb = np.array(tint)[None, None, :] * env[..., None] + spec * hl[..., None]
+    return np.clip(rgb, 0, 1)
+
+
+def gold_tint():
+    return (1.0, 0.76, 0.30)
+
+
+def steel_tint():
+    return (0.80, 0.84, 0.90)
+
+
+def cloth(rng, color, weave=3.0):
+    """Woven fabric: a fine cross-hatch and some blotchy dye variation."""
+    w = 0.5 + 0.25 * np.sin(xx / weave) + 0.25 * np.sin(yy / weave)
+    dye = noise(rng, 5, 3)
+    return np.array(color)[None, None, :] * (0.78 + 0.18 * w + 0.16 * (dye - 0.5))[..., None]
+
+
+def stone(rng, color=(0.48, 0.46, 0.43)):
+    return np.array(color)[None, None, :] * (0.75 + 0.35 * noise(rng, 12, 4))[..., None]
+
+
+def leather_col(rng, color=(0.45, 0.25, 0.12)):
+    return np.array(color)[None, None, :] * (0.82 + 0.25 * noise(rng, 6, 5) + 0.08 * (noise(rng, 60, 2) - 0.5))[..., None]
+
+
+def band(p0, p1, half_width):
+    """Signed distance helpers for straight things (blades, poles): returns (along 0..1, across px)."""
+    p0 = np.array(p0, np.float32); p1 = np.array(p1, np.float32)
+    d = p1 - p0; L = np.linalg.norm(d); d /= L; nrm = np.array([-d[1], d[0]])
+    s = ((xx - p0[0]) * d[0] + (yy - p0[1]) * d[1]) / L
+    t = (xx - p0[0]) * nrm[0] + (yy - p0[1]) * nrm[1]
+    return s, t
+
+
+def sword(c, rng, p0, p1, blade_w=26, guard_w=70, grip_len=0.22):
+    """A straight sword from pommel p0 to tip p1: leather grip, gold guard and pommel, steel blade."""
+    s, t = band(p0, p1, blade_w)
+    L = np.hypot(p1[0] - p0[0], p1[1] - p0[1])
+    g0 = grip_len                                   # where the guard sits (fraction from the pommel)
+    # blade: tapers to the point, with a fuller groove down the middle
+    w = blade_w * np.clip((1 - s) / 0.12, 0, 1) ** 0.6
+    blade = ((s > g0) & (s < 1) & (np.abs(t) < w)).astype(np.float32)
+    blade = blur(blade, 1.2)
+    h = np.clip(1 - np.abs(t) / (w + 1e-3), 0, 1) ** 0.6 * blade
+    h -= 0.25 * np.exp(-(t / 4.0) ** 2) * (s < 0.85) * blade
+    c.over(chrome(h, steel_tint(), depth=40), blade)
+    # guard
+    gs = 12 / L
+    guard = ((np.abs(s - g0) < gs) & (np.abs(t) < guard_w)).astype(np.float32)
+    guard = blur(guard, 1.5)
+    c.over(chrome(pillow(guard, 6) * 0.8, gold_tint(), depth=40), guard)
+    # grip, wrapped in leather
+    grip = ((s > 0.05) & (s < g0 - gs) & (np.abs(t) < 11)).astype(np.float32)
+    grip = blur(grip, 1.2)
+    wrap = 0.75 + 0.25 * np.sin(s * L / 4.0)
+    col = leather_col(rng, (0.30, 0.14, 0.07)) * wrap[..., None]
+    c.over(light(pillow(grip, 5) * 0.6, col, depth=30, spec=0.2), grip)
+    # pommel
+    px, py = p0[0] + (p1[0] - p0[0]) * 0.03, p0[1] + (p1[1] - p0[1]) * 0.03
+    pm = blur(ellipse([px - 20, py - 20, px + 20, py + 20]), 1.2)
+    c.over(chrome(pillow(pm, 10, 0.7), gold_tint(), depth=50), pm)
+
+
+def coin_flat(c, cx, cy, r):
+    """A gold coin seen face on, with a raised rim and a stamped crown-ish mark."""
+    face = blur(ellipse([cx - r, cy - r, cx + r, cy + r]), 1.2)
+    rr = np.hypot(xx - cx, yy - cy) / r
+    h = 0.5 * np.clip(1 - rr, 0, 1) ** 0.3 + 0.35 * np.exp(-((rr - 0.86) / 0.06) ** 2) - 0.12 * np.exp(-((rr - 0.68) / 0.03) ** 2)
+    c.over(chrome(h * face, gold_tint(), depth=50), face)
