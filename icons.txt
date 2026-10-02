@@ -1,0 +1,13 @@
+back
+cancel
+close
+confirm
+deny
+empty
+info
+locked
+page_next
+page_prev
+reset
+treasury
+type_in

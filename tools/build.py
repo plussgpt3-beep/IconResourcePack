@@ -1,28 +1,68 @@
-"""Builds every icon in tools/icons/ into the pack and KnightsRealmIcons.zip.
+"""Builds the icon pack from the 3D renders (style B, the user's choice 2026-10-03).
 
-Each tools/icons/<id>.py has draw() -> a 512x512 RGBA image (realistic style, see lib.py); the file
-name is the icon id (knightsrealm:<id>). Painted big, downsampled to SIZE x SIZE for the texture.
-The zip is byte-for-byte reproducible, so its SHA-1 changes only when something really changes.
+    tools/blender/<id>.py  -> Blender scene for one icon; `python3 tools/render.py <id>...` renders
+                              it to tools/renders/<id>.png (640x640, transparent).
+    python3 tools/build.py -> every render: cropped to the object, darkened and sharpened, given
+                              a dark outline, downsampled to 64x64; writes the pack, the models and
+                              KnightsRealmIcons.zip (reproducible), and prints the zip's SHA-1.
+    python3 tools/build.py sheet <id>... -> also preview/sheet.png for review.
 
-    python3 tools/build.py            build the pack and zip, print the SHA-1
-    python3 tools/build.py sheet ids  also write preview/sheet.png of those ids (for review)
+The renders are committed, so building never needs Blender and the zip only changes when a render
+or a pack file does.
 """
-import hashlib, importlib, json, os, sys, zipfile
-from PIL import Image, ImageDraw
+import hashlib, json, os, sys, zipfile
+import numpy as np
+from PIL import Image, ImageDraw, ImageFilter
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, HERE)
-sys.path.insert(0, os.path.join(HERE, 'icons'))
-
 ROOT = os.path.dirname(HERE)
+RENDERS = os.path.join(HERE, 'renders')
 PACK = os.path.join(ROOT, 'pack')
 NS = os.path.join(PACK, 'assets', 'knightsrealm')
 FORMAT = 84   # Minecraft 26.1.2 (resource_major in the client's version.json)
 SIZE = 64     # texture size: 4x vanilla, sharp at GUI scale 3-4
+INNER = 60    # the object's longest side inside the texture; the rest is room for the outline
+
+CONTRAST = 1.10     # "darker, sharper edges" (the user, 2026-10-03): the darkness comes from the render, this adds snap
+SATURATION = 1.10
+GAMMA = 1.0
+OUTLINE = (24, 18, 14)
 
 
 def icon_ids():
-    return sorted(f[:-3] for f in os.listdir(os.path.join(HERE, 'icons')) if f.endswith('.py') and not f.startswith('_'))
+    return sorted(f[:-4] for f in os.listdir(RENDERS) if f.endswith('.png'))
+
+
+def finish(render):
+    """640 render -> 64x64 icon: crop to the object, punch up, outline."""
+    img = render.convert('RGBA')
+    a = np.asarray(img)[..., 3]
+    ys, xs = np.nonzero(a > 8)
+    x0, x1, y0, y1 = xs.min(), xs.max() + 1, ys.min(), ys.max() + 1
+    side = max(x1 - x0, y1 - y0)
+    cx, cy = (x0 + x1) / 2, (y0 + y1) / 2
+    box = (int(cx - side / 2), int(cy - side / 2), int(cx - side / 2) + side, int(cy - side / 2) + side)
+    sq = Image.new('RGBA', (side, side)); sq.paste(img.crop(box) if min(box) >= 0 else img, (0, 0))
+    if min(box) < 0:   # object touches the frame: paste with offset instead
+        sq = Image.new('RGBA', (side, side)); sq.alpha_composite(img, (-box[0], -box[1]))
+    small = sq.resize((INNER, INNER), Image.LANCZOS)
+    px = np.asarray(small).astype(np.float32) / 255.0
+    rgb, al = px[..., :3], px[..., 3:]
+    rgb = np.clip(rgb, 0, 1) ** GAMMA
+    lum = (rgb * [0.299, 0.587, 0.114]).sum(axis=2, keepdims=True)
+    rgb = np.clip(lum + (rgb - lum) * SATURATION, 0, 1)
+    rgb = np.clip((rgb - 0.5) * CONTRAST + 0.5, 0, 1)
+    small = Image.fromarray((np.dstack([rgb, al]) * 255).astype(np.uint8), 'RGBA')
+    small = small.filter(ImageFilter.UnsharpMask(radius=1.0, percent=70, threshold=1))
+    out = Image.new('RGBA', (SIZE, SIZE))
+    off = (SIZE - INNER) // 2
+    # outline: the silhouette grown by one pixel, in dark brown, under the icon
+    sil = Image.new('L', (SIZE, SIZE)); sil.paste(small.getchannel('A').point(lambda v: 255 if v > 40 else 0), (off, off))
+    grown = sil.filter(ImageFilter.MaxFilter(3))
+    ring = Image.new('RGBA', (SIZE, SIZE), OUTLINE + (0,)); ring.putalpha(grown.point(lambda v: int(v * 0.85)))
+    out.alpha_composite(ring)
+    out.alpha_composite(small, (off, off))
+    return out
 
 
 def write_json(path, data):
@@ -32,23 +72,22 @@ def write_json(path, data):
         f.write('\n')
 
 
-def slot_sheet(images, path):
-    """Big view on top, a vanilla-looking slot row below (GUI scale 4) - how it looks in a menu."""
-    S = 4; slot = 18 * S; cols = len(images)
-    W = max(8 * S + slot * cols + 8 * S, 160 * cols + 20); H = 180 + slot + 24 * S
-    sheet = Image.new('RGBA', (W, H), (32, 34, 40, 255)); d = ImageDraw.Draw(sheet)
-    for i, (name, img) in enumerate(images):
-        sheet.alpha_composite(img.resize((140, 140), Image.LANCZOS), (20 + 160 * i, 20))
-        d.text((20 + 160 * i, 164), name, fill=(220, 220, 220))
-    y0 = 180 + 8 * S
-    d.rectangle([0, 180, W, H], fill=(198, 198, 198))
-    for i, (name, img) in enumerate(images):
-        x = 8 * S + i * slot
+def slot_sheet(items, path, cols=6):
+    S = 4; slot = 18 * S; rows = (len(items) + cols - 1) // cols
+    W = cols * 200 + 40; H = rows * 230 + 40 + slot + 40
+    sh = Image.new('RGBA', (W, H), (32, 34, 40, 255)); d = ImageDraw.Draw(sh)
+    for i, (n, big, tex) in enumerate(items):
+        r, c = divmod(i, cols); x = 20 + c * 200; y = 20 + r * 230
+        sh.alpha_composite(tex.resize((180, 180), Image.LANCZOS), (x, y))
+        d.text((x + 4, y + 190), f'{i + 1} {n}', fill=(225, 225, 225))
+    y0 = rows * 230 + 40; d.rectangle([0, y0 - 10, W, H], fill=(198, 198, 198))
+    for i, (n, big, tex) in enumerate(items):
+        x = 20 + i * slot
         d.rectangle([x, y0, x + slot - 1, y0 + slot - 1], fill=(139, 139, 139))
         d.rectangle([x, y0, x + slot - 1, y0 + S - 1], fill=(55, 55, 55)); d.rectangle([x, y0, x + S - 1, y0 + slot - 1], fill=(55, 55, 55))
         d.rectangle([x, y0 + slot - S, x + slot - 1, y0 + slot - 1], fill=(255, 255, 255)); d.rectangle([x + slot - S, y0, x + slot - 1, y0 + slot - 1], fill=(255, 255, 255))
-        sheet.alpha_composite(img.resize((16 * S, 16 * S), Image.LANCZOS), (x + S, y0 + S))
-    sheet.save(path)
+        sh.alpha_composite(tex, (x + S, y0 + S))
+    sh.save(path)
 
 
 def main():
@@ -56,23 +95,31 @@ def main():
         'pack_format': FORMAT, 'min_format': FORMAT, 'max_format': FORMAT,
         'description': 'KnightsRealm menu icons'}})
     os.makedirs(os.path.join(ROOT, 'preview'), exist_ok=True)
-    textures = {}
+    # drop textures/models of icons that no longer have a render
+    for sub, ext in (('textures/item', '.png'), ('models/item', '.json'), ('items', '.json')):
+        d = os.path.join(NS, sub)
+        if os.path.isdir(d):
+            for f in os.listdir(d):
+                if f.endswith(ext) and f[:-len(ext)] not in icon_ids():
+                    os.remove(os.path.join(d, f))
+    built = {}
     for name in icon_ids():
-        big = importlib.import_module(name).draw()
-        img = big.resize((SIZE, SIZE), Image.LANCZOS)
-        textures[name] = img
-        tex = os.path.join(NS, 'textures', 'item', name + '.png')
-        os.makedirs(os.path.dirname(tex), exist_ok=True)
-        img.save(tex)
+        big = Image.open(os.path.join(RENDERS, name + '.png'))
+        tex = finish(big); built[name] = (big, tex)
+        p = os.path.join(NS, 'textures', 'item', name + '.png'); os.makedirs(os.path.dirname(p), exist_ok=True)
+        tex.save(p)
         write_json(os.path.join(NS, 'models', 'item', name + '.json'),
                    {'parent': 'minecraft:item/generated', 'textures': {'layer0': 'knightsrealm:item/' + name}})
         write_json(os.path.join(NS, 'items', name + '.json'),
                    {'model': {'type': 'minecraft:model', 'model': 'knightsrealm:item/' + name}})
-        big.resize((256, 256), Image.LANCZOS).save(os.path.join(ROOT, 'preview', name + '.png'))
-    textures['treasury'].resize((64, 64), Image.LANCZOS).save(os.path.join(PACK, 'pack.png'))
+        tex.resize((256, 256), Image.LANCZOS).save(os.path.join(ROOT, 'preview', name + '.png'))
+    first = built.get('treasury', next(iter(built.values())))[1]
+    first.save(os.path.join(PACK, 'pack.png'))
+    with open(os.path.join(ROOT, 'icons.txt'), 'w', newline='\n') as f:   # the ids in this pack, for the plugin's test
+        f.write('\n'.join(icon_ids()) + '\n')
 
     if len(sys.argv) > 2 and sys.argv[1] == 'sheet':
-        slot_sheet([(n, textures[n]) for n in sys.argv[2:]], os.path.join(ROOT, 'preview', 'sheet.png'))
+        slot_sheet([(n, *built[n]) for n in sys.argv[2:]], os.path.join(ROOT, 'preview', 'sheet.png'))
 
     out = os.path.join(ROOT, 'KnightsRealmIcons.zip')
     files = []
