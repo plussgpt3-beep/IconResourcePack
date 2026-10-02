@@ -1,40 +1,38 @@
-"""Builds the icon pack from the 3D renders (style B, the user's choice 2026-10-03).
+"""Builds the icon pack. Style A, painted in code (the user's choice 2026-10-03: no 3D renders,
+they take too long), with the finish asked for the same day: darker, sharper, a dark outline.
 
-    tools/blender/<id>.py  -> Blender scene for one icon; `python3 tools/render.py <id>...` renders
-                              it to tools/renders/<id>.png (640x640, transparent).
-    python3 tools/build.py -> every render: cropped to the object, darkened and sharpened, given
-                              a dark outline, downsampled to 64x64; writes the pack, the models and
+    tools/icons/<id>.py    -> draw() returns a 512x512 RGBA painting (helpers in tools/lib.py)
+    python3 tools/build.py -> every icon: cropped to the object, darkened and sharpened, given a
+                              dark outline, downsampled to 64x64; writes the pack, the models and
                               KnightsRealmIcons.zip (reproducible), and prints the zip's SHA-1.
     python3 tools/build.py sheet <id>... -> also preview/sheet.png for review.
-
-The renders are committed, so building never needs Blender and the zip only changes when a render
-or a pack file does.
 """
-import hashlib, json, os, sys, zipfile
+import hashlib, importlib, json, os, sys, zipfile
 import numpy as np
 from PIL import Image, ImageDraw, ImageFilter
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
-RENDERS = os.path.join(HERE, 'renders')
+ICONS = os.path.join(HERE, 'icons')
+sys.path.insert(0, HERE); sys.path.insert(0, ICONS)
 PACK = os.path.join(ROOT, 'pack')
 NS = os.path.join(PACK, 'assets', 'knightsrealm')
 FORMAT = 84   # Minecraft 26.1.2 (resource_major in the client's version.json)
 SIZE = 64     # texture size: 4x vanilla, sharp at GUI scale 3-4
 INNER = 60    # the object's longest side inside the texture; the rest is room for the outline
 
-CONTRAST = 1.10     # "darker, sharper edges" (the user, 2026-10-03): the darkness comes from the render, this adds snap
+CONTRAST = 1.15     # "darker, sharper edges" (the user, 2026-10-03)
 SATURATION = 1.10
-GAMMA = 1.0
+GAMMA = 1.12        # >1 darkens the mid-tones
 OUTLINE = (24, 18, 14)
 
 
 def icon_ids():
-    return sorted(f[:-4] for f in os.listdir(RENDERS) if f.endswith('.png'))
+    return sorted(f[:-3] for f in os.listdir(ICONS) if f.endswith('.py') and not f.startswith('_'))
 
 
 def finish(render):
-    """640 render -> 64x64 icon: crop to the object, punch up, outline."""
+    """512 painting -> 64x64 icon: crop to the object, punch up, outline."""
     img = render.convert('RGBA')
     a = np.asarray(img)[..., 3]
     ys, xs = np.nonzero(a > 8)
@@ -104,7 +102,7 @@ def main():
                     os.remove(os.path.join(d, f))
     built = {}
     for name in icon_ids():
-        big = Image.open(os.path.join(RENDERS, name + '.png'))
+        big = importlib.import_module(name).draw()
         tex = finish(big); built[name] = (big, tex)
         p = os.path.join(NS, 'textures', 'item', name + '.png'); os.makedirs(os.path.dirname(p), exist_ok=True)
         tex.save(p)
