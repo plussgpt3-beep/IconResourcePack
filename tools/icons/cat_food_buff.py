@@ -1,6 +1,9 @@
-"""หมวด บัฟอาหาร: a orange pennant, emblem life_cooking."""
-from _category import pennant
+"""หมวด "บัฟอาหาร" (บัฟอาหาร): orange ribbon with the words. Generated from categories.tsv."""
+from _category import ribbon
+
+COLOR = 'ORANGE'
+TEXT = 'บัฟอาหาร'
 
 
 def draw():
-    return pennant('ORANGE', 'life_cooking', 39)
+    return ribbon(COLOR, 41)

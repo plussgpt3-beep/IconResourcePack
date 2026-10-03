@@ -1,6 +1,9 @@
-"""หมวด เปลี่ยนสาย: a purple pennant, emblem job_switch."""
-from _category import pennant
+"""หมวด "เปลี่ยนสาย" (เปลี่ยนสาย): purple ribbon with the words. Generated from categories.tsv."""
+from _category import ribbon
+
+COLOR = 'PURPLE'
+TEXT = 'เปลี่ยนสาย'
 
 
 def draw():
-    return pennant('PURPLE', 'glyph:swap', 9)
+    return ribbon(COLOR, 9)

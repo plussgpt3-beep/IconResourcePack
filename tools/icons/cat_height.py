@@ -1,6 +1,9 @@
-"""หมวด ความสูงของเขต: a orange pennant, emblem ladder."""
-from _category import pennant
+"""หมวด "ความสูง" (ความสูงของเขต): orange ribbon with the words. Generated from categories.tsv."""
+from _category import ribbon
+
+COLOR = 'ORANGE'
+TEXT = 'ความสูง'
 
 
 def draw():
-    return pennant('ORANGE', 'ladder', 22)
+    return ribbon(COLOR, 24)

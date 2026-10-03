@@ -1,6 +1,9 @@
-"""หมวด เลือกดู: a white pennant, emblem travel."""
-from _category import pennant
+"""หมวด "เลือกดู" (เลือกดู): white ribbon with the words. Generated from categories.tsv."""
+from _category import ribbon
+
+COLOR = 'WHITE'
+TEXT = 'เลือกดู'
 
 
 def draw():
-    return pennant('WHITE', 'travel', 33)
+    return ribbon(COLOR, 35)

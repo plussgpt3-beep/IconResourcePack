@@ -1,6 +1,9 @@
-"""หมวด เมืองและเจ้าเมือง: a yellow pennant, emblem capital."""
-from _category import pennant
+"""หมวด "เมือง" (เมืองและเจ้าเมือง): yellow ribbon with the words. Generated from categories.tsv."""
+from _category import ribbon
+
+COLOR = 'YELLOW'
+TEXT = 'เมือง'
 
 
 def draw():
-    return pennant('YELLOW', 'capital', 16)
+    return ribbon(COLOR, 17)

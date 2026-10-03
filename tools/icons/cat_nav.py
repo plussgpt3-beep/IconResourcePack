@@ -1,6 +1,9 @@
-"""หมวด นำทาง: a yellow pennant, emblem back."""
-from _category import pennant
+"""หมวด "นำทาง" (นำทาง): yellow ribbon with the words. Generated from categories.tsv."""
+from _category import ribbon
+
+COLOR = 'YELLOW'
+TEXT = 'นำทาง'
 
 
 def draw():
-    return pennant('YELLOW', 'glyph:back', 5)
+    return ribbon(COLOR, 5)

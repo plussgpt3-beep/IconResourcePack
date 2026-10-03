@@ -33,6 +33,30 @@ def icon_ids():
     return sorted(f[:-3] for f in os.listdir(ICONS) if f.endswith('.py') and not f.startswith('_'))
 
 
+FONT = '/usr/share/fonts/truetype/tlwg/Kinnari-Bold.ttf'   # Debian/Ubuntu package fonts-thai-tlwg
+
+
+def finish_text(tex, text):
+    """Words on a finished ribbon: cream letters with a dark edge, as large as fits (two lines at most).
+    Drawn at 4x and shrunk, after the ribbon is finished, so the letters stay crisp at 64x64."""
+    from PIL import ImageFont
+    lines = text.split('\n')
+    S = 4
+    big = Image.new('RGBA', (SIZE * S, SIZE * S)); d = ImageDraw.Draw(big)
+    size = 15 if len(lines) == 1 else 12
+    for size in range(size, 7, -1):
+        f = ImageFont.truetype(FONT, size * S)
+        if max(d.textlength(l, font=f) for l in lines) <= 50 * S:
+            break
+    lh = size * S * 1.05
+    y0 = SIZE / 2 * S - lh * len(lines) / 2 - S * 2
+    for i, l in enumerate(lines):
+        w = d.textlength(l, font=f)
+        d.text((SIZE / 2 * S - w / 2, y0 + i * lh), l, font=f, fill=(255, 240, 185, 255), stroke_width=S, stroke_fill=(30, 18, 6, 255))
+    out = tex.copy(); out.alpha_composite(big.resize((SIZE, SIZE), Image.LANCZOS))
+    return out
+
+
 def bevel(img, width=11.0, amount=0.65):
     """Rounds the whole silhouette: edges facing the upper-left light brighten, the far edges darken."""
     px = np.asarray(img).astype(np.float32) / 255.0
@@ -149,8 +173,12 @@ def main():
                     os.remove(os.path.join(d, f))
     built = {}
     for name in icon_ids():
-        big = load_icon(name).draw()
-        tex = finish(big); built[name] = (big, tex)
+        mod = load_icon(name)
+        big = mod.draw()
+        tex = finish(big)
+        if getattr(mod, 'TEXT', None):
+            tex = finish_text(tex, mod.TEXT)
+        built[name] = (big, tex)
         p = os.path.join(NS, 'textures', 'item', name + '.png'); os.makedirs(os.path.dirname(p), exist_ok=True)
         tex.save(p)
         write_json(os.path.join(NS, 'models', 'item', name + '.json'),

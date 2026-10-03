@@ -1,6 +1,9 @@
-"""หมวด ซื้อจากคลัง: a yellow pennant, emblem vault."""
-from _category import pennant
+"""หมวด "ซื้อ" (ซื้อจากคลัง): yellow ribbon with the words. Generated from categories.tsv."""
+from _category import ribbon
+
+COLOR = 'YELLOW'
+TEXT = 'ซื้อ'
 
 
 def draw():
-    return pennant('YELLOW', 'vault', 26)
+    return ribbon(COLOR, 28)

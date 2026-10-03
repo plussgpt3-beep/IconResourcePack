@@ -1,6 +1,9 @@
-"""หมวด คืนที่ดิน: a red pennant, emblem back."""
-from _category import pennant
+"""หมวด "คืนที่ดิน" (คืนที่ดิน): red ribbon with the words. Generated from categories.tsv."""
+from _category import ribbon
+
+COLOR = 'RED'
+TEXT = 'คืนที่ดิน'
 
 
 def draw():
-    return pennant('RED', 'glyph:back', 12)
+    return ribbon(COLOR, 13)

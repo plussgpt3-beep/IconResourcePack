@@ -1,6 +1,9 @@
-"""หมวด โครงการก่อสร้าง, โครงการที่เปิดอยู่, สถานะโครงการ: a orange pennant, emblem site."""
-from _category import pennant
+"""หมวด "โครงการ" (โครงการ, จัดการโครงการ, ขั้นตอนโครงการ): orange ribbon with the words. Generated from categories.tsv."""
+from _category import ribbon
+
+COLOR = 'ORANGE'
+TEXT = 'โครงการ'
 
 
 def draw():
-    return pennant('ORANGE', 'site', 20)
+    return ribbon(COLOR, 21)

@@ -1,6 +1,9 @@
-"""หมวด อาณาจักร (เมนูหลัก): a lime pennant, emblem king."""
-from _category import pennant
+"""หมวด "อาณาจักร" (อาณาจักร): lime ribbon with the words. Generated from categories.tsv."""
+from _category import ribbon
+
+COLOR = 'LIME'
+TEXT = 'อาณาจักร'
 
 
 def draw():
-    return pennant('LIME', 'king', 1)
+    return ribbon(COLOR, 1)

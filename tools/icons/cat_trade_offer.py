@@ -1,6 +1,9 @@
-"""หมวด ข้อเสนอการค้า: a lime pennant, emblem trade_offer."""
-from _category import pennant
+"""หมวด "ข้อเสนอ" (ข้อเสนอการค้า): lime ribbon with the words. Generated from categories.tsv."""
+from _category import ribbon
+
+COLOR = 'LIME'
+TEXT = 'ข้อเสนอ'
 
 
 def draw():
-    return pennant('LIME', 'trade_offer', 29)
+    return ribbon(COLOR, 31)

@@ -1,6 +1,9 @@
-"""หมวด โควตาของอาชีพ, โควตาของอาชีพที่ว่าง: a light blue pennant, emblem roster."""
-from _category import pennant
+"""หมวด "โควตา" (โควตาของอาชีพ): light blue ribbon with the words. Generated from categories.tsv."""
+from _category import ribbon
+
+COLOR = 'LIGHT_BLUE'
+TEXT = 'โควตา'
 
 
 def draw():
-    return pennant('LIGHT_BLUE', 'roster', 38)
+    return ribbon(COLOR, 40)

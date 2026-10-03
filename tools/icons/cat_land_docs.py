@@ -1,6 +1,9 @@
-"""หมวด ภาษีและเอกสาร: a lime pennant, emblem my_land."""
-from _category import pennant
+"""หมวด "เอกสาร" (ภาษีและเอกสาร): lime ribbon with the words. Generated from categories.tsv."""
+from _category import ribbon
+
+COLOR = 'LIME'
+TEXT = 'เอกสาร'
 
 
 def draw():
-    return pennant('LIME', 'my_land', 11)
+    return ribbon(COLOR, 12)

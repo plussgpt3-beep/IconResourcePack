@@ -1,6 +1,9 @@
-"""หมวด ตัวละคร (เมนูหลัก): a light blue pennant, emblem npc."""
-from _category import pennant
+"""หมวด "ตัวละคร" (ตัวละคร): light blue ribbon with the words. Generated from categories.tsv."""
+from _category import ribbon
+
+COLOR = 'LIGHT_BLUE'
+TEXT = 'ตัวละคร'
 
 
 def draw():
-    return pennant('LIGHT_BLUE', 'npc', 0)
+    return ribbon(COLOR, 0)

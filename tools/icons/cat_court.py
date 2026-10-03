@@ -1,6 +1,9 @@
-"""หมวด ราชสำนัก: a purple pennant, emblem court."""
-from _category import pennant
+"""หมวด "ราชสำนัก" (ราชสำนัก): purple ribbon with the words. Generated from categories.tsv."""
+from _category import ribbon
+
+COLOR = 'PURPLE'
+TEXT = 'ราชสำนัก'
 
 
 def draw():
-    return pennant('PURPLE', 'court', 18)
+    return ribbon(COLOR, 19)

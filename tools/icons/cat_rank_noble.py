@@ -1,6 +1,9 @@
-"""หมวด ชั้นขุนนาง (อาชีพ Tier 4-5): a purple pennant, emblem crown."""
-from _category import pennant
+"""หมวด "ขุนนาง" (ชั้นขุนนาง): purple ribbon with the words. Generated from categories.tsv."""
+from _category import ribbon
+
+COLOR = 'PURPLE'
+TEXT = 'ขุนนาง'
 
 
 def draw():
-    return pennant('PURPLE', 'glyph:crown', 37)
+    return ribbon(COLOR, 39)

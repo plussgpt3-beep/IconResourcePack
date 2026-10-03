@@ -1,6 +1,9 @@
-"""หมวด enchant ระดับ I (ตีบวก): a purple pennant, emblem enchant."""
-from _category import pennant
+"""หมวด "enchant" (enchant): purple ribbon with the words. Generated from categories.tsv."""
+from _category import ribbon
+
+COLOR = 'PURPLE'
+TEXT = 'enchant'
 
 
 def draw():
-    return pennant('PURPLE', 'enchant', 40)
+    return ribbon(COLOR, 42)

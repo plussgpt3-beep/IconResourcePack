@@ -1,6 +1,9 @@
-"""หมวด วัสดุที่ต้องใช้, วัสดุ (ต่อ): a yellow pennant, emblem materials."""
-from _category import pennant
+"""หมวด "วัสดุ" (วัสดุ): yellow ribbon with the words. Generated from categories.tsv."""
+from _category import ribbon
+
+COLOR = 'YELLOW'
+TEXT = 'วัสดุ'
 
 
 def draw():
-    return pennant('YELLOW', 'materials', 25)
+    return ribbon(COLOR, 27)

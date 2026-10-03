@@ -1,6 +1,9 @@
-"""หมวด รายการในแผง, รายการ (ต่อ), สินค้าที่วางขาย: a lime pennant, emblem stall."""
-from _category import pennant
+"""หมวด "รายการ" (รายการ, สินค้าที่วางขาย): lime ribbon with the words. Generated from categories.tsv."""
+from _category import ribbon
+
+COLOR = 'LIME'
+TEXT = 'รายการ'
 
 
 def draw():
-    return pennant('LIME', 'stall', 30)
+    return ribbon(COLOR, 32)

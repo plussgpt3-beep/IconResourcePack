@@ -1,6 +1,9 @@
-"""หมวด เควส & การค้า (เมนูหลัก): a yellow pennant, emblem market."""
-from _category import pennant
+"""หมวด "เควส การค้า" (เควส & การค้า): yellow ribbon with the words. Generated from categories.tsv."""
+from _category import ribbon
+
+COLOR = 'YELLOW'
+TEXT = 'เควส\nการค้า'
 
 
 def draw():
-    return pennant('YELLOW', 'market', 2)
+    return ribbon(COLOR, 2)

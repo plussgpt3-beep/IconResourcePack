@@ -1,6 +1,9 @@
-"""หมวด ยกเลิกเควส: a red pennant, emblem x."""
-from _category import pennant
+"""หมวด "ยกเลิก" (ยกเลิกเควส): red ribbon with the words. Generated from categories.tsv."""
+from _category import ribbon
+
+COLOR = 'RED'
+TEXT = 'ยกเลิก'
 
 
 def draw():
-    return pennant('RED', 'glyph:x', 15)
+    return ribbon(COLOR, 16)

@@ -1,6 +1,9 @@
-"""หมวด เควส, เควสที่รับไว้: a yellow pennant, emblem quests."""
-from _category import pennant
+"""หมวด "เควส" (เควส): yellow ribbon with the words. Generated from categories.tsv."""
+from _category import ribbon
+
+COLOR = 'YELLOW'
+TEXT = 'เควส'
 
 
 def draw():
-    return pennant('YELLOW', 'quests', 14)
+    return ribbon(COLOR, 15)

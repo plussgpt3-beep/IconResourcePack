@@ -1,6 +1,9 @@
-"""หมวด ราชการ, ราชการเมือง, งานของเมือง, งานเมือง: a orange pennant, emblem buildings."""
-from _category import pennant
+"""หมวด "ราชการ" (ราชการ, งานของเมือง, งานเมือง): orange ribbon with the words. Generated from categories.tsv."""
+from _category import ribbon
+
+COLOR = 'ORANGE'
+TEXT = 'ราชการ'
 
 
 def draw():
-    return pennant('ORANGE', 'buildings', 3)
+    return ribbon(COLOR, 3)

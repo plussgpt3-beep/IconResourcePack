@@ -1,6 +1,9 @@
-"""หมวด แต่งตั้ง / ปลด: a orange pennant, emblem governor."""
-from _category import pennant
+"""หมวด "แต่งตั้ง" (แต่งตั้ง / ปลด): orange ribbon with the words. Generated from categories.tsv."""
+from _category import ribbon
+
+COLOR = 'ORANGE'
+TEXT = 'แต่งตั้ง'
 
 
 def draw():
-    return pennant('ORANGE', 'governor', 17)
+    return ribbon(COLOR, 18)

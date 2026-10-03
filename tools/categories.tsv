@@ -1,0 +1,57 @@
+# Row categories (the coloured label at the left of a menu row) -> a TEXT icon (the user's rule, 2026-10-03:
+# category icons are words, not pictures). id <TAB> glass colour <TAB> text on the ribbon (\n = two lines) <TAB> label prefixes, '|'-separated.
+# The plugin ships a copy of this file and matches a label's name (without "▸ " and colours) against the prefixes, longest first.
+cat_character	LIGHT_BLUE	ตัวละคร	ตัวละคร
+cat_kingdom	LIME	อาณาจักร	อาณาจักร
+cat_quest_trade	YELLOW	เควส\nการค้า	เควส & การค้า
+cat_government	ORANGE	ราชการ	ราชการ|งานของเมือง|งานเมือง
+cat_settings	LIGHT_GRAY	ตั้งค่า	ตั้งค่า
+cat_nav	YELLOW	นำทาง	นำทาง
+cat_confirm	LIME	ยืนยัน	ยืนยัน|ตัดสินใจ
+cat_effect	ORANGE	ผลลัพธ์	ผลที่จะเกิด
+cat_cost	YELLOW	ค่าใช้จ่าย	ค่าใช้จ่าย|ภาษี ราคา โรงกษาปณ์
+cat_switch	PURPLE	เปลี่ยนสาย	เปลี่ยนสาย
+cat_petition	LIGHT_BLUE	คำร้อง	คำร้อง
+cat_my_petitions	WHITE	คำร้อง\nของฉัน	คำร้องของฉัน|คำร้องที่รอตรวจ
+cat_land_docs	LIME	เอกสาร	ภาษีและเอกสาร
+cat_land_return	RED	คืนที่ดิน	คืนที่ดิน
+cat_services	WHITE	อื่นๆ	บริการอื่น
+cat_quests	YELLOW	เควส	เควส
+cat_quest_cancel	RED	ยกเลิก	ยกเลิกเควส
+cat_cities	YELLOW	เมือง	เมืองและเจ้าเมือง
+cat_appoint	ORANGE	แต่งตั้ง	แต่งตั้ง / ปลด
+cat_court	PURPLE	ราชสำนัก	ราชสำนัก
+cat_announce	YELLOW	ประกาศ	ประกาศ
+cat_project	ORANGE	โครงการ	โครงการ|จัดการโครงการ|ขั้นตอนโครงการ
+cat_project_status	WHITE	สถานะ	สถานะโครงการ
+cat_tools	ORANGE	เครื่องมือ	เครื่องมือ
+cat_height	ORANGE	ความสูง	ความสูงของเขต
+cat_manage_work	ORANGE	จัดการ	จัดการงาน
+cat_workers	LIGHT_BLUE	กรรมกร	กรรมกร
+cat_materials	YELLOW	วัสดุ	วัสดุ
+cat_treasury_buy	YELLOW	ซื้อ	ซื้อจากคลัง
+cat_treasury_sell	LIME	ขาย	ขายให้คลัง
+cat_vault_expand	LIME	ขยายคลัง	ขยายคลัง
+cat_trade_offer	LIME	ข้อเสนอ	ข้อเสนอการค้า
+cat_stall_items	LIME	รายการ	รายการ|สินค้าที่วางขาย
+cat_buy_orders	LIGHT_BLUE	รับซื้อ	มีคนรับซื้อ
+cat_stall_manage	YELLOW	จัดการแผง	จัดการแผง
+cat_browse	WHITE	เลือกดู	เลือกดู
+cat_skill	LIGHT_BLUE	ทักษะ	ทักษะ
+cat_rank_common	LIME	สามัญ	ชั้นสามัญ
+cat_rank_craft	ORANGE	ช่าง	ชั้นช่าง
+cat_rank_noble	PURPLE	ขุนนาง	ชั้นขุนนาง
+cat_quota	LIGHT_BLUE	โควตา	โควตาของอาชีพ
+cat_food_buff	ORANGE	บัฟอาหาร	บัฟอาหาร
+cat_enchant	PURPLE	enchant	enchant
+cat_legacy	CYAN	สกิลมรดก	สกิลของ
+cat_my_land	LIME	ที่ดิน\nของฉัน	ที่ดินของฉัน|เป็นเจ้าของ
+cat_request_land	YELLOW	ขอที่ดิน	ขอที่ดิน
+cat_landlord	ORANGE	เจ้าที่ดิน	โต๊ะเจ้าที่ดิน
+cat_residents	LIGHT_BLUE	ร่วมอาศัย	ผู้ร่วมอาศัย|ร่วมอาศัย
+cat_public_voice	YELLOW	เสียง\nประชาชน	เสียงประชาชน
+cat_nobles	ORANGE	ขุนนาง	ขุนนาง
+cat_jobs_apply	LIGHT_BLUE	สมัครงาน	สมัครงาน
+cat_jobs_start	YELLOW	เริ่มงาน	เริ่มงาน
+cat_deal_mine	LIME	ของที่\nคุณให้	ของที่คุณให้
+cat_deal_theirs	ORANGE	ของอีก\nฝ่าย	ของที่

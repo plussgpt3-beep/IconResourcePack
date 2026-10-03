@@ -1,6 +1,9 @@
-"""หมวด ผลที่จะเกิด: a orange pennant, emblem star."""
-from _category import pennant
+"""หมวด "ผลลัพธ์" (ผลที่จะเกิด): orange ribbon with the words. Generated from categories.tsv."""
+from _category import ribbon
+
+COLOR = 'ORANGE'
+TEXT = 'ผลลัพธ์'
 
 
 def draw():
-    return pennant('ORANGE', 'glyph:star', 7)
+    return ribbon(COLOR, 7)

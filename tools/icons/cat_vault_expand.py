@@ -1,6 +1,9 @@
-"""หมวด ขยายคลัง, ขยายคลัง (ต่อ): a lime pennant, emblem plus."""
-from _category import pennant
+"""หมวด "ขยายคลัง" (ขยายคลัง): lime ribbon with the words. Generated from categories.tsv."""
+from _category import ribbon
+
+COLOR = 'LIME'
+TEXT = 'ขยายคลัง'
 
 
 def draw():
-    return pennant('LIME', 'glyph:plus', 28)
+    return ribbon(COLOR, 30)

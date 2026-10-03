@@ -1,6 +1,9 @@
-"""หมวด ชั้นสามัญ (อาชีพ Tier 1): a lime pennant, emblem mastery."""
-from _category import pennant
+"""หมวด "สามัญ" (ชั้นสามัญ): lime ribbon with the words. Generated from categories.tsv."""
+from _category import ribbon
+
+COLOR = 'LIME'
+TEXT = 'สามัญ'
 
 
 def draw():
-    return pennant('LIME', 'mastery', 35)
+    return ribbon(COLOR, 37)

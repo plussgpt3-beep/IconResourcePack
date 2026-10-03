@@ -1,6 +1,9 @@
-"""หมวด จัดการแผง: a yellow pennant, emblem key."""
-from _category import pennant
+"""หมวด "จัดการแผง" (จัดการแผง): yellow ribbon with the words. Generated from categories.tsv."""
+from _category import ribbon
+
+COLOR = 'YELLOW'
+TEXT = 'จัดการแผง'
 
 
 def draw():
-    return pennant('YELLOW', 'glyph:key', 32)
+    return ribbon(COLOR, 34)

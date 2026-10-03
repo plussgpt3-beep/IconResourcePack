@@ -1,6 +1,9 @@
-"""หมวด จัดการงาน: a orange pennant, emblem foreman."""
-from _category import pennant
+"""หมวด "จัดการ" (จัดการงาน): orange ribbon with the words. Generated from categories.tsv."""
+from _category import ribbon
+
+COLOR = 'ORANGE'
+TEXT = 'จัดการ'
 
 
 def draw():
-    return pennant('ORANGE', 'foreman', 23)
+    return ribbon(COLOR, 25)

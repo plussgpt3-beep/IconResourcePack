@@ -1,6 +1,9 @@
-"""หมวด สกิลของ ... (เลือกสกิลติดตัวไป): a cyan pennant, emblem book."""
-from _category import pennant
+"""หมวด "สกิลมรดก" (สกิลของ): cyan ribbon with the words. Generated from categories.tsv."""
+from _category import ribbon
+
+COLOR = 'CYAN'
+TEXT = 'สกิลมรดก'
 
 
 def draw():
-    return pennant('CYAN', 'glyph:book', 41)
+    return ribbon(COLOR, 43)

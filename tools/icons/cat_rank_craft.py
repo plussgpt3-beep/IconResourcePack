@@ -1,6 +1,9 @@
-"""หมวด ชั้นช่าง (อาชีพ Tier 2-3): a orange pennant, emblem job_fix."""
-from _category import pennant
+"""หมวด "ช่าง" (ชั้นช่าง): orange ribbon with the words. Generated from categories.tsv."""
+from _category import ribbon
+
+COLOR = 'ORANGE'
+TEXT = 'ช่าง'
 
 
 def draw():
-    return pennant('ORANGE', 'job_fix', 36)
+    return ribbon(COLOR, 38)

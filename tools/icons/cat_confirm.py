@@ -1,6 +1,9 @@
-"""หมวด ยืนยัน, ตัดสินใจ: a lime pennant, emblem check."""
-from _category import pennant
+"""หมวด "ยืนยัน" (ยืนยัน, ตัดสินใจ): lime ribbon with the words. Generated from categories.tsv."""
+from _category import ribbon
+
+COLOR = 'LIME'
+TEXT = 'ยืนยัน'
 
 
 def draw():
-    return pennant('LIME', 'glyph:check', 6)
+    return ribbon(COLOR, 6)
