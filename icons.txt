@@ -1,10 +1,12 @@
 abacus
+abdicate
 add_resident
 admin
 apply_foreman
 apply_worker
 auction
 back
+ballot
 basket
 board
 border
@@ -17,6 +19,7 @@ caravan
 ceiling
 cities
 city_materials
+city_upgrade
 city_work
 claim
 clan
@@ -24,6 +27,7 @@ close
 co_resident
 coin_pile
 confirm
+court
 crate
 deed_copy
 demolish
@@ -33,6 +37,9 @@ empty
 floor
 foreman
 free
+governor
+governor_appoint
+governor_dismiss
 guild
 handover
 info
@@ -54,6 +61,11 @@ materials
 materials_add
 mint
 my_land
+noble
+noble_appoint
+noble_dismiss
+npc
+npc_skill
 page_next
 page_prev
 pay_ahead
@@ -69,7 +81,9 @@ queue
 queue_return
 renovate
 reset
+roster
 sack
+secretariat
 sell
 site
 skills
