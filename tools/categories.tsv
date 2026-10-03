@@ -63,3 +63,6 @@ cat_players	LIGHT_BLUE	ผู้เล่น	ผู้เล่น
 cat_delete	RED	ลบข้อมูล	ลบข้อมูล
 cat_system	LIGHT_GRAY	ระบบ	ระบบ
 cat_treasury_kingdom	YELLOW	คลัง\nอาณาจักร	คลัง & อาณาจักร
+cat_apply	LIGHT_BLUE	สมัคร\nอาชีพ	สมัครอาชีพ
+cat_my_bunk	YELLOW	ค่าย\nของฉัน	ค่ายของฉัน
+cat_soldiers	ORANGE	ทหาร\nในค่าย	ทหารในค่าย
