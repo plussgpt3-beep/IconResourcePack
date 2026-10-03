@@ -299,6 +299,7 @@ BADGE_FIELD = {
     'x': (0.55, 0.08, 0.06), 'minus': (0.55, 0.08, 0.06), 'down': (0.55, 0.08, 0.06),
     'back': (0.14, 0.25, 0.52), 'key': (0.14, 0.25, 0.52), 'star': (0.14, 0.25, 0.52),
     'clock': (0.86, 0.80, 0.64), 'coin': None, 'crown': (0.40, 0.08, 0.30), 'book': (0.30, 0.18, 0.09),
+    'move': (0.14, 0.25, 0.52), 'turn': (0.42, 0.26, 0.08),
 }
 
 
@@ -332,6 +333,17 @@ def _symbol(kind, cx, cy, r):
     if kind == 'crown':
         return poly([(cx - s, cy + s * 0.6), (cx - s, cy - s * 0.4), (cx - s * 0.5, cy + s * 0.1), (cx, cy - s * 0.8),
                      (cx + s * 0.5, cy + s * 0.1), (cx + s, cy - s * 0.4), (cx + s, cy + s * 0.6)])
+    if kind == 'move':
+        # a straight arrow pointing right: the land goes somewhere else (จัดรูปที่ดิน, 2026-10-03)
+        return np.maximum(rect([cx - s * 0.9, cy - s * 0.2, cx + s * 0.2, cy + s * 0.2], 4),
+                          poly([(cx + s * 0.05, cy - s * 0.7), (cx + s * 0.95, cy), (cx + s * 0.05, cy + s * 0.7)]))
+    if kind == 'turn':
+        # three quarters of a ring with an arrowhead, turning clockwise: the land turns 90 degrees
+        rr = np.hypot(xx - cx, yy - cy)
+        ang = np.arctan2(yy - cy, xx - cx)
+        arc = ((np.abs(rr - s * 0.62) < s * 0.19) & ~((ang > -np.pi / 2) & (ang < 0))).astype(np.float32)
+        head = poly([(cx - s * 0.05, cy - s * 0.98), (cx + s * 0.55, cy - s * 0.62), (cx - s * 0.05, cy - s * 0.26)])
+        return np.clip(arc + head, 0, 1)
     if kind == 'book':
         return np.maximum(poly([(cx - s, cy - s * 0.6), (cx - s * 0.05, cy - s * 0.4), (cx - s * 0.05, cy + s * 0.7), (cx - s, cy + s * 0.5)]),
                           poly([(cx + s, cy - s * 0.6), (cx + s * 0.05, cy - s * 0.4), (cx + s * 0.05, cy + s * 0.7), (cx + s, cy + s * 0.5)]))

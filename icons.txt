@@ -122,10 +122,12 @@ job_war_engineer
 king
 ladder
 land_expand
+land_move
 land_return
 land_seize
 land_sell
 land_tax
+land_turn
 leave
 ledger
 life_cooking
