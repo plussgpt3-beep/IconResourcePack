@@ -58,3 +58,8 @@ cat_deal_theirs	ORANGE	ของอีก\nฝ่าย	ของที่
 cat_city_land	LIME	ที่ดิน\nของเมือง	ที่ดินของเมือง
 cat_land_move	LIGHT_BLUE	ย้ายที่ดิน	ย้ายที่ดิน
 cat_land_readjust	ORANGE	ปรับที่ใหม่	ปรับที่ใหม่
+cat_village	LIME	หมู่บ้าน	หมู่บ้าน
+cat_players	LIGHT_BLUE	ผู้เล่น	ผู้เล่น
+cat_delete	RED	ลบข้อมูล	ลบข้อมูล
+cat_system	LIGHT_GRAY	ระบบ	ระบบ
+cat_treasury_kingdom	YELLOW	คลัง\nอาณาจักร	คลัง & อาณาจักร
