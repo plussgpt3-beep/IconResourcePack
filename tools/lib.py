@@ -262,3 +262,99 @@ def coin_flat(c, cx, cy, r):
     rr = np.hypot(xx - cx, yy - cy) / r
     h = 0.5 * np.clip(1 - rr, 0, 1) ** 0.3 + 0.35 * np.exp(-((rr - 0.86) / 0.06) ** 2) - 0.12 * np.exp(-((rr - 0.68) / 0.03) ** 2)
     c.over(chrome(h * face, gold_tint(), depth=50), face)
+
+
+# ===== Variants: a base icon with a corner badge (Stages 3-8) =====
+# Many buttons are one object plus an action ("house +" = add a co-resident, "stall x" = stop
+# renting). They reuse the base icon's drawing and add an enamel badge at the lower right.
+
+def from_image(img):
+    c = Canvas()
+    c.px = np.asarray(img.convert('RGBA'), np.float32) / 255.0
+    return c
+
+
+def base_of(module_name, scale=0.84):
+    """Another icon's painting, shrunk towards the upper left to make room for a badge."""
+    import importlib
+    img = importlib.import_module(module_name).draw()
+    small = img.resize((int(N * scale), int(N * scale)), Image.LANCZOS)
+    out = Image.new('RGBA', (N, N)); out.alpha_composite(small, (6, 6))
+    return from_image(out)
+
+
+BADGE_FIELD = {
+    'plus': (0.16, 0.42, 0.14), 'check': (0.16, 0.42, 0.14), 'up': (0.16, 0.42, 0.14),
+    'x': (0.55, 0.08, 0.06), 'minus': (0.55, 0.08, 0.06), 'down': (0.55, 0.08, 0.06),
+    'back': (0.14, 0.25, 0.52), 'key': (0.14, 0.25, 0.52), 'star': (0.14, 0.25, 0.52),
+    'clock': (0.86, 0.80, 0.64), 'coin': None, 'crown': (0.40, 0.08, 0.30), 'book': (0.30, 0.18, 0.09),
+}
+
+
+def _symbol(kind, cx, cy, r):
+    """The raised symbol inside a badge, as a 0..1 mask."""
+    s = r * 0.55
+    if kind == 'plus':
+        return np.maximum(rect([cx - s, cy - s * 0.28, cx + s, cy + s * 0.28], 6), rect([cx - s * 0.28, cy - s, cx + s * 0.28, cy + s], 6))
+    if kind == 'minus':
+        return rect([cx - s, cy - s * 0.28, cx + s, cy + s * 0.28], 6)
+    if kind == 'x':
+        return np.maximum(poly([(cx - s * 0.8, cy - s * 0.8), (cx + s * 0.8, cy + s * 0.8)], width=int(s * 0.5)),
+                          poly([(cx - s * 0.8, cy + s * 0.8), (cx + s * 0.8, cy - s * 0.8)], width=int(s * 0.5)))
+    if kind == 'check':
+        return poly([(cx - s * 0.85, cy), (cx - s * 0.25, cy + s * 0.6), (cx + s * 0.9, cy - s * 0.7)], width=int(s * 0.45))
+    if kind in ('up', 'down'):
+        d = -1 if kind == 'up' else 1
+        return np.maximum(poly([(cx, cy + d * s), (cx + s * 0.9, cy), (cx + s * 0.32, cy), (cx + s * 0.32, cy - d * s),
+                                (cx - s * 0.32, cy - d * s), (cx - s * 0.32, cy), (cx - s * 0.9, cy)]), 0)
+    if kind == 'back':
+        rr = np.hypot(xx - (cx + s * 0.15), yy - cy)
+        arcm = ((np.abs(rr - s * 0.6) < s * 0.2) & (yy <= cy)).astype(np.float32)
+        head = poly([(cx - s * 0.85, cy - 4), (cx - s * 0.05, cy - 4), (cx - s * 0.45, cy + s * 0.6)])
+        return np.clip(arcm + head, 0, 1)
+    if kind == 'star':
+        ang = np.arctan2(yy - cy, xx - cx); d = np.hypot(xx - cx, yy - cy)
+        return (d < s * (0.45 + 0.55 * np.abs(np.cos(2.5 * (ang + np.pi / 2))) ** 3)).astype(np.float32)
+    if kind == 'key':
+        ring = np.clip(ellipse([cx - s, cy - s * 0.5, cx - s * 0.1, cy + s * 0.4]) - ellipse([cx - s * 0.75, cy - s * 0.25, cx - s * 0.35, cy + s * 0.15]), 0, 1)
+        return np.clip(ring + rect([cx - s * 0.15, cy - s * 0.12, cx + s, cy + s * 0.12]) + rect([cx + s * 0.55, cy, cx + s * 0.75, cy + s * 0.5]), 0, 1)
+    if kind == 'crown':
+        return poly([(cx - s, cy + s * 0.6), (cx - s, cy - s * 0.4), (cx - s * 0.5, cy + s * 0.1), (cx, cy - s * 0.8),
+                     (cx + s * 0.5, cy + s * 0.1), (cx + s, cy - s * 0.4), (cx + s, cy + s * 0.6)])
+    if kind == 'book':
+        return np.maximum(poly([(cx - s, cy - s * 0.6), (cx - s * 0.05, cy - s * 0.4), (cx - s * 0.05, cy + s * 0.7), (cx - s, cy + s * 0.5)]),
+                          poly([(cx + s, cy - s * 0.6), (cx + s * 0.05, cy - s * 0.4), (cx + s * 0.05, cy + s * 0.7), (cx + s, cy + s * 0.5)]))
+    return np.zeros((N, N), np.float32)
+
+
+def badge(c, kind, cx=392, cy=392, r=104):
+    """An enamel badge with a raised symbol, ringed in gold, at the lower right of the icon."""
+    if kind == 'coin':
+        coin_flat(c, cx, cy, r)
+        return c
+    disc = blur(ellipse([cx - r, cy - r, cx + r, cy + r]), 1.5)
+    rr = np.hypot(xx - cx, yy - cy) / r
+    ring = np.clip(1 - np.abs(rr - 0.9) / 0.1, 0, 1)
+    h = 0.35 * np.clip(1 - rr, 0, 1) ** 0.4
+    field = np.zeros((N, N, 3)) + np.array(BADGE_FIELD.get(kind) or (0.2, 0.2, 0.2))
+    if kind == 'clock':
+        ang = np.arctan2(yy - cy, xx - cx)
+        ticks = ((np.abs(np.sin(ang * 6)) < 0.12) & (rr > 0.6) & (rr < 0.75)).astype(np.float32)
+        hands = np.maximum(poly([(cx, cy), (cx, cy - r * 0.55)], width=10), poly([(cx, cy), (cx + r * 0.4, cy + r * 0.1)], width=10))
+        field = field * (1 - 0.8 * np.maximum(ticks, hands)[..., None])
+        sym = np.zeros((N, N), np.float32)
+    else:
+        sym = blur(_symbol(kind, cx, cy, r), 1.5)
+    c.over(light(h * disc, field, depth=40, spec=0.35), disc, cast=True)
+    if sym.max() > 0:
+        symcol = np.zeros((N, N, 3)) + np.array([0.95, 0.92, 0.84])
+        c.over(light(pillow(sym, 6) * 0.8, symcol, depth=40, spec=0.4), sym, cast=True)
+    c.over(chrome(ring * 0.8, gold_tint(), depth=40), blur((ring > 0.05).astype(np.float32) * disc, 1))
+    return c
+
+
+def variant(module_name, kind, scale=0.84):
+    """A whole variant icon: base_of(module) + badge(kind)."""
+    c = base_of(module_name, scale)
+    badge(c, kind)
+    return c.image()
