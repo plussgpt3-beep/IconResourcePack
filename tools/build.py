@@ -15,6 +15,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 ICONS = os.path.join(HERE, 'icons')
 sys.path.insert(0, HERE); sys.path.insert(0, ICONS)
+from lib import load_icon
 PACK = os.path.join(ROOT, 'pack')
 NS = os.path.join(PACK, 'assets', 'knightsrealm')
 FORMAT = 84   # Minecraft 26.1.2 (resource_major in the client's version.json)
@@ -127,7 +128,7 @@ def main():
                     os.remove(os.path.join(d, f))
     built = {}
     for name in icon_ids():
-        big = importlib.import_module(name).draw()
+        big = load_icon(name).draw()
         tex = finish(big); built[name] = (big, tex)
         p = os.path.join(NS, 'textures', 'item', name + '.png'); os.makedirs(os.path.dirname(p), exist_ok=True)
         tex.save(p)

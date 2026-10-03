@@ -274,10 +274,21 @@ def from_image(img):
     return c
 
 
+def load_icon(name):
+    """The icon module tools/icons/<name>.py, loaded by path (ids like 'site' or 'queue' would
+    otherwise pick up Python's own modules of the same name)."""
+    import importlib.util, os, sys
+    key = 'icon_' + name
+    if key not in sys.modules:
+        path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'icons', name + '.py')
+        spec = importlib.util.spec_from_file_location(key, path)
+        mod = importlib.util.module_from_spec(spec); sys.modules[key] = mod; spec.loader.exec_module(mod)
+    return sys.modules[key]
+
+
 def base_of(module_name, scale=0.84):
     """Another icon's painting, shrunk towards the upper left to make room for a badge."""
-    import importlib
-    img = importlib.import_module(module_name).draw()
+    img = load_icon(module_name).draw()
     small = img.resize((int(N * scale), int(N * scale)), Image.LANCZOS)
     out = Image.new('RGBA', (N, N)); out.alpha_composite(small, (6, 6))
     return from_image(out)
