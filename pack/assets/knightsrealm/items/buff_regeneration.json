@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "knightsrealm:item/buff_regeneration"
+  }
+}
