@@ -57,6 +57,7 @@ cat_browse
 cat_buy_orders
 cat_character
 cat_cities
+cat_city_land
 cat_confirm
 cat_cost
 cat_court
@@ -71,6 +72,8 @@ cat_jobs_apply
 cat_jobs_start
 cat_kingdom
 cat_land_docs
+cat_land_move
+cat_land_readjust
 cat_land_return
 cat_landlord
 cat_legacy

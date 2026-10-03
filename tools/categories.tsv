@@ -55,3 +55,6 @@ cat_jobs_apply	LIGHT_BLUE	สมัครงาน	สมัครงาน
 cat_jobs_start	YELLOW	เริ่มงาน	เริ่มงาน
 cat_deal_mine	LIME	ของที่\nคุณให้	ของที่คุณให้
 cat_deal_theirs	ORANGE	ของอีก\nฝ่าย	ของที่
+cat_city_land	LIME	ที่ดิน\nของเมือง	ที่ดินของเมือง
+cat_land_move	LIGHT_BLUE	ย้ายที่ดิน	ย้ายที่ดิน
+cat_land_readjust	ORANGE	ปรับที่ใหม่	ปรับที่ใหม่
