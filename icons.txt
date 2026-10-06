@@ -111,6 +111,7 @@ cat_stall_items
 cat_stall_manage
 cat_switch
 cat_system
+cat_tax
 cat_tools
 cat_trade_offer
 cat_treasury_buy
@@ -121,6 +122,7 @@ cat_village
 cat_workers
 ceiling
 cities
+citizen_tax
 city_materials
 city_upgrade
 city_work
