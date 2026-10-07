@@ -67,3 +67,10 @@ cat_apply	LIGHT_BLUE	สมัคร\nอาชีพ	สมัครอาช�
 cat_my_bunk	YELLOW	ค่าย\nของฉัน	ค่ายของฉัน
 cat_soldiers	ORANGE	ทหาร\nในค่าย	ทหารในค่าย
 cat_tax	YELLOW	ภาษี	ภาษีของฉัน|ตารางภาษีราษฎร
+cat_petition_file	WHITE	ยื่น\nฎีกา	ยื่นฎีกา
+cat_petition_board	YELLOW	ฎีกา\nราษฎร	ฎีกาของราษฎร
+cat_petition_mine	WHITE	ฎีกา\nของฉัน	ฎีกาของฉัน
+cat_petition_admin	RED	จัดการ\nฎีกา	จัดการฎีกา
+cat_petition_status	LIGHT_BLUE	สถานะ	สถานะฎีกา
+cat_petition_reply	WHITE	ตอบ\nกลับ	ตอบกลับ
+cat_petition_reward	YELLOW	รางวัล	รางวัลฎีกา
