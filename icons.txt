@@ -92,6 +92,8 @@ cat_my_land
 cat_my_petitions
 cat_nav
 cat_nobles
+cat_panel
+cat_panel_sections
 cat_petition
 cat_petition_admin
 cat_petition_board

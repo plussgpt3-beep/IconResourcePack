@@ -76,3 +76,5 @@ cat_petition_reply	WHITE	ตอบ\nกลับ	ตอบกลับ
 cat_petition_reward	YELLOW	รางวัล	รางวัลฎีกา
 cat_civic	CYAN	ส่วนร่วม\nกับเมือง	การมีส่วนร่วมกับเมือง
 cat_civic_sources	LIME	ได้\nคะแนนจาก	ได้คะแนนจาก
+cat_panel	LIGHT_GRAY	แผง\nสถานะ	แผงสถานะ
+cat_panel_sections	LIME	หมวด\nที่แสดง	หมวดที่แสดง
