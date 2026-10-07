@@ -47,6 +47,7 @@ buff_regeneration
 buff_resistance
 buff_speed
 buff_strength
+bug_report
 buildings
 bundle
 bunk
@@ -90,6 +91,13 @@ cat_my_petitions
 cat_nav
 cat_nobles
 cat_petition
+cat_petition_admin
+cat_petition_board
+cat_petition_file
+cat_petition_mine
+cat_petition_reply
+cat_petition_reward
+cat_petition_status
 cat_players
 cat_project
 cat_project_status
@@ -152,6 +160,7 @@ governor_appoint
 governor_dismiss
 guild
 handover
+idea
 info
 job_alchemist
 job_alchemy_master
@@ -239,6 +248,7 @@ renovate
 reset
 resign_profession
 roster
+royal_petition
 sack
 secretariat
 sell
