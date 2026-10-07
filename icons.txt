@@ -63,6 +63,8 @@ cat_buy_orders
 cat_character
 cat_cities
 cat_city_land
+cat_civic
+cat_civic_sources
 cat_confirm
 cat_cost
 cat_court
@@ -134,6 +136,7 @@ citizen_tax
 city_materials
 city_upgrade
 city_work
+civic
 claim
 clan
 close
