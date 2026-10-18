@@ -255,6 +255,7 @@ resign_profession
 roster
 royal_petition
 sack
+seat_lost
 secretariat
 sell
 sidebar
