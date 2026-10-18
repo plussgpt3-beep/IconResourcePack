@@ -78,3 +78,9 @@ cat_civic	CYAN	ส่วนร่วม\nกับเมือง	การม�
 cat_civic_sources	LIME	ได้\nคะแนนจาก	ได้คะแนนจาก
 cat_panel	LIGHT_GRAY	แผง\nสถานะ	แผงสถานะ
 cat_panel_sections	LIME	หมวด\nที่แสดง	หมวดที่แสดง
+cat_throne	PURPLE	บัลลังก์	ราชบัลลังก์|ชิงบัลลังก์
+cat_candidates	YELLOW	ผู้สมัคร	ผู้สมัคร
+cat_my_vote	LIME	สิทธิ์\nของคุณ	สิทธิ์ของคุณ
+cat_history	WHITE	ประวัติ	ประวัติ
+cat_lists	RED	ลาน\nประลอง	ลานประลอง
+cat_wager	YELLOW	ชิงเงิน	ชิงเงิน

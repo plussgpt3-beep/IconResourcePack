@@ -60,6 +60,7 @@ cat_apply
 cat_appoint
 cat_browse
 cat_buy_orders
+cat_candidates
 cat_character
 cat_cities
 cat_city_land
@@ -76,6 +77,7 @@ cat_enchant
 cat_food_buff
 cat_government
 cat_height
+cat_history
 cat_jobs_apply
 cat_jobs_start
 cat_kingdom
@@ -85,11 +87,13 @@ cat_land_readjust
 cat_land_return
 cat_landlord
 cat_legacy
+cat_lists
 cat_manage_work
 cat_materials
 cat_my_bunk
 cat_my_land
 cat_my_petitions
+cat_my_vote
 cat_nav
 cat_nobles
 cat_panel
@@ -124,6 +128,7 @@ cat_stall_manage
 cat_switch
 cat_system
 cat_tax
+cat_throne
 cat_tools
 cat_trade_offer
 cat_treasury_buy
@@ -131,8 +136,10 @@ cat_treasury_kingdom
 cat_treasury_sell
 cat_vault_expand
 cat_village
+cat_wager
 cat_workers
 ceiling
+chancellor
 cities
 citizen_tax
 city_materials
@@ -208,6 +215,9 @@ job_switch
 job_tempest_guard
 job_war_engineer
 king
+king_history
+king_stand
+king_withdraw
 ladder
 land_expand
 land_move
@@ -221,6 +231,12 @@ ledger
 life_cooking
 life_mining
 life_woodcutting
+lists_accept
+lists_cancel
+lists_master
+lists_rules
+lists_throne
+lists_wager
 locked
 locker
 market
