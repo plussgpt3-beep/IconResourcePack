@@ -117,12 +117,14 @@ cat_quota
 cat_rank_common
 cat_rank_craft
 cat_rank_noble
+cat_ranking
 cat_request_land
 cat_residents
 cat_services
 cat_settings
 cat_skill
 cat_soldiers
+cat_sort
 cat_stall_items
 cat_stall_manage
 cat_switch
@@ -234,6 +236,7 @@ life_woodcutting
 lists_accept
 lists_cancel
 lists_master
+lists_ranking
 lists_rules
 lists_throne
 lists_wager

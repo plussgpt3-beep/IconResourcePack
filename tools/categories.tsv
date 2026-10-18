@@ -84,3 +84,5 @@ cat_my_vote	LIME	สิทธิ์\nของคุณ	สิทธิ์ขอ
 cat_history	WHITE	ประวัติ	ประวัติ
 cat_lists	RED	ลาน\nประลอง	ลานประลอง
 cat_wager	YELLOW	ชิงเงิน	ชิงเงิน
+cat_sort	YELLOW	เรียงตาม	เรียงตาม
+cat_ranking	LIGHT_BLUE	อันดับ	อันดับ
