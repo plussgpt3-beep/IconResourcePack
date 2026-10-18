@@ -285,6 +285,7 @@ stall_close
 stamp_approve
 stamp_deny
 survey_rod
+throne_book
 trade
 trade_offer
 transfer
