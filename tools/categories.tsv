@@ -86,3 +86,7 @@ cat_lists	RED	ลาน\nประลอง	ลานประลอง
 cat_wager	YELLOW	ชิงเงิน	ชิงเงิน
 cat_sort	YELLOW	เรียงตาม	เรียงตาม
 cat_ranking	LIGHT_BLUE	อันดับ	อันดับ
+cat_tavern	ORANGE	โรง\nเตี๊ยม	โรงเตี๊ยม
+cat_drink	LIME	ดื่มที่\nร้าน	ดื่มที่ร้าน
+cat_round	YELLOW	เลี้ยง\nรอบ	เลี้ยงรอบ
+cat_brew	BROWN	ถัง\nหมัก	ถังหมัก

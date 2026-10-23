@@ -12,7 +12,7 @@ from lib import N, xx, yy, Canvas, light, pillow, blur, poly, chrome, gold_tint,
 GLASS = {
     'LIGHT_BLUE': (0.20, 0.45, 0.72), 'LIME': (0.36, 0.62, 0.12), 'YELLOW': (0.86, 0.68, 0.10), 'ORANGE': (0.82, 0.40, 0.07),
     'PURPLE': (0.42, 0.16, 0.58), 'RED': (0.62, 0.09, 0.07), 'WHITE': (0.88, 0.86, 0.80), 'LIGHT_GRAY': (0.55, 0.55, 0.56),
-    'CYAN': (0.08, 0.52, 0.58),
+    'CYAN': (0.08, 0.52, 0.58), 'BROWN': (0.42, 0.24, 0.10),
 }
 TSV = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'categories.tsv')
 
