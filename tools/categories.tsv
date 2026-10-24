@@ -117,3 +117,11 @@ cat_escort_guards	LIGHT_BLUE	ทหาร\nคุ้มกัน	ทหารค
 cat_escort_end	RED	จบ\nสัญญา	จบสัญญาคุ้มกัน
 cat_escort_leave	RED	ออก\nจากงาน	ออกจากงานคุ้มกัน
 cat_wanted_list	RED	ผู้ถูก\nประกาศจับ	ผู้ถูกประกาศจับ
+cat_clinic	WHITE	โรงหมอ	โรงหมอ
+cat_symptoms	RED	อาการ	อาการของคุณ
+cat_medicine_use	YELLOW	ยาที่\nใช้	ยาที่ใช้
+cat_clinic_manage	BROWN	จัดการ\nโรงหมอ	จัดการโรงหมอ
+cat_brew_medicine	LIGHT_BLUE	ปรุงยา	ปรุงยา
+cat_medicines	LIME	ยาที่\nปรุงได้	ยาที่ปรุงได้
+cat_medicine_stock	BROWN	คลังยา	คลังยา
+cat_medicine_shelf	YELLOW	ยาใน\nคลัง	ยาในคลัง

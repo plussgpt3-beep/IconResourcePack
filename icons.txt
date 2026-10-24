@@ -66,6 +66,7 @@ cat_announce
 cat_apply
 cat_appoint
 cat_brew
+cat_brew_medicine
 cat_browse
 cat_buy_animal
 cat_buy_claim
@@ -82,6 +83,8 @@ cat_claim_shared
 cat_claim_takeup
 cat_claim_tax
 cat_claims
+cat_clinic
+cat_clinic_manage
 cat_confirm
 cat_cost
 cat_court
@@ -115,6 +118,10 @@ cat_legacy
 cat_lists
 cat_manage_work
 cat_materials
+cat_medicine_shelf
+cat_medicine_stock
+cat_medicine_use
+cat_medicines
 cat_my_animals
 cat_my_bunk
 cat_my_claims
@@ -164,6 +171,7 @@ cat_stall_items
 cat_stall_manage
 cat_stock
 cat_switch
+cat_symptoms
 cat_system
 cat_tavern
 cat_tax
@@ -192,6 +200,10 @@ claim_pickup
 claim_stone
 claim_wood
 clan
+clinic
+clinic_brew
+clinic_stock
+clinic_treat
 close
 co_resident
 coin_pile
@@ -227,6 +239,7 @@ haul_close
 haul_deliver
 haul_load
 haul_new
+health
 idea
 info
 jail
@@ -301,6 +314,11 @@ market_tax
 mastery
 materials
 materials_add
+med_antidote
+med_bandage
+med_fever
+med_splint
+med_tonic
 mint
 my_land
 noble
