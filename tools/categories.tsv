@@ -90,3 +90,9 @@ cat_tavern	ORANGE	โรง\nเตี๊ยม	โรงเตี๊ยม
 cat_drink	LIME	ดื่มที่\nร้าน	ดื่มที่ร้าน
 cat_round	YELLOW	เลี้ยง\nรอบ	เลี้ยงรอบ
 cat_brew	BROWN	ถัง\nหมัก	ถังหมัก
+cat_smithy	ORANGE	ร้าน\nตีเหล็ก	ร้านตีเหล็ก
+cat_smithy_job	LIGHT_BLUE	งาน\nช่าง	งานช่าง
+cat_need	YELLOW	วัตถุ\nดิบ	วัตถุดิบที่ต้องใช้
+cat_handin	LIME	ส่งให้\nร้าน	ส่งให้ร้าน
+cat_shop_manage	BROWN	จัดการ\nร้าน	จัดการร้าน
+cat_stock	BROWN	คลัง\nวัตถุดิบ	คลังวัตถุดิบ

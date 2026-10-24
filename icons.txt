@@ -80,6 +80,7 @@ cat_effect
 cat_enchant
 cat_food_buff
 cat_government
+cat_handin
 cat_height
 cat_history
 cat_jobs_apply
@@ -99,6 +100,7 @@ cat_my_land
 cat_my_petitions
 cat_my_vote
 cat_nav
+cat_need
 cat_nobles
 cat_panel
 cat_panel_sections
@@ -127,11 +129,15 @@ cat_residents
 cat_round
 cat_services
 cat_settings
+cat_shop_manage
 cat_skill
+cat_smithy
+cat_smithy_job
 cat_soldiers
 cat_sort
 cat_stall_items
 cat_stall_manage
+cat_stock
 cat_switch
 cat_system
 cat_tavern
@@ -292,6 +298,13 @@ skill_active
 skill_passive
 skills
 slab
+smithy
+smithy_labor
+smithy_repair
+smithy_reset
+smithy_sharpen
+smithy_stock
+smithy_temper
 stall
 stall_close
 stamp_approve
