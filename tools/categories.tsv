@@ -105,3 +105,11 @@ cat_haul_found	LIGHT_BLUE	ห่อที่\nเก็บได้	ห่อส
 cat_po_wait	LIGHT_BLUE	ใบสั่ง\nรอตอบ	ใบสั่งซื้อที่รอตอบ
 cat_po_in	LIGHT_BLUE	ใบสั่ง\nซื้อเข้า	ใบสั่งซื้อถึงเมืองนี้
 cat_po_out	YELLOW	ใบสั่ง\nซื้อออก	ใบสั่งซื้อที่เมืองนี้ส่ง
+cat_buy_claim	YELLOW	ซื้อ\nหลักเขต	ซื้อหลักเขต
+cat_my_claims	LIME	หลักเขต\nของฉัน	หลักเขตของฉัน
+cat_claim_shared	LIGHT_BLUE	ร่วมใช้\nหลักเขต	ร่วมใช้หลักเขต
+cat_claim_offers	ORANGE	ข้อเสนอ\nโอน	ข้อเสนอโอนหลักเขต
+cat_claim_tax	YELLOW	ภาษี\nหลักเขต	ภาษีหลักเขต
+cat_claim_members	LIGHT_BLUE	สมาชิก\nหลักเขต	สมาชิกหลักเขต
+cat_claim_takeup	RED	ถอน/โอน\nหลักเขต	ถอน/โอนหลักเขต
+cat_claims	CYAN	หลักเขต\nนอกเมือง	หลักเขตนอกเมือง
