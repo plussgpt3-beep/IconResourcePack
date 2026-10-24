@@ -97,3 +97,11 @@ cat_handin	LIME	ส่งให้\nร้าน	ส่งให้ร้าน
 cat_shop_manage	BROWN	จัดการ\nร้าน	จัดการร้าน
 cat_stock	BROWN	คลัง\nวัตถุดิบ	คลังวัตถุดิบ
 cat_labor	YELLOW	ค่าแรง\nช่าง	ค่าแรงช่าง
+cat_buy_animal	YELLOW	ซื้อ\nสัตว์	ซื้อสัตว์
+cat_my_animals	LIME	สัตว์\nของฉัน	สัตว์ของฉัน
+cat_haul_open	YELLOW	งานที่\nเปิดรับ	งานที่เปิดรับ
+cat_haul_mine	LIME	งาน\nของฉัน	งานของฉัน
+cat_haul_found	LIGHT_BLUE	ห่อที่\nเก็บได้	ห่อสินค้าที่เก็บได้
+cat_po_wait	LIGHT_BLUE	ใบสั่ง\nรอตอบ	ใบสั่งซื้อที่รอตอบ
+cat_po_in	LIGHT_BLUE	ใบสั่ง\nซื้อเข้า	ใบสั่งซื้อถึงเมืองนี้
+cat_po_out	YELLOW	ใบสั่ง\nซื้อออก	ใบสั่งซื้อที่เมืองนี้ส่ง

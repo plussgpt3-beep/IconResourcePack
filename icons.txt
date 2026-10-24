@@ -28,6 +28,11 @@ admin_treasury_money
 admin_treasury_open
 admin_village_spawn
 admin_village_xp
+animal_camel
+animal_donkey
+animal_horse
+animal_llama
+animal_mule
 apply_foreman
 apply_profession
 apply_worker
@@ -62,6 +67,7 @@ cat_apply
 cat_appoint
 cat_brew
 cat_browse
+cat_buy_animal
 cat_buy_orders
 cat_candidates
 cat_character
@@ -81,6 +87,9 @@ cat_enchant
 cat_food_buff
 cat_government
 cat_handin
+cat_haul_found
+cat_haul_mine
+cat_haul_open
 cat_height
 cat_history
 cat_jobs_apply
@@ -96,6 +105,7 @@ cat_legacy
 cat_lists
 cat_manage_work
 cat_materials
+cat_my_animals
 cat_my_bunk
 cat_my_land
 cat_my_petitions
@@ -114,6 +124,9 @@ cat_petition_reply
 cat_petition_reward
 cat_petition_status
 cat_players
+cat_po_in
+cat_po_out
+cat_po_wait
 cat_project
 cat_project_status
 cat_public_voice
@@ -190,6 +203,12 @@ governor_appoint
 governor_dismiss
 guild
 handover
+haul
+haul_bundle
+haul_close
+haul_deliver
+haul_load
+haul_new
 idea
 info
 job_alchemist
@@ -280,6 +299,8 @@ price_tag
 profession
 project_new
 project_plan
+purchase_order
+purchase_order_new
 quests
 queue
 queue_return
@@ -309,6 +330,7 @@ smithy_reset
 smithy_sharpen
 smithy_stock
 smithy_temper
+stable
 stall
 stall_close
 stamp_approve
