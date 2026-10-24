@@ -86,6 +86,7 @@ cat_history
 cat_jobs_apply
 cat_jobs_start
 cat_kingdom
+cat_labor
 cat_land_docs
 cat_land_move
 cat_land_readjust
