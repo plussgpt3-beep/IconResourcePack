@@ -125,3 +125,6 @@ cat_brew_medicine	LIGHT_BLUE	ปรุงยา	ปรุงยา
 cat_medicines	LIME	ยาที่\nปรุงได้	ยาที่ปรุงได้
 cat_medicine_stock	BROWN	คลังยา	คลังยา
 cat_medicine_shelf	YELLOW	ยาใน\nคลัง	ยาในคลัง
+cat_royal_pharmacy	BROWN	คลังยา\nหลวง	คลังยาหลวง
+cat_royal_medicine	YELLOW	ยาใน\nคลังหลวง	ยาในคลังหลวง
+cat_deliver_medicine	LIME	ส่งยา\nตามใบสั่ง	ส่งยาตามใบสั่ง

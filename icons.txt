@@ -91,6 +91,7 @@ cat_court
 cat_deal_mine
 cat_deal_theirs
 cat_delete
+cat_deliver_medicine
 cat_drink
 cat_effect
 cat_enchant
@@ -159,6 +160,8 @@ cat_ranking
 cat_request_land
 cat_residents
 cat_round
+cat_royal_medicine
+cat_royal_pharmacy
 cat_services
 cat_settings
 cat_shop_manage
@@ -240,6 +243,10 @@ haul_deliver
 haul_load
 haul_new
 health
+herb_ginseng
+herb_mint
+herb_turmeric
+herb_yarrow
 idea
 info
 jail
@@ -330,6 +337,8 @@ page_next
 page_prev
 pay_ahead
 petition
+pharmacy_deliver
+pharmacy_draw
 plot_bounds
 positions
 price_tag
@@ -347,6 +356,7 @@ reset
 resign_profession
 roster
 royal_petition
+royal_pharmacy
 sack
 seat_lost
 secretariat
