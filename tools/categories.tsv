@@ -113,3 +113,6 @@ cat_claim_tax	YELLOW	ภาษี\nหลักเขต	ภาษีหลั�
 cat_claim_members	LIGHT_BLUE	สมาชิก\nหลักเขต	สมาชิกหลักเขต
 cat_claim_takeup	RED	ถอน/โอน\nหลักเขต	ถอน/โอนหลักเขต
 cat_claims	CYAN	หลักเขต\nนอกเมือง	หลักเขตนอกเมือง
+cat_escort_guards	LIGHT_BLUE	ทหาร\nคุ้มกัน	ทหารคุ้มกัน
+cat_escort_end	RED	จบ\nสัญญา	จบสัญญาคุ้มกัน
+cat_escort_leave	RED	ออก\nจากงาน	ออกจากงานคุ้มกัน

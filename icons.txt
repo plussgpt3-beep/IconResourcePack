@@ -91,6 +91,9 @@ cat_delete
 cat_drink
 cat_effect
 cat_enchant
+cat_escort_end
+cat_escort_guards
+cat_escort_leave
 cat_food_buff
 cat_government
 cat_handin
@@ -207,6 +210,8 @@ drink_wine
 duel
 empty
 enchant
+escort
+escort_hire
 floor
 foreman
 free
