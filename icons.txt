@@ -354,6 +354,7 @@ stall
 stall_close
 stamp_approve
 stamp_deny
+surrender
 survey_rod
 tavern
 tavern_round
