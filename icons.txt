@@ -293,6 +293,9 @@ sack
 seat_lost
 secretariat
 sell
+shop
+shop_shelf
+shop_shelf_remove
 sidebar
 site
 skill_active
