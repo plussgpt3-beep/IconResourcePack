@@ -176,6 +176,7 @@ cat_treasury_sell
 cat_vault_expand
 cat_village
 cat_wager
+cat_wanted_list
 cat_workers
 ceiling
 chancellor
@@ -228,6 +229,7 @@ haul_load
 haul_new
 idea
 info
+jail
 job_alchemist
 job_alchemy_master
 job_angler
@@ -370,5 +372,6 @@ vault_expand
 vote_down
 vote_up
 wage
+wanted
 workers
 zone_staff

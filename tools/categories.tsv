@@ -116,3 +116,4 @@ cat_claims	CYAN	หลักเขต\nนอกเมือง	หลักเ�
 cat_escort_guards	LIGHT_BLUE	ทหาร\nคุ้มกัน	ทหารคุ้มกัน
 cat_escort_end	RED	จบ\nสัญญา	จบสัญญาคุ้มกัน
 cat_escort_leave	RED	ออก\nจากงาน	ออกจากงานคุ้มกัน
+cat_wanted_list	RED	ผู้ถูก\nประกาศจับ	ผู้ถูกประกาศจับ
