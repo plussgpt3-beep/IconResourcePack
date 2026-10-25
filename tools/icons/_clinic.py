@@ -34,10 +34,10 @@ def flask(rng, liquid=(0.85, 0.55, 0.15)):
     return c.image()
 
 
-def bandage(c, rng, cx=256, cy=250, r=150):
+def bandage(c, rng, cx=256, cy=250, r=150, tint=(0.94, 0.92, 0.86)):
     """A rolled linen bandage seen from the side: the round roll, its spiral face, a loose tail."""
     tail = blur(poly([(cx + r * 0.2, cy + r * 0.85), (cx + r * 1.55, cy + r * 1.1), (cx + r * 1.5, cy + r * 1.5), (cx - r * 0.1, cy + r * 1.1)]), 1.5)
-    lin = cloth(rng, (0.94, 0.92, 0.86), 2.4)
+    lin = cloth(rng, tint, 2.4)
     c.over(light(0.35 * pillow(tail, 8), lin, depth=30, spec=0.1) * edge_darken(tail, 6, 0.25), tail)
     roll = blur(ellipse([cx - r, cy - r, cx + r, cy + r]), 1.2)
     rr = np.hypot(xx - cx, yy - cy) / r

@@ -323,6 +323,7 @@ materials
 materials_add
 med_antidote
 med_bandage
+med_dressing
 med_fever
 med_splint
 med_tonic
