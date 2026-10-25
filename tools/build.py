@@ -159,6 +159,34 @@ def write_catalog():
         f.write('\n'.join(lines))
 
 
+# Way arrows for the caravan's action bar (the user's choice, 2026-10-25: the font's own arrows were too
+# small): eight bold glyphs U+E100..U+E107 (ahead, ahead-right, right, behind-right, behind, behind-left,
+# left, ahead-left) in the default font, white so the text colour tints them, with a dark rim.
+ARROW_CHARS = ''.join(chr(0xE100 + i) for i in range(8))
+
+
+def write_arrows():
+    big, cell = 160, 16
+    sheet = Image.new('RGBA', (cell * 8, cell), (0, 0, 0, 0))
+    shaft = [(-18, 54), (-18, 0), (-46, 0), (0, -58), (46, 0), (18, 0), (18, 54)]
+    import math
+    for i in range(8):
+        a = math.radians(45 * i)
+        pts = [(big / 2 + x * math.cos(a) - y * math.sin(a), big / 2 + x * math.sin(a) + y * math.cos(a)) for x, y in shaft]
+        im = Image.new('RGBA', (big, big), (0, 0, 0, 0))
+        d = ImageDraw.Draw(im)
+        d.polygon(pts, fill=(40, 30, 20, 255))
+        rim = im.filter(ImageFilter.MaxFilter(15))
+        d2 = ImageDraw.Draw(rim)
+        d2.polygon(pts, fill=(255, 255, 255, 255))
+        sheet.paste(rim.resize((cell, cell), Image.LANCZOS), (cell * i, 0))
+    p = os.path.join(NS, 'textures', 'font', 'arrows.png'); os.makedirs(os.path.dirname(p), exist_ok=True)
+    sheet.save(p)
+    write_json(os.path.join(PACK, 'assets', 'minecraft', 'font', 'default.json'), {'providers': [
+        {'type': 'bitmap', 'file': 'knightsrealm:font/arrows.png', 'height': 11, 'ascent': 9, 'chars': [ARROW_CHARS]}]})
+    sheet.resize((cell * 8 * 8, cell * 8), Image.NEAREST).save(os.path.join(ROOT, 'preview', 'arrows.png'))
+
+
 def main():
     write_json(os.path.join(PACK, 'pack.mcmeta'), {'pack': {
         'pack_format': FORMAT, 'min_format': FORMAT, 'max_format': FORMAT,
@@ -186,6 +214,7 @@ def main():
         write_json(os.path.join(NS, 'items', name + '.json'),
                    {'model': {'type': 'minecraft:model', 'model': 'knightsrealm:item/' + name}})
         tex.resize((256, 256), Image.LANCZOS).save(os.path.join(ROOT, 'preview', name + '.png'))
+    write_arrows()
     first = built.get('treasury', next(iter(built.values())))[1]
     first.save(os.path.join(PACK, 'pack.png'))
     with open(os.path.join(ROOT, 'icons.txt'), 'w', newline='\n') as f:   # the ids in this pack, for the plugin's test

@@ -1,0 +1,13 @@
+{
+  "providers": [
+    {
+      "type": "bitmap",
+      "file": "knightsrealm:font/arrows.png",
+      "height": 11,
+      "ascent": 9,
+      "chars": [
+        ""
+      ]
+    }
+  ]
+}

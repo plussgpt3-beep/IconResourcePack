@@ -85,6 +85,7 @@ cat_claim_tax
 cat_claims
 cat_clinic
 cat_clinic_manage
+cat_coach_station
 cat_confirm
 cat_cost
 cat_court
@@ -92,6 +93,7 @@ cat_deal_mine
 cat_deal_theirs
 cat_delete
 cat_deliver_medicine
+cat_destinations
 cat_drink
 cat_effect
 cat_enchant
@@ -119,6 +121,7 @@ cat_legacy
 cat_lists
 cat_manage_work
 cat_materials
+cat_med_pouch
 cat_medicine_shelf
 cat_medicine_stock
 cat_medicine_use
@@ -209,6 +212,7 @@ clinic_stock
 clinic_treat
 close
 co_resident
+coach
 coin_pile
 colony_flag
 colony_found
@@ -325,6 +329,7 @@ med_antidote
 med_bandage
 med_dressing
 med_fever
+med_pouch
 med_splint
 med_tonic
 mint

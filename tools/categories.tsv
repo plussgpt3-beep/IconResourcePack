@@ -128,3 +128,6 @@ cat_medicine_shelf	YELLOW	ยาใน\nคลัง	ยาในคลัง
 cat_royal_pharmacy	BROWN	คลังยา\nหลวง	คลังยาหลวง
 cat_royal_medicine	YELLOW	ยาใน\nคลังหลวง	ยาในคลังหลวง
 cat_deliver_medicine	LIME	ส่งยา\nตามใบสั่ง	ส่งยาตามใบสั่ง
+cat_coach_station	BROWN	สถานี\nรถม้าหลวง	สถานีรถม้าหลวง
+cat_destinations	YELLOW	ปลายทาง	ปลายทาง
+cat_med_pouch	BROWN	ย่ามยา	ย่ามยา
