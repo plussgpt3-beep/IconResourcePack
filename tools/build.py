@@ -187,10 +187,25 @@ def write_arrows():
     sheet.resize((cell * 8 * 8, cell * 8), Image.NEAREST).save(os.path.join(ROOT, 'preview', 'arrows.png'))
 
 
+PACK_LICENSE = """KnightsRealm Icon Pack
+Copyright (c) 2026 KnightsRealm. All rights reserved.
+
+Every texture, model and font in this pack was made for the KnightsRealm Minecraft server.
+You may use this pack only while playing on the KnightsRealm server. You may not copy,
+modify, redistribute, re-upload or use any part of it on another server or in another
+project without written permission from the KnightsRealm owner.
+
+The repository being public does not grant any licence: it is public only so the game
+client can download the pack.
+"""
+
+
 def main():
     write_json(os.path.join(PACK, 'pack.mcmeta'), {'pack': {
         'pack_format': FORMAT, 'min_format': FORMAT, 'max_format': FORMAT,
-        'description': 'KnightsRealm menu icons'}})
+        'description': 'KnightsRealm menu icons \u00a9 2026 KnightsRealm - All rights reserved'}})
+    with open(os.path.join(PACK, 'LICENSE.txt'), 'w', newline='\n', encoding='utf-8') as f:
+        f.write(PACK_LICENSE)
     os.makedirs(os.path.join(ROOT, 'preview'), exist_ok=True)
     # drop textures/models of icons that no longer have a render
     for sub, ext in (('textures/item', '.png'), ('models/item', '.json'), ('items', '.json')):

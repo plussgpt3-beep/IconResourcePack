@@ -35,3 +35,8 @@ medallion whose rim shows the Tier (`icons/_tools.py`).
 3. Commit and push, then put the commit-pinned URL and the SHA-1 in the server's config.yml.
 
 The zip is reproducible: the same icons always give the same SHA-1. `icons.txt` lists the ids in the pack.
+
+## Licence
+
+Copyright (c) 2026 KnightsRealm. **All rights reserved** — see [LICENSE](LICENSE). The repository is public only so the
+game client can download the pack; that grants no right to copy, modify or reuse the icons elsewhere.
