@@ -40,6 +40,16 @@ auction
 back
 bag_empty
 ballot
+bandit_camp
+bandit_grow
+bandit_spawn
+bank
+bank_borrow
+bank_capital
+bank_deposit
+bank_rate
+bank_repay
+bank_withdraw
 barracks
 basket
 board
@@ -65,6 +75,9 @@ caravan
 cat_announce
 cat_apply
 cat_appoint
+cat_bandits
+cat_bank
+cat_bank_manage
 cat_brew
 cat_brew_medicine
 cat_browse
@@ -126,6 +139,7 @@ cat_medicine_shelf
 cat_medicine_stock
 cat_medicine_use
 cat_medicines
+cat_my_account
 cat_my_animals
 cat_my_bunk
 cat_my_claims
@@ -165,6 +179,7 @@ cat_residents
 cat_round
 cat_royal_medicine
 cat_royal_pharmacy
+cat_royal_services
 cat_services
 cat_settings
 cat_shop_manage

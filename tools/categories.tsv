@@ -131,3 +131,8 @@ cat_deliver_medicine	LIME	ส่งยา\nตามใบสั่ง	ส่ง
 cat_coach_station	BROWN	สถานี\nรถม้าหลวง	สถานีรถม้าหลวง
 cat_destinations	YELLOW	ปลายทาง	ปลายทาง
 cat_med_pouch	BROWN	ย่ามยา	ย่ามยา
+cat_bank	BROWN	ธนาคาร\nหลวง	ธนาคารหลวง
+cat_my_account	LIME	บัญชี\nของฉัน	บัญชีของฉัน
+cat_bank_manage	ORANGE	บริหาร\nธนาคาร	บริหารธนาคาร
+cat_royal_services	BROWN	บริการ\nหลวง	บริการหลวง
+cat_bandits	RED	ซ่องโจร	ซ่องโจร
