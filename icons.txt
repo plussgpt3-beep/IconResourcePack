@@ -356,6 +356,8 @@ npc
 npc_skill
 page_next
 page_prev
+password
+password_reset
 pay_ahead
 petition
 pharmacy_deliver
