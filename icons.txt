@@ -392,6 +392,7 @@ site
 skill_active
 skill_passive
 skills
+skin
 slab
 smithy
 smithy_labor

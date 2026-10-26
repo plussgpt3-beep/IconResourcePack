@@ -9,7 +9,7 @@ JOBS = ['miner', 'lumberjack', 'farmer', 'herbalist', 'fisher', 'scout', 'hunter
 
 STAGES = {
     'stage1': ('ปุ่มกลาง (ทุกเมนู)', 'back close confirm cancel deny locked page_prev page_next info empty type_in reset treasury'.split()),
-    'stage2': ('เมนูหลัก', 'skills mastery profession transfer my_land clan capital travel cities border positions king board quests market trade duel caravan free leave admin quickcast sidebar med_pouch password'.split()),
+    'stage2': ('เมนูหลัก', 'skills mastery profession transfer my_land clan capital travel cities border positions king board quests market trade duel caravan free leave admin quickcast sidebar med_pouch password skin'.split()),
     'stage3': ('ที่ดิน', 'petition survey_rod land_tax pay_ahead plot_bounds land_expand deed_copy land_sell co_resident add_resident guild land_return land_seize auction queue queue_return stamp_approve stamp_deny vote_up vote_down land_move land_turn claim_wood claim_stone claim_lodestone claim_pickup escort escort_hire wanted jail surrender'.split()),
     'stage4': ('ก่อสร้าง + งานหลวง', 'zone_staff project_plan project_new site handover materials materials_add foreman apply_foreman workers apply_worker wage ladder floor ceiling demolish renovate job_fix buildings'.split()),
     'stage5': ('เศรษฐกิจ', 'vault treasury_buy treasury_sell vault_expand ledger market_tax price_tag unit_price mint trade_offer stall stall_close sack sell basket buy_order abacus crate claim coin_pile bundle city_materials city_work citizen_tax bank bank_deposit bank_withdraw bank_rate bank_borrow bank_repay bank_capital'.split()),
