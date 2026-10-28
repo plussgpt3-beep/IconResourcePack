@@ -365,6 +365,14 @@ pharmacy_draw
 plot_bounds
 positions
 price_tag
+prof_craftsman
+prof_innkeeper
+prof_landholder
+prof_lord
+prof_militia
+prof_physician
+prof_trader
+prof_works_master
 profession
 project_new
 project_plan
