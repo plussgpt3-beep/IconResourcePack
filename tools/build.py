@@ -230,10 +230,13 @@ def main():
                    {'model': {'type': 'minecraft:model', 'model': 'knightsrealm:item/' + name}})
         tex.resize((256, 256), Image.LANCZOS).save(os.path.join(ROOT, 'preview', name + '.png'))
     write_arrows()
+    sys.path.insert(0, os.path.join(HERE, 'gui'))
+    import bake                                   # menu frames: the font knightsrealm:gui (tools/gui/bake.py)
+    gui_ids = bake.write_font(NS)
     first = built.get('treasury', next(iter(built.values())))[1]
     first.save(os.path.join(PACK, 'pack.png'))
     with open(os.path.join(ROOT, 'icons.txt'), 'w', newline='\n') as f:   # the ids in this pack, for the plugin's test
-        f.write('\n'.join(icon_ids()) + '\n')
+        f.write('\n'.join(list(icon_ids()) + gui_ids) + '\n')
 
     if len(sys.argv) > 2 and sys.argv[1] == 'sheet':
         names = []
