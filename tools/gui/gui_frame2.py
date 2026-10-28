@@ -52,6 +52,7 @@ TAPESTRY = [(60,16,16),(84,22,22),(104,30,28),(124,40,36),(146,54,48)]
 LSTONE = [(96,92,86),(120,116,108),(142,138,130),(162,158,150),(184,180,172)]
 WATER = [(30,60,90),(40,80,116),(54,100,140),(74,124,164),(110,160,196)]
 VELVET = [(36,12,44),(50,18,60),(64,26,76),(80,36,94),(98,50,114)]
+PSTONE = [(150,148,142),(170,168,162),(188,186,180),(204,202,196),(220,218,212)]   # a pale dressed-stone plaque (readable ink)
 
 def put(x, y, c):
     if 0 <= x < W and 0 <= y < H:
@@ -432,7 +433,7 @@ T = {
  'registry': dict(header=BIRCH, post=BIRCH, tab=BIRCH, panel=('parch', PARCH), roof='thatch', plaque=PARCH, banner=None),
  'coach':    dict(header=OAK, post=OAK, tab=OAK, panel=('wood', PANEL), roof='canvas', plaque=LIGHT, banner=None),
  'store':    dict(header=SPRUCE, post='crates', tab=SPRUCE, panel=('shelves', PANEL), roof='lintel', plaque=LIGHT, banner=None),
- 'guild':    dict(header='stone', post='stone', tab=DSTONE, panel=('dstone', DSTONE), roof='battlements', plaque=STONE, banner=[(20,40,90),(28,54,120),(38,70,150),(52,90,176),(70,112,200)]),
+ 'guild':    dict(header='stone', post='stone', tab=DSTONE, panel=('dstone', DSTONE), roof='battlements', plaque=PSTONE, banner=[(20,40,90),(28,54,120),(38,70,150),(52,90,176),(70,112,200)]),
  'clinic':   dict(header='plaster', post=DARKOAK, tab=DARKOAK, panel=('plaster', PLASTER), roof='tiles', plaque=LIGHT, banner=[(150,150,150),(196,196,196),(226,226,226),(240,240,240),(252,252,252)]),
  'market':   dict(header=OAK, post=OAK, tab=OAK, panel=('counter', LIGHT), roof='awning', plaque=LIGHT, banner=None),
  'royal':    dict(header=WALNUT, post='curtains', tab=WALNUT, panel=('felt', VELVET), roof='crown', plaque=GOLD, banner=VELVET),
@@ -748,8 +749,8 @@ pp = T['plaque']
 if pp is GOLD:
     noise_fill(104, HY + 2, 90, 20, GOLD, 3, 31, 0.12)
     for x in range(104, 194): put(x, HY + 3, GOLD[4]); put(x, HY + 20, GOLD[1])
-elif pp is STONE:
-    stones(104, HY + 2, 90, 20, STONE, bw=30, bh=10, seed=31)
+elif pp is STONE or pp is PSTONE:
+    stones(104, HY + 2, 90, 20, pp, bw=30, bh=10, seed=31)
 elif pp is PARCH:
     noise_fill(104, HY + 2, 90, 20, PARCH, 3, 31, 0.15)
 else:

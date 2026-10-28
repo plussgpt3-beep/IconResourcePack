@@ -1,0 +1,732 @@
+# GUI frame and title-font metrics from tools/gui/bake.py (do not edit)
+frame oak 2 E212 258
+frame oak 3 E213 258
+frame oak 4 E214 258
+frame oak 5 E215 258
+frame oak 6 E216 258
+frame treasury 2 E21A 259
+frame treasury 3 E21B 259
+frame treasury 4 E21C 259
+frame treasury 5 E21D 259
+frame treasury 6 E21E 259
+frame registry 2 E222 261
+frame registry 3 E223 261
+frame registry 4 E224 261
+frame registry 5 E225 261
+frame registry 6 E226 261
+frame coach 2 E22A 257
+frame coach 3 E22B 257
+frame coach 4 E22C 257
+frame coach 5 E22D 257
+frame coach 6 E22E 257
+frame store 2 E232 257
+frame store 3 E233 257
+frame store 4 E234 257
+frame store 5 E235 257
+frame store 6 E236 257
+frame guild 2 E23A 257
+frame guild 3 E23B 257
+frame guild 4 E23C 257
+frame guild 5 E23D 257
+frame guild 6 E23E 257
+frame bank 2 E242 259
+frame bank 3 E243 259
+frame bank 4 E244 259
+frame bank 5 E245 259
+frame bank 6 E246 259
+frame clinic 2 E24A 259
+frame clinic 3 E24B 259
+frame clinic 4 E24C 259
+frame clinic 5 E24D 259
+frame clinic 6 E24E 259
+frame market 2 E252 261
+frame market 3 E253 261
+frame market 4 E254 261
+frame market 5 E255 261
+frame market 6 E256 261
+frame royal 2 E25A 257
+frame royal 3 E25B 257
+frame royal 4 E25C 257
+frame royal 5 E25D 257
+frame royal 6 E25E 257
+frame forge 2 E262 259
+frame forge 3 E263 259
+frame forge 4 E264 259
+frame forge 5 E265 259
+frame forge 6 E266 259
+frame arena 2 E26A 259
+frame arena 3 E26B 259
+frame arena 4 E26C 259
+frame arena 5 E26D 259
+frame arena 6 E26E 259
+frame board 2 E272 259
+frame board 3 E273 259
+frame board 4 E274 259
+frame board 5 E275 259
+frame board 6 E276 259
+frame admin 2 E27A 257
+frame admin 3 E27B 257
+frame admin 4 E27C 257
+frame admin 5 E27D 257
+frame admin 6 E27E 257
+frame stable 2 E282 259
+frame stable 3 E283 259
+frame stable 4 E284 259
+frame stable 5 E285 259
+frame stable 6 E286 259
+frame gaol 2 E28A 257
+frame gaol 3 E28B 257
+frame gaol 4 E28C 257
+frame gaol 5 E28D 257
+frame gaol 6 E28E 257
+frame heraldry 2 E292 257
+frame heraldry 3 E293 257
+frame heraldry 4 E294 257
+frame heraldry 5 E295 257
+frame heraldry 6 E296 257
+frame throne 2 E29A 259
+frame throne 3 E29B 259
+frame throne 4 E29C 259
+frame throne 5 E29D 259
+frame throne 6 E29E 259
+frame harbor 2 E2A2 260
+frame harbor 3 E2A3 260
+frame harbor 4 E2A4 260
+frame harbor 5 E2A5 260
+frame harbor 6 E2A6 260
+space t1 12
+glyph t1 0021 2 9 3
+glyph t1 0022 1 11 4
+glyph t1 0023 -1 13 6
+glyph t1 0024 0 13 5
+glyph t1 0025 1 22 8
+glyph t1 0026 0 20 8
+glyph t1 0027 0 5 2
+glyph t1 0028 0 9 4
+glyph t1 0029 0 9 4
+glyph t1 002A 1 13 5
+glyph t1 002B 0 15 6
+glyph t1 002C 1 7 3
+glyph t1 002D 0 9 4
+glyph t1 002E 1 7 3
+glyph t1 002F -1 7 4
+glyph t1 0030 0 14 6
+glyph t1 0031 3 14 4
+glyph t1 0032 1 14 5
+glyph t1 0033 1 14 5
+glyph t1 0034 0 14 6
+glyph t1 0035 1 14 5
+glyph t1 0036 1 14 5
+glyph t1 0037 0 14 5
+glyph t1 0038 1 14 5
+glyph t1 0039 1 14 5
+glyph t1 003A 1 7 3
+glyph t1 003B 1 7 3
+glyph t1 003C 0 15 6
+glyph t1 003D 0 15 6
+glyph t1 003E 0 15 6
+glyph t1 003F 0 12 5
+glyph t1 0040 1 24 8
+glyph t1 0041 0 19 7
+glyph t1 0042 0 17 6
+glyph t1 0043 0 17 7
+glyph t1 0044 0 19 7
+glyph t1 0045 0 16 6
+glyph t1 0046 0 14 6
+glyph t1 0047 0 19 7
+glyph t1 0048 0 19 7
+glyph t1 0049 0 9 4
+glyph t1 004A -1 10 5
+glyph t1 004B 0 19 7
+glyph t1 004C 0 16 6
+glyph t1 004D 0 23 9
+glyph t1 004E 0 19 7
+glyph t1 004F 0 19 7
+glyph t1 0050 -1 14 6
+glyph t1 0051 0 19 7
+glyph t1 0052 0 17 7
+glyph t1 0053 0 14 6
+glyph t1 0054 0 16 6
+glyph t1 0055 0 19 7
+glyph t1 0056 0 19 7
+glyph t1 0057 -1 25 10
+glyph t1 0058 0 19 7
+glyph t1 0059 0 19 7
+glyph t1 005A -1 16 7
+glyph t1 005B 1 9 4
+glyph t1 005C -3 7 5
+glyph t1 005D 0 9 3
+glyph t1 005E -1 12 6
+glyph t1 005F -1 13 6
+glyph t1 0060 0 9 4
+glyph t1 0061 0 12 5
+glyph t1 0062 -1 13 6
+glyph t1 0063 0 12 5
+glyph t1 0064 0 13 6
+glyph t1 0065 0 12 5
+glyph t1 0066 0 9 5
+glyph t1 0067 0 13 5
+glyph t1 0068 -1 13 6
+glyph t1 0069 0 7 4
+glyph t1 006A -2 7 4
+glyph t1 006B -1 13 6
+glyph t1 006C 0 7 4
+glyph t1 006D 0 20 8
+glyph t1 006E -1 13 6
+glyph t1 006F 0 13 5
+glyph t1 0070 -1 13 6
+glyph t1 0071 0 13 6
+glyph t1 0072 -1 9 4
+glyph t1 0073 0 10 4
+glyph t1 0074 0 7 4
+glyph t1 0075 -1 13 6
+glyph t1 0076 -1 13 6
+glyph t1 0077 0 19 7
+glyph t1 0078 0 13 5
+glyph t1 0079 0 13 5
+glyph t1 007A 0 12 5
+glyph t1 007B 1 12 4
+glyph t1 007C 1 5 2
+glyph t1 007D 3 12 4
+glyph t1 007E 0 14 6
+glyph t1 0E01 0 16 6
+glyph t1 0E02 0 15 5
+glyph t1 0E03 0 17 6
+glyph t1 0E04 0 15 6
+glyph t1 0E05 0 15 5
+glyph t1 0E06 0 20 7
+glyph t1 0E07 0 12 5
+glyph t1 0E08 0 15 5
+glyph t1 0E09 0 16 6
+glyph t1 0E0A 0 15 6
+glyph t1 0E0B 0 17 6
+glyph t1 0E0C 0 21 7
+glyph t1 0E0D 0 21 7
+glyph t1 0E0E 0 16 6
+glyph t1 0E0F -1 16 6
+glyph t1 0E10 0 13 5
+glyph t1 0E11 0 20 7
+glyph t1 0E12 0 21 7
+glyph t1 0E13 0 21 8
+glyph t1 0E14 1 16 5
+glyph t1 0E15 1 16 5
+glyph t1 0E16 0 16 6
+glyph t1 0E17 0 17 6
+glyph t1 0E18 0 13 5
+glyph t1 0E19 0 17 6
+glyph t1 0E1A 0 17 6
+glyph t1 0E1B 0 17 6
+glyph t1 0E1C 2 17 5
+glyph t1 0E1D 2 17 5
+glyph t1 0E1E 0 19 7
+glyph t1 0E1F 0 19 7
+glyph t1 0E20 0 16 6
+glyph t1 0E21 0 17 6
+glyph t1 0E22 1 16 5
+glyph t1 0E23 0 12 5
+glyph t1 0E24 0 16 6
+glyph t1 0E25 0 15 5
+glyph t1 0E26 0 16 6
+glyph t1 0E27 0 13 5
+glyph t1 0E28 0 15 6
+glyph t1 0E29 0 17 6
+glyph t1 0E2A 0 15 6
+glyph t1 0E2B 0 17 6
+glyph t1 0E2C 0 19 8
+glyph t1 0E2D 0 15 5
+glyph t1 0E2E 1 15 5
+glyph t1 0E2F 0 14 5
+glyph t1 0E30 0 12 5
+glyph t1 0E31 -10 0 6
+glyph t1 0E32 -1 11 4
+glyph t1 0E33 -7 11 6
+glyph t1 0E34 -15 0 6
+glyph t1 0E35 -15 0 6
+glyph t1 0E36 -15 0 6
+glyph t1 0E37 -15 0 6
+glyph t1 0E38 -8 0 3
+glyph t1 0E39 -11 0 4
+glyph t1 0E3A -6 0 3
+glyph t1 0E3F 0 20 7
+glyph t1 0E40 2 9 3
+glyph t1 0E41 2 16 5
+glyph t1 0E42 -2 9 5
+glyph t1 0E43 -2 9 5
+glyph t1 0E44 -3 10 6
+glyph t1 0E45 -4 8 4
+glyph t1 0E46 6 18 4
+glyph t1 0E47 -14 0 5
+glyph t1 0E48 -6 0 2
+glyph t1 0E49 -7 0 5
+glyph t1 0E4A -10 0 5
+glyph t1 0E4B -8 0 4
+glyph t1 0E4C -7 0 4
+glyph t1 0E4D -7 0 3
+glyph t1 0E4E -7 0 3
+glyph t1 0E4F 1 19 7
+glyph t1 0E50 1 17 6
+glyph t1 0E51 1 17 6
+glyph t1 0E52 0 17 7
+glyph t1 0E53 1 17 6
+glyph t1 0E54 1 17 6
+glyph t1 0E55 1 17 6
+glyph t1 0E56 1 17 6
+glyph t1 0E57 0 17 7
+glyph t1 0E58 0 17 6
+glyph t1 0E59 0 17 7
+glyph t1 0E5A 0 19 7
+glyph t1 0E5B 0 34 12
+glyph t1 E300 0 13 5
+glyph t1 E301 -19 0 5
+glyph t1 E302 -19 0 5
+glyph t1 E303 -19 0 6
+glyph t1 E304 -19 0 5
+glyph t1 E305 -10 0 2
+glyph t1 E306 -15 0 5
+glyph t1 E307 -17 0 6
+glyph t1 E308 -12 0 4
+glyph t1 E309 -12 0 4
+glyph t1 E30A -6 0 2
+glyph t1 E30B -11 0 5
+glyph t1 E30C -13 0 6
+glyph t1 E30D -8 0 4
+glyph t1 E30E -8 0 4
+glyph t1 E30F 0 21 7
+glyph t1 E310 -15 0 6
+glyph t1 E311 -12 0 3
+glyph t1 E312 -17 0 5
+glyph t1 E313 -10 0 2
+glyph t1 E314 -14 0 5
+glyph t1 E315 -13 0 5
+glyph t1 E316 -12 0 4
+glyph t1 E317 -11 0 4
+glyph t1 E318 -7 0 3
+glyph t1 E319 -10 0 4
+glyph t1 E31A -5 0 2
+space t2 10
+glyph t2 0021 2 7 2
+glyph t2 0022 1 9 3
+glyph t2 0023 -1 11 5
+glyph t2 0024 0 11 5
+glyph t2 0025 1 18 7
+glyph t2 0026 0 17 7
+glyph t2 0027 0 4 2
+glyph t2 0028 0 7 4
+glyph t2 0029 0 7 3
+glyph t2 002A 1 11 4
+glyph t2 002B 0 12 5
+glyph t2 002C 1 6 2
+glyph t2 002D 0 7 3
+glyph t2 002E 1 6 2
+glyph t2 002F -1 6 4
+glyph t2 0030 0 12 5
+glyph t2 0031 2 12 4
+glyph t2 0032 0 12 5
+glyph t2 0033 1 12 4
+glyph t2 0034 0 12 5
+glyph t2 0035 0 12 5
+glyph t2 0036 1 12 5
+glyph t2 0037 0 12 5
+glyph t2 0038 1 12 4
+glyph t2 0039 0 12 5
+glyph t2 003A 1 6 2
+glyph t2 003B 1 6 3
+glyph t2 003C 0 12 5
+glyph t2 003D 0 12 5
+glyph t2 003E 0 12 5
+glyph t2 003F 0 10 4
+glyph t2 0040 0 20 8
+glyph t2 0041 0 16 6
+glyph t2 0042 0 15 6
+glyph t2 0043 0 15 6
+glyph t2 0044 0 16 6
+glyph t2 0045 0 13 6
+glyph t2 0046 0 12 5
+glyph t2 0047 0 16 6
+glyph t2 0048 0 16 6
+glyph t2 0049 0 7 4
+glyph t2 004A -1 9 4
+glyph t2 004B 0 16 6
+glyph t2 004C 0 13 6
+glyph t2 004D 0 20 8
+glyph t2 004E 0 16 6
+glyph t2 004F 0 16 6
+glyph t2 0050 -1 12 6
+glyph t2 0051 0 16 6
+glyph t2 0052 0 15 6
+glyph t2 0053 0 12 5
+glyph t2 0054 0 13 6
+glyph t2 0055 0 16 6
+glyph t2 0056 0 16 6
+glyph t2 0057 -1 21 8
+glyph t2 0058 0 16 6
+glyph t2 0059 0 16 6
+glyph t2 005A -1 13 6
+glyph t2 005B 1 7 3
+glyph t2 005C -3 6 5
+glyph t2 005D 0 7 3
+glyph t2 005E -1 10 5
+glyph t2 005F -1 11 5
+glyph t2 0060 0 7 3
+glyph t2 0061 0 10 4
+glyph t2 0062 -1 11 5
+glyph t2 0063 0 10 4
+glyph t2 0064 0 11 5
+glyph t2 0065 0 10 4
+glyph t2 0066 0 7 4
+glyph t2 0067 0 11 5
+glyph t2 0068 -1 11 5
+glyph t2 0069 0 6 3
+glyph t2 006A -2 6 3
+glyph t2 006B -1 11 5
+glyph t2 006C 0 6 3
+glyph t2 006D 0 17 7
+glyph t2 006E -1 11 5
+glyph t2 006F 0 11 5
+glyph t2 0070 -1 11 5
+glyph t2 0071 0 11 5
+glyph t2 0072 -1 7 4
+glyph t2 0073 0 9 4
+glyph t2 0074 0 6 3
+glyph t2 0075 -1 11 5
+glyph t2 0076 -1 11 5
+glyph t2 0077 0 16 6
+glyph t2 0078 0 11 5
+glyph t2 0079 0 11 5
+glyph t2 007A 0 10 4
+glyph t2 007B 1 11 3
+glyph t2 007C 1 4 2
+glyph t2 007D 3 11 3
+glyph t2 007E 0 12 5
+glyph t2 0E01 0 13 5
+glyph t2 0E02 0 13 5
+glyph t2 0E03 0 14 5
+glyph t2 0E04 0 13 5
+glyph t2 0E05 0 13 5
+glyph t2 0E06 0 17 6
+glyph t2 0E07 0 11 4
+glyph t2 0E08 0 12 5
+glyph t2 0E09 0 14 5
+glyph t2 0E0A 0 13 5
+glyph t2 0E0B 0 14 6
+glyph t2 0E0C 0 18 6
+glyph t2 0E0D 0 18 6
+glyph t2 0E0E 0 13 5
+glyph t2 0E0F -1 13 5
+glyph t2 0E10 0 11 4
+glyph t2 0E11 0 17 6
+glyph t2 0E12 0 18 6
+glyph t2 0E13 0 18 7
+glyph t2 0E14 0 13 5
+glyph t2 0E15 0 13 5
+glyph t2 0E16 0 13 5
+glyph t2 0E17 0 14 5
+glyph t2 0E18 0 11 4
+glyph t2 0E19 0 15 6
+glyph t2 0E1A 0 14 5
+glyph t2 0E1B 0 14 5
+glyph t2 0E1C 1 14 5
+glyph t2 0E1D 1 15 5
+glyph t2 0E1E 0 16 6
+glyph t2 0E1F 0 16 6
+glyph t2 0E20 0 14 5
+glyph t2 0E21 0 14 5
+glyph t2 0E22 1 13 5
+glyph t2 0E23 0 10 4
+glyph t2 0E24 0 13 5
+glyph t2 0E25 0 13 5
+glyph t2 0E26 0 13 5
+glyph t2 0E27 0 11 4
+glyph t2 0E28 0 13 5
+glyph t2 0E29 0 15 5
+glyph t2 0E2A 0 13 5
+glyph t2 0E2B 0 14 5
+glyph t2 0E2C 0 16 7
+glyph t2 0E2D 0 12 5
+glyph t2 0E2E 0 12 5
+glyph t2 0E2F 0 12 4
+glyph t2 0E30 0 10 4
+glyph t2 0E31 -9 0 5
+glyph t2 0E32 -1 9 4
+glyph t2 0E33 -6 9 6
+glyph t2 0E34 -13 0 5
+glyph t2 0E35 -13 0 5
+glyph t2 0E36 -13 0 5
+glyph t2 0E37 -13 0 5
+glyph t2 0E38 -7 0 3
+glyph t2 0E39 -10 0 4
+glyph t2 0E3A -5 0 2
+glyph t2 0E3F 0 17 6
+glyph t2 0E40 1 7 3
+glyph t2 0E41 1 13 5
+glyph t2 0E42 -2 7 4
+glyph t2 0E43 -2 8 4
+glyph t2 0E44 -3 9 5
+glyph t2 0E45 -3 7 4
+glyph t2 0E46 5 15 4
+glyph t2 0E47 -11 0 4
+glyph t2 0E48 -5 0 2
+glyph t2 0E49 -6 0 4
+glyph t2 0E4A -8 0 4
+glyph t2 0E4B -7 0 3
+glyph t2 0E4C -6 0 3
+glyph t2 0E4D -6 0 3
+glyph t2 0E4E -6 0 3
+glyph t2 0E4F 1 16 6
+glyph t2 0E50 0 14 6
+glyph t2 0E51 0 14 6
+glyph t2 0E52 0 14 6
+glyph t2 0E53 0 14 6
+glyph t2 0E54 1 14 5
+glyph t2 0E55 1 14 5
+glyph t2 0E56 0 14 6
+glyph t2 0E57 0 14 6
+glyph t2 0E58 0 14 6
+glyph t2 0E59 0 14 6
+glyph t2 0E5A 0 16 6
+glyph t2 0E5B 0 28 11
+glyph t2 E300 0 11 4
+glyph t2 E301 -16 0 5
+glyph t2 E302 -16 0 5
+glyph t2 E303 -16 0 5
+glyph t2 E304 -16 0 5
+glyph t2 E305 -8 0 2
+glyph t2 E306 -13 0 5
+glyph t2 E307 -14 0 5
+glyph t2 E308 -11 0 4
+glyph t2 E309 -10 0 4
+glyph t2 E30A -5 0 2
+glyph t2 E30B -9 0 5
+glyph t2 E30C -11 0 5
+glyph t2 E30D -7 0 4
+glyph t2 E30E -6 0 3
+glyph t2 E30F 0 18 6
+glyph t2 E310 -12 0 5
+glyph t2 E311 -10 0 3
+glyph t2 E312 -14 0 4
+glyph t2 E313 -8 0 2
+glyph t2 E314 -12 0 4
+glyph t2 E315 -11 0 4
+glyph t2 E316 -10 0 3
+glyph t2 E317 -9 0 3
+glyph t2 E318 -6 0 3
+glyph t2 E319 -9 0 4
+glyph t2 E31A -5 0 2
+space t3 8
+glyph t3 0021 1 6 2
+glyph t3 0022 1 7 3
+glyph t3 0023 -1 9 5
+glyph t3 0024 0 9 4
+glyph t3 0025 0 15 6
+glyph t3 0026 0 14 6
+glyph t3 0027 0 3 2
+glyph t3 0028 0 6 3
+glyph t3 0029 0 6 3
+glyph t3 002A 0 9 4
+glyph t3 002B 0 10 4
+glyph t3 002C 0 5 2
+glyph t3 002D 0 6 3
+glyph t3 002E 1 5 2
+glyph t3 002F -1 5 3
+glyph t3 0030 0 10 4
+glyph t3 0031 2 10 3
+glyph t3 0032 0 10 4
+glyph t3 0033 0 10 4
+glyph t3 0034 0 10 4
+glyph t3 0035 0 10 4
+glyph t3 0036 0 10 4
+glyph t3 0037 0 10 4
+glyph t3 0038 1 10 4
+glyph t3 0039 0 10 4
+glyph t3 003A 1 5 2
+glyph t3 003B 1 5 2
+glyph t3 003C 0 10 4
+glyph t3 003D 0 10 4
+glyph t3 003E 0 10 4
+glyph t3 003F 0 8 4
+glyph t3 0040 0 17 6
+glyph t3 0041 0 13 5
+glyph t3 0042 0 12 5
+glyph t3 0043 0 12 5
+glyph t3 0044 0 13 5
+glyph t3 0045 0 11 5
+glyph t3 0046 0 10 5
+glyph t3 0047 0 13 5
+glyph t3 0048 0 13 5
+glyph t3 0049 0 6 3
+glyph t3 004A -1 7 4
+glyph t3 004B 0 13 5
+glyph t3 004C 0 11 5
+glyph t3 004D 0 16 6
+glyph t3 004E 0 13 5
+glyph t3 004F 0 13 5
+glyph t3 0050 -1 10 5
+glyph t3 0051 0 13 5
+glyph t3 0052 0 12 5
+glyph t3 0053 0 10 4
+glyph t3 0054 0 11 5
+glyph t3 0055 0 13 5
+glyph t3 0056 0 13 5
+glyph t3 0057 -1 17 7
+glyph t3 0058 0 13 5
+glyph t3 0059 0 13 5
+glyph t3 005A -1 11 5
+glyph t3 005B 1 6 3
+glyph t3 005C -2 5 4
+glyph t3 005D 0 6 3
+glyph t3 005E -1 8 4
+glyph t3 005F -1 9 5
+glyph t3 0060 0 6 3
+glyph t3 0061 0 8 4
+glyph t3 0062 -1 9 4
+glyph t3 0063 0 8 4
+glyph t3 0064 0 9 4
+glyph t3 0065 0 8 4
+glyph t3 0066 0 6 4
+glyph t3 0067 0 9 4
+glyph t3 0068 -1 9 5
+glyph t3 0069 0 5 3
+glyph t3 006A -2 5 3
+glyph t3 006B -1 9 5
+glyph t3 006C 0 5 3
+glyph t3 006D 0 14 6
+glyph t3 006E -1 9 5
+glyph t3 006F 0 9 4
+glyph t3 0070 -1 9 4
+glyph t3 0071 0 9 4
+glyph t3 0072 -1 6 4
+glyph t3 0073 0 7 3
+glyph t3 0074 0 5 3
+glyph t3 0075 -1 9 4
+glyph t3 0076 -1 9 4
+glyph t3 0077 0 13 5
+glyph t3 0078 0 9 4
+glyph t3 0079 0 9 4
+glyph t3 007A 0 8 4
+glyph t3 007B 1 9 3
+glyph t3 007C 0 4 2
+glyph t3 007D 2 9 3
+glyph t3 007E 0 10 4
+glyph t3 0E01 0 11 4
+glyph t3 0E02 0 11 4
+glyph t3 0E03 0 11 4
+glyph t3 0E04 0 11 4
+glyph t3 0E05 0 11 4
+glyph t3 0E06 0 14 5
+glyph t3 0E07 0 9 4
+glyph t3 0E08 0 10 4
+glyph t3 0E09 0 11 5
+glyph t3 0E0A 0 11 4
+glyph t3 0E0B 0 12 5
+glyph t3 0E0C 0 14 5
+glyph t3 0E0D 0 14 5
+glyph t3 0E0E 0 11 4
+glyph t3 0E0F -1 11 5
+glyph t3 0E10 0 9 4
+glyph t3 0E11 0 14 5
+glyph t3 0E12 0 14 5
+glyph t3 0E13 0 14 6
+glyph t3 0E14 0 11 4
+glyph t3 0E15 0 11 4
+glyph t3 0E16 0 11 4
+glyph t3 0E17 0 12 5
+glyph t3 0E18 0 9 4
+glyph t3 0E19 0 12 5
+glyph t3 0E1A 0 12 5
+glyph t3 0E1B 0 12 5
+glyph t3 0E1C 1 12 4
+glyph t3 0E1D 1 12 4
+glyph t3 0E1E 0 13 5
+glyph t3 0E1F 0 13 5
+glyph t3 0E20 0 11 4
+glyph t3 0E21 0 12 5
+glyph t3 0E22 1 11 4
+glyph t3 0E23 0 8 4
+glyph t3 0E24 0 11 4
+glyph t3 0E25 0 10 4
+glyph t3 0E26 0 11 4
+glyph t3 0E27 0 9 4
+glyph t3 0E28 0 11 5
+glyph t3 0E29 0 12 5
+glyph t3 0E2A 0 10 5
+glyph t3 0E2B 0 12 5
+glyph t3 0E2C 0 13 6
+glyph t3 0E2D 0 10 4
+glyph t3 0E2E 0 10 4
+glyph t3 0E2F 0 10 4
+glyph t3 0E30 0 8 4
+glyph t3 0E31 -7 0 4
+glyph t3 0E32 -1 8 4
+glyph t3 0E33 -5 8 5
+glyph t3 0E34 -10 0 4
+glyph t3 0E35 -10 0 4
+glyph t3 0E36 -10 0 4
+glyph t3 0E37 -10 0 4
+glyph t3 0E38 -6 0 3
+glyph t3 0E39 -8 0 3
+glyph t3 0E3A -4 0 2
+glyph t3 0E3F 0 14 5
+glyph t3 0E40 1 6 3
+glyph t3 0E41 1 11 4
+glyph t3 0E42 -2 6 4
+glyph t3 0E43 -2 7 4
+glyph t3 0E44 -2 7 4
+glyph t3 0E45 -3 5 3
+glyph t3 0E46 4 13 3
+glyph t3 0E47 -9 0 4
+glyph t3 0E48 -4 0 2
+glyph t3 0E49 -5 0 4
+glyph t3 0E4A -7 0 4
+glyph t3 0E4B -5 0 3
+glyph t3 0E4C -5 0 3
+glyph t3 0E4D -5 0 3
+glyph t3 0E4E -5 0 3
+glyph t3 0E4F 1 13 5
+glyph t3 0E50 0 12 5
+glyph t3 0E51 0 12 5
+glyph t3 0E52 0 12 5
+glyph t3 0E53 0 12 5
+glyph t3 0E54 0 12 5
+glyph t3 0E55 0 12 5
+glyph t3 0E56 0 12 5
+glyph t3 0E57 0 12 5
+glyph t3 0E58 0 12 5
+glyph t3 0E59 0 12 5
+glyph t3 0E5A 0 13 5
+glyph t3 0E5B 0 23 9
+glyph t3 E300 0 9 4
+glyph t3 E301 -13 0 4
+glyph t3 E302 -13 0 4
+glyph t3 E303 -13 0 4
+glyph t3 E304 -13 0 4
+glyph t3 E305 -7 0 2
+glyph t3 E306 -11 0 4
+glyph t3 E307 -12 0 4
+glyph t3 E308 -9 0 3
+glyph t3 E309 -8 0 3
+glyph t3 E30A -4 0 2
+glyph t3 E30B -8 0 4
+glyph t3 E30C -9 0 4
+glyph t3 E30D -6 0 3
+glyph t3 E30E -5 0 3
+glyph t3 E30F 0 14 5
+glyph t3 E310 -10 0 4
+glyph t3 E311 -8 0 2
+glyph t3 E312 -12 0 4
+glyph t3 E313 -7 0 2
+glyph t3 E314 -10 0 4
+glyph t3 E315 -9 0 4
+glyph t3 E316 -8 0 3
+glyph t3 E317 -8 0 3
+glyph t3 E318 -5 0 2
+glyph t3 E319 -7 0 3
+glyph t3 E31A -4 0 2
+sample t1 41:0E17 43:E30B 47:0E2D 52:0E07 56:0E1E 62:0E23 66:0E30 70:0E04 75:0E25 77:0E31 80:0E07 88:0047 94:0065 98:0061 102:0072 105:0046 110:006F 114:0072 117:0064|ท้องพระคลัง GearFord
+sample t3 39:0E19 43:0E32 46:0E22 49:0E17 53:0E30 56:0E40 58:0E1A 59:0E35 62:0E22 66:0E19 70:0E17 70:0E35 72:0E48 74:0E14 74:0E34 77:0E19 81:0E23 84:0E32 87:0E29 91:0E0E 94:0E23 95:E30E 100:0047 104:0065 107:0061 109:0072 111:0046 115:006F 117:0072 120:0064|นายทะเบียนที่ดินราษฎร์ GearFord
+sample t1 47:0E1B 50:0E38 49:E305 53:0E21 62:0E1B 65:E305 68:0E32 76:0E1F 77:E306 82:0E32 90:0E1D 90:E310 92:E313 95:0E07 103:0E1B 103:E301 106:E313 109:0E19|ปุ่ม ป่า ฟ้า ฝั่ง ปิ่น
+sample t1 57:0E0D 64:0E32 68:0E15 68:0E34 77:E300 78:0E39 81:0E1B 91:0E0E 94:E318 100:0E0F 102:E319|ญาติ ฐูป ฎุ ฏู
+sample t1 42:0E19 45:0E49 45:0E33 55:0E17 56:0E35 59:0E48 65:0E01 68:E30A 70:0E2D 79:0E01 80:0E35 83:0E48 89:0E01 89:0E47 99:0E1C 100:0E39 100:E30B 108:0E1B 107:E304 109:E314 113:0E19|น้ำ ที่ ก่อ กี่ ก็ ผู้ ปื้น
+sample t1 57:0E0E 57:0E35 62:0E01 67:0E32 75:0023 81:0031 85:0032 93:0032 97:002F 100:0033|ฎีกา #12 2/3
+sample t1 48:0E01 53:0E32 57:0E23 61:0E04 62:E30B 66:0E32 70:0E23 74:0E30 78:0E2B 83:0E27 86:E30A 87:0E32 91:0E07 96:0E40 98:0E21 99:0E37 104:0E2D 109:0E07|การค้าระหว่างเมือง
+sample t1 71:0E2D 76:0E32 80:0E0A 80:0E35 85:0E1E|อาชีพ
+sample t1 44:0E41 48:0E25 53:0E01 59:0E02 64:0E2D 69:0E07 73:0E01 75:0E31 78:0E1A 88:0042 93:0070 98:006F 102:0072 105:0032 109:005F 114:0078|แลกของกับ Bpor2_x

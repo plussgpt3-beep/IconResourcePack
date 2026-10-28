@@ -201,6 +201,8 @@ client can download the pack.
 
 
 def main():
+    if len(sys.argv) > 1 and sys.argv[1] == 'gui':      # menu frames only: the icons as they were built last
+        return gui_only()
     write_json(os.path.join(PACK, 'pack.mcmeta'), {'pack': {
         'pack_format': FORMAT, 'min_format': FORMAT, 'max_format': FORMAT,
         'description': 'KnightsRealm menu icons \u00a9 2026 KnightsRealm - All rights reserved'}})
@@ -230,9 +232,7 @@ def main():
                    {'model': {'type': 'minecraft:model', 'model': 'knightsrealm:item/' + name}})
         tex.resize((256, 256), Image.LANCZOS).save(os.path.join(ROOT, 'preview', name + '.png'))
     write_arrows()
-    sys.path.insert(0, os.path.join(HERE, 'gui'))
-    import bake                                   # menu frames: the font knightsrealm:gui (tools/gui/bake.py)
-    gui_ids = bake.write_font(NS)
+    gui_ids = write_gui()
     first = built.get('treasury', next(iter(built.values())))[1]
     first.save(os.path.join(PACK, 'pack.png'))
     with open(os.path.join(ROOT, 'icons.txt'), 'w', newline='\n') as f:   # the ids in this pack, for the plugin's test
@@ -247,7 +247,27 @@ def main():
         for key in STAGES:
             slot_sheet([(n, *built[n]) for n in STAGES[key][1]], os.path.join(ROOT, 'preview', key + '.png'))
     write_catalog()
+    write_zip()
 
+
+def write_gui():
+    """Menu frames and title fonts (tools/gui/bake.py); guifont.txt goes to the plugin with icons.txt."""
+    sys.path.insert(0, os.path.join(HERE, 'gui'))
+    import bake
+    for f in os.listdir(os.path.join(NS, 'textures', 'font')) if os.path.isdir(os.path.join(NS, 'textures', 'font')) else []:
+        if f.startswith('gui_'):
+            os.remove(os.path.join(NS, 'textures', 'font', f))
+    return bake.write_font(NS, os.path.join(ROOT, 'guifont.txt'))
+
+
+def gui_only():
+    gui_ids = write_gui()
+    with open(os.path.join(ROOT, 'icons.txt'), 'w', newline='\n') as f:
+        f.write('\n'.join(list(icon_ids()) + gui_ids) + '\n')
+    write_zip()
+
+
+def write_zip():
     out = os.path.join(ROOT, 'KnightsRealmIcons.zip')
     files = []
     for base, _, names in os.walk(PACK):
