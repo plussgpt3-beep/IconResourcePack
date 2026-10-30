@@ -252,21 +252,70 @@ def write_title_fonts(ns_dir, metrics):
                       f, ensure_ascii=False, indent=2)
 
 
+# Minecraft cannot load a font glyph larger than 256 x 256 texture px (it draws a box instead, seen in the
+# game 2026-10-30), so every frame is cut into tiles no larger than that, one character each, laid side by
+# side by the plugin from the tile list in guifont.txt (each tile's x and the advance the game gives it).
+TILE_MAX = 255
+
+
+def _cuts(total, scale):
+    """Edges cutting {total} texture px into near-equal parts of at most TILE_MAX, on whole GUI px."""
+    n = -(-total // TILE_MAX)
+    gui = total // scale
+    edges = [round(gui * k / n) * scale for k in range(n + 1)]
+    edges[-1] = total
+    return edges
+
+
+def tile_frame(img, scale, name, chars, ns_dir):
+    """Cut {img} (drawn at {scale} texture px per GUI px) into tiles; returns (providers, [(char, x, advance)])."""
+    providers, tiles = [], []
+    xs, ys = _cuts(img.width, scale), _cuts(img.height, scale)
+    k = 0
+    for j in range(len(ys) - 1):
+        for i in range(len(xs) - 1):
+            part = img.crop((xs[i], ys[j], xs[i + 1], ys[j + 1]))
+            if not part.getbbox():
+                continue
+            ch = chars[k]; k += 1
+            tex = '%s_%d.png' % (name, k)
+            part.save(os.path.join(ns_dir, 'textures', 'font', tex))
+            h_gui = part.height // scale
+            providers.append({'type': 'bitmap', 'file': 'knightsrealm:font/' + tex,
+                              'height': h_gui, 'ascent': ASCENT - ys[j] // scale, 'chars': [ch]})
+            w = ink_width(part)
+            adv = int(0.5 + w * h_gui / part.height) + 1
+            tiles.append((ch, xs[i] // scale, adv))
+    return providers, tiles
+
+
+def frame_chars(index):
+    """Eight private-use characters for frame number {index} (0 = the main menu)."""
+    return [chr(0xE400 + index * 8 + k) for k in range(8)]
+
+
 def write_font(ns_dir, metrics_out=None):
     providers = [{'type': 'space', 'advances': SPACES}]
     lines = []
+    os.makedirs(os.path.join(ns_dir, 'textures', 'font'), exist_ok=True)
     for frame_id in FRAMES:
-        glyph, h = bake(frame_id, os.path.join(ns_dir, 'textures', 'font', 'gui_' + frame_id + '.png'))
-        providers.append({'type': 'bitmap', 'file': 'knightsrealm:font/gui_' + frame_id + '.png',
-                          'height': h, 'ascent': ASCENT, 'chars': [glyph]})
+        full = os.path.join(HERE, 'out', 'gen', 'gui_' + frame_id + '_full.png')
+        os.makedirs(os.path.dirname(full), exist_ok=True)
+        bake(frame_id, full)
+        prov, tiles = tile_frame(Image.open(full).convert('RGBA'), S, 'gui_' + frame_id, frame_chars(0), ns_dir)
+        providers += prov
+        lines.append('frame %s 0 %s' % (frame_id, ' '.join('%04X:%d:%d' % (ord(c), x, a) for c, x, a in tiles)))
     ids = ['gui_' + k for k in FRAMES]
+    n = 1
     for theme in THEMES:
         for rows in ROW_COUNTS:
             name = 'gui_%s_%d' % (theme, rows)
-            img = bake_theme(theme, rows, os.path.join(ns_dir, 'textures', 'font', name + '.png'))
-            providers.append({'type': 'bitmap', 'file': 'knightsrealm:font/' + name + '.png',
-                              'height': img.height, 'ascent': ASCENT, 'chars': [frame_char(theme, rows)]})
-            lines.append('frame %s %d %04X %d' % (theme, rows, ord(frame_char(theme, rows)), ink_width(img) + 1))
+            full = os.path.join(HERE, 'out', 'gen', name + '_full.png')
+            img = bake_theme(theme, rows, full)
+            prov, tiles = tile_frame(img, 1, name, frame_chars(n), ns_dir)
+            n += 1
+            providers += prov
+            lines.append('frame %s %d %s' % (theme, rows, ' '.join('%04X:%d:%d' % (ord(c), x, a) for c, x, a in tiles)))
             ids.append(name)
     p = os.path.join(ns_dir, 'font', 'gui.json')
     os.makedirs(os.path.dirname(p), exist_ok=True)
