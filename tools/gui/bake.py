@@ -8,8 +8,10 @@ plaque and the row tabs, in Kinnari Bold) stay sharp at GUI scale 3.
 
 Geometry (GUI px, frame coordinates): slot grid origin (68, 48) -> chest slot origin (8, 18), so the
 frame's left edge is 60 px left of the chest and its top 30 px above it. The title is drawn at
-(8, 6) and a glyph's top sits at (title y + 7 - ascent), so ascent = 7 + 6 + 30 = 43 and the
-title starts with a 68 px step back (8 + 60).
+(8, 6) and a glyph's top sits at (title y + 7 - ascent). Vanilla draws a slot's box one px up and
+left of the slot (box 7..24 for a slot at 8), so the frame's sockets go there: the frame's left edge is
+61 px left of the chest (a 69 px step back) and its top 31 px above it, ascent = 7 + 6 + 31 = 44
+(1 px further than first built: the in-game test of 2026-10-30 showed the items high and left in their sockets).
 """
 import json, os, subprocess, sys
 from PIL import Image, ImageDraw, ImageFont
@@ -17,9 +19,9 @@ from PIL import Image, ImageDraw, ImageFont
 HERE = os.path.dirname(os.path.abspath(__file__))
 FONT = '/usr/share/fonts/truetype/tlwg/Kinnari-Bold.ttf'
 S = 3
-CUT = 169            # frame rows kept: the chest's own inventory starts 139 px below its top (169 - 30)
-ASCENT = 43
-SHIFT = -68
+CUT = 170            # frame rows kept: the chest's own inventory starts 139 px below its top (170 - 31)
+ASCENT = 44
+SHIFT = -69
 GY = 48
 
 # id -> (spec, glyph, plaque text, tab labels by row)
@@ -104,7 +106,7 @@ def bake_theme(theme, rows, out_png):
     json.dump(spec, open(tmp, 'w', encoding='utf-8'))
     subprocess.run([sys.executable, os.path.join(HERE, 'gui_frame2.py'), tmp], check=True, cwd=HERE, stdout=subprocess.DEVNULL)
     img = Image.open(raw).convert('RGBA')
-    cut = 61 + 18 * rows                          # the chest's own inventory starts 31 + 18 * rows below its top
+    cut = 62 + 18 * rows                          # the chest's own inventory starts 31 + 18 * rows below its top (frame top 31 above)
     img = img.crop((0, 0, img.width, cut))
     px = img.load()
     for x in range(44, 254):
@@ -122,7 +124,7 @@ def bake_theme(theme, rows, out_png):
 # rules in thai_forms below, stand in for the shaping Minecraft does not do).
 TITLE_SIZES = {'t1': 26, 't2': 22, 't3': 18}     # font px at x3
 CELL_W, CELL_H, BASE = 48, 96, 36                  # cell px at x3; baseline row in the cell
-PLAQUE_CX, PLAQUE_CY, PLAQUE_W = 81, -1.5, 86      # title coordinates (0 = the title's x, chest y)
+PLAQUE_CX, PLAQUE_CY, PLAQUE_W = 80, -2.5, 86      # title coordinates (0 = the title's x, chest y)
 PUA = 0xE300                                       # Kinnari's positional forms U+F700.. moved here
 TALL = {0x0E1B, 0x0E1D, 0x0E1F, 0x0E2C}
 UPPER = {0x0E31: 0xF710, 0x0E34: 0xF701, 0x0E35: 0xF702, 0x0E36: 0xF703, 0x0E37: 0xF704, 0x0E47: 0xF712, 0x0E4D: 0xF711}
@@ -366,5 +368,5 @@ def preview(frame_png, title, metrics, out_png, ink=(58, 33, 18)):
         cell = metrics[key][fc][3]
         tinted = Image.new('RGBA', cell.size, ink + (255,))
         tinted.putalpha(cell.getchannel('A'))
-        canvas.alpha_composite(tinted, ((x + 68) * S, (title_top(key) + 30) * S))
+        canvas.alpha_composite(tinted, ((x - SHIFT) * S, (title_top(key) + ASCENT - 13) * S))
     canvas.save(out_png)

@@ -25,7 +25,7 @@
       "type": "bitmap",
       "file": "knightsrealm:font/gui_t3.png",
       "height": 32,
-      "ascent": 25,
+      "ascent": 26,
       "chars": [
         "!\"#$%&'()*+,-./0",
         "123456789:;<=>?@",

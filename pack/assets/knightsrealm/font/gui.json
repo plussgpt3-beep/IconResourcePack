@@ -24,8 +24,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_main_1.png",
-      "height": 84,
-      "ascent": 43,
+      "height": 85,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -33,8 +33,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_main_2.png",
-      "height": 84,
-      "ascent": 43,
+      "height": 85,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -42,8 +42,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_main_3.png",
-      "height": 84,
-      "ascent": 43,
+      "height": 85,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -51,8 +51,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_main_4.png",
-      "height": 84,
-      "ascent": 43,
+      "height": 85,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -96,8 +96,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_oak_2_1.png",
-      "height": 97,
-      "ascent": 43,
+      "height": 98,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -105,8 +105,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_oak_2_2.png",
-      "height": 97,
-      "ascent": 43,
+      "height": 98,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -114,8 +114,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_oak_3_1.png",
-      "height": 115,
-      "ascent": 43,
+      "height": 116,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -123,8 +123,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_oak_3_2.png",
-      "height": 115,
-      "ascent": 43,
+      "height": 116,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -132,8 +132,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_oak_4_1.png",
-      "height": 133,
-      "ascent": 43,
+      "height": 134,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -141,8 +141,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_oak_4_2.png",
-      "height": 133,
-      "ascent": 43,
+      "height": 134,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -150,8 +150,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_oak_5_1.png",
-      "height": 151,
-      "ascent": 43,
+      "height": 152,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -159,8 +159,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_oak_5_2.png",
-      "height": 151,
-      "ascent": 43,
+      "height": 152,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -168,8 +168,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_oak_6_1.png",
-      "height": 169,
-      "ascent": 43,
+      "height": 170,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -177,8 +177,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_oak_6_2.png",
-      "height": 169,
-      "ascent": 43,
+      "height": 170,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -186,8 +186,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_treasury_2_1.png",
-      "height": 97,
-      "ascent": 43,
+      "height": 98,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -195,8 +195,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_treasury_2_2.png",
-      "height": 97,
-      "ascent": 43,
+      "height": 98,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -204,8 +204,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_treasury_3_1.png",
-      "height": 115,
-      "ascent": 43,
+      "height": 116,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -213,8 +213,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_treasury_3_2.png",
-      "height": 115,
-      "ascent": 43,
+      "height": 116,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -222,8 +222,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_treasury_4_1.png",
-      "height": 133,
-      "ascent": 43,
+      "height": 134,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -231,8 +231,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_treasury_4_2.png",
-      "height": 133,
-      "ascent": 43,
+      "height": 134,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -240,8 +240,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_treasury_5_1.png",
-      "height": 151,
-      "ascent": 43,
+      "height": 152,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -249,8 +249,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_treasury_5_2.png",
-      "height": 151,
-      "ascent": 43,
+      "height": 152,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -258,8 +258,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_treasury_6_1.png",
-      "height": 169,
-      "ascent": 43,
+      "height": 170,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -267,8 +267,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_treasury_6_2.png",
-      "height": 169,
-      "ascent": 43,
+      "height": 170,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -276,8 +276,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_registry_2_1.png",
-      "height": 97,
-      "ascent": 43,
+      "height": 98,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -285,8 +285,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_registry_2_2.png",
-      "height": 97,
-      "ascent": 43,
+      "height": 98,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -294,8 +294,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_registry_3_1.png",
-      "height": 115,
-      "ascent": 43,
+      "height": 116,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -303,8 +303,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_registry_3_2.png",
-      "height": 115,
-      "ascent": 43,
+      "height": 116,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -312,8 +312,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_registry_4_1.png",
-      "height": 133,
-      "ascent": 43,
+      "height": 134,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -321,8 +321,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_registry_4_2.png",
-      "height": 133,
-      "ascent": 43,
+      "height": 134,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -330,8 +330,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_registry_5_1.png",
-      "height": 151,
-      "ascent": 43,
+      "height": 152,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -339,8 +339,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_registry_5_2.png",
-      "height": 151,
-      "ascent": 43,
+      "height": 152,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -348,8 +348,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_registry_6_1.png",
-      "height": 169,
-      "ascent": 43,
+      "height": 170,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -357,8 +357,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_registry_6_2.png",
-      "height": 169,
-      "ascent": 43,
+      "height": 170,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -366,8 +366,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_coach_2_1.png",
-      "height": 97,
-      "ascent": 43,
+      "height": 98,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -375,8 +375,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_coach_2_2.png",
-      "height": 97,
-      "ascent": 43,
+      "height": 98,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -384,8 +384,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_coach_3_1.png",
-      "height": 115,
-      "ascent": 43,
+      "height": 116,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -393,8 +393,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_coach_3_2.png",
-      "height": 115,
-      "ascent": 43,
+      "height": 116,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -402,8 +402,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_coach_4_1.png",
-      "height": 133,
-      "ascent": 43,
+      "height": 134,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -411,8 +411,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_coach_4_2.png",
-      "height": 133,
-      "ascent": 43,
+      "height": 134,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -420,8 +420,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_coach_5_1.png",
-      "height": 151,
-      "ascent": 43,
+      "height": 152,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -429,8 +429,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_coach_5_2.png",
-      "height": 151,
-      "ascent": 43,
+      "height": 152,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -438,8 +438,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_coach_6_1.png",
-      "height": 169,
-      "ascent": 43,
+      "height": 170,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -447,8 +447,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_coach_6_2.png",
-      "height": 169,
-      "ascent": 43,
+      "height": 170,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -456,8 +456,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_store_2_1.png",
-      "height": 97,
-      "ascent": 43,
+      "height": 98,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -465,8 +465,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_store_2_2.png",
-      "height": 97,
-      "ascent": 43,
+      "height": 98,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -474,8 +474,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_store_3_1.png",
-      "height": 115,
-      "ascent": 43,
+      "height": 116,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -483,8 +483,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_store_3_2.png",
-      "height": 115,
-      "ascent": 43,
+      "height": 116,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -492,8 +492,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_store_4_1.png",
-      "height": 133,
-      "ascent": 43,
+      "height": 134,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -501,8 +501,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_store_4_2.png",
-      "height": 133,
-      "ascent": 43,
+      "height": 134,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -510,8 +510,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_store_5_1.png",
-      "height": 151,
-      "ascent": 43,
+      "height": 152,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -519,8 +519,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_store_5_2.png",
-      "height": 151,
-      "ascent": 43,
+      "height": 152,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -528,8 +528,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_store_6_1.png",
-      "height": 169,
-      "ascent": 43,
+      "height": 170,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -537,8 +537,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_store_6_2.png",
-      "height": 169,
-      "ascent": 43,
+      "height": 170,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -546,8 +546,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_guild_2_1.png",
-      "height": 97,
-      "ascent": 43,
+      "height": 98,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -555,8 +555,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_guild_2_2.png",
-      "height": 97,
-      "ascent": 43,
+      "height": 98,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -564,8 +564,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_guild_3_1.png",
-      "height": 115,
-      "ascent": 43,
+      "height": 116,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -573,8 +573,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_guild_3_2.png",
-      "height": 115,
-      "ascent": 43,
+      "height": 116,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -582,8 +582,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_guild_4_1.png",
-      "height": 133,
-      "ascent": 43,
+      "height": 134,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -591,8 +591,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_guild_4_2.png",
-      "height": 133,
-      "ascent": 43,
+      "height": 134,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -600,8 +600,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_guild_5_1.png",
-      "height": 151,
-      "ascent": 43,
+      "height": 152,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -609,8 +609,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_guild_5_2.png",
-      "height": 151,
-      "ascent": 43,
+      "height": 152,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -618,8 +618,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_guild_6_1.png",
-      "height": 169,
-      "ascent": 43,
+      "height": 170,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -627,8 +627,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_guild_6_2.png",
-      "height": 169,
-      "ascent": 43,
+      "height": 170,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -636,8 +636,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_bank_2_1.png",
-      "height": 97,
-      "ascent": 43,
+      "height": 98,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -645,8 +645,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_bank_2_2.png",
-      "height": 97,
-      "ascent": 43,
+      "height": 98,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -654,8 +654,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_bank_3_1.png",
-      "height": 115,
-      "ascent": 43,
+      "height": 116,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -663,8 +663,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_bank_3_2.png",
-      "height": 115,
-      "ascent": 43,
+      "height": 116,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -672,8 +672,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_bank_4_1.png",
-      "height": 133,
-      "ascent": 43,
+      "height": 134,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -681,8 +681,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_bank_4_2.png",
-      "height": 133,
-      "ascent": 43,
+      "height": 134,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -690,8 +690,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_bank_5_1.png",
-      "height": 151,
-      "ascent": 43,
+      "height": 152,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -699,8 +699,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_bank_5_2.png",
-      "height": 151,
-      "ascent": 43,
+      "height": 152,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -708,8 +708,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_bank_6_1.png",
-      "height": 169,
-      "ascent": 43,
+      "height": 170,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -717,8 +717,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_bank_6_2.png",
-      "height": 169,
-      "ascent": 43,
+      "height": 170,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -726,8 +726,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_clinic_2_1.png",
-      "height": 97,
-      "ascent": 43,
+      "height": 98,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -735,8 +735,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_clinic_2_2.png",
-      "height": 97,
-      "ascent": 43,
+      "height": 98,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -744,8 +744,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_clinic_3_1.png",
-      "height": 115,
-      "ascent": 43,
+      "height": 116,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -753,8 +753,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_clinic_3_2.png",
-      "height": 115,
-      "ascent": 43,
+      "height": 116,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -762,8 +762,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_clinic_4_1.png",
-      "height": 133,
-      "ascent": 43,
+      "height": 134,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -771,8 +771,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_clinic_4_2.png",
-      "height": 133,
-      "ascent": 43,
+      "height": 134,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -780,8 +780,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_clinic_5_1.png",
-      "height": 151,
-      "ascent": 43,
+      "height": 152,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -789,8 +789,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_clinic_5_2.png",
-      "height": 151,
-      "ascent": 43,
+      "height": 152,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -798,8 +798,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_clinic_6_1.png",
-      "height": 169,
-      "ascent": 43,
+      "height": 170,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -807,8 +807,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_clinic_6_2.png",
-      "height": 169,
-      "ascent": 43,
+      "height": 170,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -816,8 +816,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_market_2_1.png",
-      "height": 97,
-      "ascent": 43,
+      "height": 98,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -825,8 +825,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_market_2_2.png",
-      "height": 97,
-      "ascent": 43,
+      "height": 98,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -834,8 +834,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_market_3_1.png",
-      "height": 115,
-      "ascent": 43,
+      "height": 116,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -843,8 +843,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_market_3_2.png",
-      "height": 115,
-      "ascent": 43,
+      "height": 116,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -852,8 +852,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_market_4_1.png",
-      "height": 133,
-      "ascent": 43,
+      "height": 134,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -861,8 +861,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_market_4_2.png",
-      "height": 133,
-      "ascent": 43,
+      "height": 134,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -870,8 +870,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_market_5_1.png",
-      "height": 151,
-      "ascent": 43,
+      "height": 152,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -879,8 +879,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_market_5_2.png",
-      "height": 151,
-      "ascent": 43,
+      "height": 152,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -888,8 +888,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_market_6_1.png",
-      "height": 169,
-      "ascent": 43,
+      "height": 170,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -897,8 +897,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_market_6_2.png",
-      "height": 169,
-      "ascent": 43,
+      "height": 170,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -906,8 +906,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_royal_2_1.png",
-      "height": 97,
-      "ascent": 43,
+      "height": 98,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -915,8 +915,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_royal_2_2.png",
-      "height": 97,
-      "ascent": 43,
+      "height": 98,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -924,8 +924,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_royal_3_1.png",
-      "height": 115,
-      "ascent": 43,
+      "height": 116,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -933,8 +933,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_royal_3_2.png",
-      "height": 115,
-      "ascent": 43,
+      "height": 116,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -942,8 +942,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_royal_4_1.png",
-      "height": 133,
-      "ascent": 43,
+      "height": 134,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -951,8 +951,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_royal_4_2.png",
-      "height": 133,
-      "ascent": 43,
+      "height": 134,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -960,8 +960,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_royal_5_1.png",
-      "height": 151,
-      "ascent": 43,
+      "height": 152,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -969,8 +969,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_royal_5_2.png",
-      "height": 151,
-      "ascent": 43,
+      "height": 152,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -978,8 +978,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_royal_6_1.png",
-      "height": 169,
-      "ascent": 43,
+      "height": 170,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -987,8 +987,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_royal_6_2.png",
-      "height": 169,
-      "ascent": 43,
+      "height": 170,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -996,8 +996,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_forge_2_1.png",
-      "height": 97,
-      "ascent": 43,
+      "height": 98,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1005,8 +1005,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_forge_2_2.png",
-      "height": 97,
-      "ascent": 43,
+      "height": 98,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1014,8 +1014,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_forge_3_1.png",
-      "height": 115,
-      "ascent": 43,
+      "height": 116,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1023,8 +1023,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_forge_3_2.png",
-      "height": 115,
-      "ascent": 43,
+      "height": 116,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1032,8 +1032,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_forge_4_1.png",
-      "height": 133,
-      "ascent": 43,
+      "height": 134,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1041,8 +1041,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_forge_4_2.png",
-      "height": 133,
-      "ascent": 43,
+      "height": 134,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1050,8 +1050,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_forge_5_1.png",
-      "height": 151,
-      "ascent": 43,
+      "height": 152,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1059,8 +1059,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_forge_5_2.png",
-      "height": 151,
-      "ascent": 43,
+      "height": 152,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1068,8 +1068,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_forge_6_1.png",
-      "height": 169,
-      "ascent": 43,
+      "height": 170,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1077,8 +1077,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_forge_6_2.png",
-      "height": 169,
-      "ascent": 43,
+      "height": 170,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1086,8 +1086,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_arena_2_1.png",
-      "height": 97,
-      "ascent": 43,
+      "height": 98,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1095,8 +1095,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_arena_2_2.png",
-      "height": 97,
-      "ascent": 43,
+      "height": 98,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1104,8 +1104,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_arena_3_1.png",
-      "height": 115,
-      "ascent": 43,
+      "height": 116,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1113,8 +1113,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_arena_3_2.png",
-      "height": 115,
-      "ascent": 43,
+      "height": 116,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1122,8 +1122,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_arena_4_1.png",
-      "height": 133,
-      "ascent": 43,
+      "height": 134,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1131,8 +1131,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_arena_4_2.png",
-      "height": 133,
-      "ascent": 43,
+      "height": 134,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1140,8 +1140,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_arena_5_1.png",
-      "height": 151,
-      "ascent": 43,
+      "height": 152,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1149,8 +1149,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_arena_5_2.png",
-      "height": 151,
-      "ascent": 43,
+      "height": 152,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1158,8 +1158,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_arena_6_1.png",
-      "height": 169,
-      "ascent": 43,
+      "height": 170,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1167,8 +1167,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_arena_6_2.png",
-      "height": 169,
-      "ascent": 43,
+      "height": 170,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1176,8 +1176,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_board_2_1.png",
-      "height": 97,
-      "ascent": 43,
+      "height": 98,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1185,8 +1185,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_board_2_2.png",
-      "height": 97,
-      "ascent": 43,
+      "height": 98,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1194,8 +1194,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_board_3_1.png",
-      "height": 115,
-      "ascent": 43,
+      "height": 116,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1203,8 +1203,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_board_3_2.png",
-      "height": 115,
-      "ascent": 43,
+      "height": 116,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1212,8 +1212,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_board_4_1.png",
-      "height": 133,
-      "ascent": 43,
+      "height": 134,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1221,8 +1221,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_board_4_2.png",
-      "height": 133,
-      "ascent": 43,
+      "height": 134,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1230,8 +1230,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_board_5_1.png",
-      "height": 151,
-      "ascent": 43,
+      "height": 152,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1239,8 +1239,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_board_5_2.png",
-      "height": 151,
-      "ascent": 43,
+      "height": 152,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1248,8 +1248,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_board_6_1.png",
-      "height": 169,
-      "ascent": 43,
+      "height": 170,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1257,8 +1257,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_board_6_2.png",
-      "height": 169,
-      "ascent": 43,
+      "height": 170,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1266,8 +1266,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_admin_2_1.png",
-      "height": 97,
-      "ascent": 43,
+      "height": 98,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1275,8 +1275,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_admin_2_2.png",
-      "height": 97,
-      "ascent": 43,
+      "height": 98,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1284,8 +1284,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_admin_3_1.png",
-      "height": 115,
-      "ascent": 43,
+      "height": 116,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1293,8 +1293,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_admin_3_2.png",
-      "height": 115,
-      "ascent": 43,
+      "height": 116,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1302,8 +1302,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_admin_4_1.png",
-      "height": 133,
-      "ascent": 43,
+      "height": 134,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1311,8 +1311,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_admin_4_2.png",
-      "height": 133,
-      "ascent": 43,
+      "height": 134,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1320,8 +1320,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_admin_5_1.png",
-      "height": 151,
-      "ascent": 43,
+      "height": 152,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1329,8 +1329,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_admin_5_2.png",
-      "height": 151,
-      "ascent": 43,
+      "height": 152,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1338,8 +1338,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_admin_6_1.png",
-      "height": 169,
-      "ascent": 43,
+      "height": 170,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1347,8 +1347,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_admin_6_2.png",
-      "height": 169,
-      "ascent": 43,
+      "height": 170,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1356,8 +1356,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_stable_2_1.png",
-      "height": 97,
-      "ascent": 43,
+      "height": 98,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1365,8 +1365,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_stable_2_2.png",
-      "height": 97,
-      "ascent": 43,
+      "height": 98,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1374,8 +1374,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_stable_3_1.png",
-      "height": 115,
-      "ascent": 43,
+      "height": 116,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1383,8 +1383,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_stable_3_2.png",
-      "height": 115,
-      "ascent": 43,
+      "height": 116,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1392,8 +1392,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_stable_4_1.png",
-      "height": 133,
-      "ascent": 43,
+      "height": 134,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1401,8 +1401,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_stable_4_2.png",
-      "height": 133,
-      "ascent": 43,
+      "height": 134,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1410,8 +1410,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_stable_5_1.png",
-      "height": 151,
-      "ascent": 43,
+      "height": 152,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1419,8 +1419,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_stable_5_2.png",
-      "height": 151,
-      "ascent": 43,
+      "height": 152,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1428,8 +1428,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_stable_6_1.png",
-      "height": 169,
-      "ascent": 43,
+      "height": 170,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1437,8 +1437,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_stable_6_2.png",
-      "height": 169,
-      "ascent": 43,
+      "height": 170,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1446,8 +1446,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_gaol_2_1.png",
-      "height": 97,
-      "ascent": 43,
+      "height": 98,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1455,8 +1455,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_gaol_2_2.png",
-      "height": 97,
-      "ascent": 43,
+      "height": 98,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1464,8 +1464,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_gaol_3_1.png",
-      "height": 115,
-      "ascent": 43,
+      "height": 116,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1473,8 +1473,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_gaol_3_2.png",
-      "height": 115,
-      "ascent": 43,
+      "height": 116,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1482,8 +1482,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_gaol_4_1.png",
-      "height": 133,
-      "ascent": 43,
+      "height": 134,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1491,8 +1491,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_gaol_4_2.png",
-      "height": 133,
-      "ascent": 43,
+      "height": 134,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1500,8 +1500,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_gaol_5_1.png",
-      "height": 151,
-      "ascent": 43,
+      "height": 152,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1509,8 +1509,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_gaol_5_2.png",
-      "height": 151,
-      "ascent": 43,
+      "height": 152,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1518,8 +1518,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_gaol_6_1.png",
-      "height": 169,
-      "ascent": 43,
+      "height": 170,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1527,8 +1527,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_gaol_6_2.png",
-      "height": 169,
-      "ascent": 43,
+      "height": 170,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1536,8 +1536,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_heraldry_2_1.png",
-      "height": 97,
-      "ascent": 43,
+      "height": 98,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1545,8 +1545,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_heraldry_2_2.png",
-      "height": 97,
-      "ascent": 43,
+      "height": 98,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1554,8 +1554,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_heraldry_3_1.png",
-      "height": 115,
-      "ascent": 43,
+      "height": 116,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1563,8 +1563,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_heraldry_3_2.png",
-      "height": 115,
-      "ascent": 43,
+      "height": 116,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1572,8 +1572,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_heraldry_4_1.png",
-      "height": 133,
-      "ascent": 43,
+      "height": 134,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1581,8 +1581,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_heraldry_4_2.png",
-      "height": 133,
-      "ascent": 43,
+      "height": 134,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1590,8 +1590,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_heraldry_5_1.png",
-      "height": 151,
-      "ascent": 43,
+      "height": 152,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1599,8 +1599,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_heraldry_5_2.png",
-      "height": 151,
-      "ascent": 43,
+      "height": 152,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1608,8 +1608,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_heraldry_6_1.png",
-      "height": 169,
-      "ascent": 43,
+      "height": 170,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1617,8 +1617,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_heraldry_6_2.png",
-      "height": 169,
-      "ascent": 43,
+      "height": 170,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1626,8 +1626,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_throne_2_1.png",
-      "height": 97,
-      "ascent": 43,
+      "height": 98,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1635,8 +1635,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_throne_2_2.png",
-      "height": 97,
-      "ascent": 43,
+      "height": 98,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1644,8 +1644,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_throne_3_1.png",
-      "height": 115,
-      "ascent": 43,
+      "height": 116,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1653,8 +1653,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_throne_3_2.png",
-      "height": 115,
-      "ascent": 43,
+      "height": 116,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1662,8 +1662,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_throne_4_1.png",
-      "height": 133,
-      "ascent": 43,
+      "height": 134,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1671,8 +1671,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_throne_4_2.png",
-      "height": 133,
-      "ascent": 43,
+      "height": 134,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1680,8 +1680,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_throne_5_1.png",
-      "height": 151,
-      "ascent": 43,
+      "height": 152,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1689,8 +1689,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_throne_5_2.png",
-      "height": 151,
-      "ascent": 43,
+      "height": 152,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1698,8 +1698,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_throne_6_1.png",
-      "height": 169,
-      "ascent": 43,
+      "height": 170,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1707,8 +1707,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_throne_6_2.png",
-      "height": 169,
-      "ascent": 43,
+      "height": 170,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1716,8 +1716,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_harbor_2_1.png",
-      "height": 97,
-      "ascent": 43,
+      "height": 98,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1725,8 +1725,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_harbor_2_2.png",
-      "height": 97,
-      "ascent": 43,
+      "height": 98,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1734,8 +1734,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_harbor_3_1.png",
-      "height": 115,
-      "ascent": 43,
+      "height": 116,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1743,8 +1743,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_harbor_3_2.png",
-      "height": 115,
-      "ascent": 43,
+      "height": 116,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1752,8 +1752,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_harbor_4_1.png",
-      "height": 133,
-      "ascent": 43,
+      "height": 134,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1761,8 +1761,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_harbor_4_2.png",
-      "height": 133,
-      "ascent": 43,
+      "height": 134,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1770,8 +1770,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_harbor_5_1.png",
-      "height": 151,
-      "ascent": 43,
+      "height": 152,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1779,8 +1779,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_harbor_5_2.png",
-      "height": 151,
-      "ascent": 43,
+      "height": 152,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1788,8 +1788,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_harbor_6_1.png",
-      "height": 169,
-      "ascent": 43,
+      "height": 170,
+      "ascent": 44,
       "chars": [
         ""
       ]
@@ -1797,8 +1797,8 @@
     {
       "type": "bitmap",
       "file": "knightsrealm:font/gui_harbor_6_2.png",
-      "height": 169,
-      "ascent": 43,
+      "height": 170,
+      "ascent": 44,
       "chars": [
         ""
       ]
