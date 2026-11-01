@@ -389,6 +389,7 @@ roster
 royal_petition
 royal_pharmacy
 sack
+search
 seat_lost
 secretariat
 sell

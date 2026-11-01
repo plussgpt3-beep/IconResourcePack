@@ -202,12 +202,19 @@ def floor_div(a, b):
     return a // b
 
 
-def title_layout(text, metrics):
-    """(font key, [(x in GUI px from the title's start, font codepoint)]) for a title, centred on the plaque."""
-    for key in TITLE_SIZES:
+def is_mark(ch):
+    c = ord(ch)
+    return c == 0x0E31 or 0x0E34 <= c <= 0x0E3A or 0x0E47 <= c <= 0x0E4E
+
+
+def layout(text, metrics, sizes, width, cx, tail=''):
+    """(font key, [(x in GUI px from the title's start, font codepoint)]): the largest size in {sizes} whose
+    text fits {width}, centred on {cx}; too wide even in the smallest = cut and ended with "..".
+    Same as GuiFrames.layout in the plugin."""
+    for i, key in enumerate(sizes):
         table = metrics[key]
         glyphs, pen = [], 0
-        for c in thai_forms(text):
+        for c in thai_forms(text + tail):
             fc = font_cp(c)
             if c == 0x20:
                 pen += table[0x20][1]
@@ -217,9 +224,85 @@ def title_layout(text, metrics):
             lsb, adv, mc, _ = table[fc]
             glyphs.append((pen + lsb, fc))
             pen += adv
-        if floor_div(pen + 1, 3) <= PLAQUE_W or key == list(TITLE_SIZES)[-1]:
-            start = PLAQUE_CX - floor_div(pen + 3, 6)
+        last = i == len(sizes) - 1
+        if last and floor_div(pen + 1, 3) > width + 2 and len(text) > 2:
+            cut = text[:-1]
+            while cut and (is_mark(cut[-1]) or cut.endswith(' ')):
+                cut = cut[:-1]
+            return layout(cut, metrics, sizes, width, cx, '..')
+        if floor_div(pen + 1, 3) <= width or last:
+            start = cx - floor_div(pen + 3, 6)
             return key, [(start + floor_div(x + 1, 3), fc) for x, fc in glyphs]
+
+
+def title_layout(text, metrics):
+    return layout(text, metrics, list(TITLE_SIZES), PLAQUE_W, PLAQUE_CX)
+
+
+# ---------------------------------------------------------------------------------------------
+# Row tabs (2026-11-01, the user: "แก้ไขหมวดซ้ายมือให้มีการยื่นออกมาเป็นแผ่นป้ายเหมือนเมนูหลัก ทุกเมนู"): a menu's
+# row labels (the coloured panes in its first column) become boards sticking out on the left of the frame, as on
+# the main menu. Each theme's board is cut from its own frame painted with tabs (marker left clear), one glyph per
+# row (the same texture at six ascents); the marker is a white strip tinted with the label's colour; the label is
+# written in the title fonts at row ascents (gui_tab_<size>_<row>, and _s for the 1 px shadow under it).
+TAB_X, TAB_W_PX, TAB_Y0 = 2, 50, 49          # frame px: the board from x 2 to the post at 52, row 0 top at 49
+MARKER_X, MARKER_DY = 8, 3                   # the colour strip, 3 x 10
+TAB_SIZES = ['t1', 't2', 't3']
+TAB_CX, TAB_W = SHIFT + 31, 36               # label centred on frame x 31 (title coords), at most 36 px wide
+TAB_INK = (244, 228, 196)
+
+
+def tab_char(theme, row):
+    return chr(0xE800 + THEMES.index(theme) * 8 + row)
+
+
+def marker_char(row):
+    return chr(0xE7F0 + row)
+
+
+def tab_ascent(row, dy=0):
+    """Ascent of a glyph whose top is {dy} px below the top of row {row}'s tab (frame top = ASCENT)."""
+    return ASCENT - (TAB_Y0 + 18 * row + dy)
+
+
+def tab_text_ascent(key, row, shadow=False):
+    xh = 16 * TITLE_SIZES[key] / 26 / 3
+    centre = TAB_Y0 + 18 * row + 7.5 - (ASCENT - 13)    # chest y of the tab's middle
+    base = round(centre + xh / 2) + (1 if shadow else 0)
+    return 13 - (base - BASE // 3)
+
+
+def bake_tab(theme, out_png):
+    spec = {'rows': 1, 'theme': theme, 'layout': ['x'] * 9, 'tabs': [[0, [0, 0, 0, 0]]]}
+    raw = os.path.join(HERE, 'out', 'gen', 'tab_%s_raw.png' % theme)
+    os.makedirs(os.path.dirname(raw), exist_ok=True)
+    spec['out'] = raw
+    tmp = raw[:-4] + '.json'
+    json.dump(spec, open(tmp, 'w', encoding='utf-8'))
+    subprocess.run([sys.executable, os.path.join(HERE, 'gui_frame2.py'), tmp], check=True, cwd=HERE, stdout=subprocess.DEVNULL)
+    img = Image.open(raw).convert('RGBA').crop((TAB_X, TAB_Y0, TAB_X + TAB_W_PX, TAB_Y0 + 16))
+    img.save(out_png)
+    return img
+
+
+def write_tabs(ns_dir, lines):
+    providers = []
+    for theme in THEMES:
+        name = 'gui_tab_' + theme
+        img = bake_tab(theme, os.path.join(ns_dir, 'textures', 'font', name + '.png'))
+        for row in range(6):
+            providers.append({'type': 'bitmap', 'file': 'knightsrealm:font/' + name + '.png',
+                              'height': 16, 'ascent': tab_ascent(row), 'chars': [tab_char(theme, row)]})
+        lines.append('tab %s %04X %d' % (theme, ord(tab_char(theme, 0)), ink_width(img) + 1))
+    strip = Image.new('RGBA', (3, 10), (255, 255, 255, 255))
+    for y in range(10):
+        strip.putpixel((2, y), (215, 215, 215, 255))
+    strip.save(os.path.join(ns_dir, 'textures', 'font', 'gui_tab_marker.png'))
+    for row in range(6):
+        providers.append({'type': 'bitmap', 'file': 'knightsrealm:font/gui_tab_marker.png',
+                          'height': 10, 'ascent': tab_ascent(row, MARKER_DY), 'chars': [marker_char(row)]})
+    lines.append('marker %04X %d %d %d' % (ord(marker_char(0)), 4, TAB_X, MARKER_X))
+    return providers
 
 
 def write_title_fonts(ns_dir, metrics):
@@ -245,13 +328,19 @@ def write_title_fonts(ns_dir, metrics):
         xh = 16 * TITLE_SIZES[key] / 26 / 3        # height of the body of a consonant, GUI px
         base = round(PLAQUE_CY + xh / 2)            # baseline, chest y
         ascent = 13 - (base - BASE // 3)            # glyph top = title y (6) + 7 - ascent
-        p = os.path.join(ns_dir, 'font', 'gui_' + key + '.json')
-        os.makedirs(os.path.dirname(p), exist_ok=True)
-        with open(p, 'w', newline='\n', encoding='utf-8') as f:
-            json.dump({'providers': [{'type': 'space', 'advances': SPACES},
-                                     {'type': 'bitmap', 'file': 'knightsrealm:font/gui_' + key + '.png',
-                                      'height': CELL_H // 3, 'ascent': ascent, 'chars': chars}]},
-                      f, ensure_ascii=False, indent=2)
+        fonts = {'gui_' + key: ascent}
+        if key in TAB_SIZES:
+            for row in range(6):
+                fonts['gui_tab_%s_%d' % (key, row)] = tab_text_ascent(key, row)
+                fonts['gui_tab_%s_%ds' % (key, row)] = tab_text_ascent(key, row, shadow=True)
+        for font, asc in fonts.items():
+            p = os.path.join(ns_dir, 'font', font + '.json')
+            os.makedirs(os.path.dirname(p), exist_ok=True)
+            with open(p, 'w', newline='\n', encoding='utf-8') as f:
+                json.dump({'providers': [{'type': 'space', 'advances': SPACES},
+                                         {'type': 'bitmap', 'file': 'knightsrealm:font/gui_' + key + '.png',
+                                          'height': CELL_H // 3, 'ascent': asc, 'chars': chars}]},
+                          f, ensure_ascii=False, indent=2)
 
 
 # Minecraft cannot load a font glyph larger than 256 x 256 texture px (it draws a box instead, seen in the
@@ -319,6 +408,7 @@ def write_font(ns_dir, metrics_out=None):
             providers += prov
             lines.append('frame %s %d %s' % (theme, rows, ' '.join('%04X:%d:%d' % (ord(c), x, a) for c, x, a in tiles)))
             ids.append(name)
+    providers += write_tabs(ns_dir, lines)
     p = os.path.join(ns_dir, 'font', 'gui.json')
     os.makedirs(os.path.dirname(p), exist_ok=True)
     with open(p, 'w', newline='\n', encoding='utf-8') as f:
@@ -337,12 +427,18 @@ def write_font(ns_dir, metrics_out=None):
             for sample in SAMPLES:
                 key, glyphs = title_layout(sample, metrics)
                 f.write('sample %s %s|%s\n' % (key, ' '.join('%d:%04X' % g for g in glyphs), sample))
+            for sample in TAB_SAMPLES:
+                key, glyphs = layout(sample, metrics, TAB_SIZES, TAB_W, TAB_CX)
+                f.write('tabsample %s %s|%s\n' % (key, ' '.join('%d:%04X' % g for g in glyphs), sample))
     return ids + ['gui_title']
 
 
 # titles whose layout the plugin's test checks against this file
 SAMPLES = ['ท้องพระคลัง GearFord', 'นายทะเบียนที่ดินราษฎร์ GearFord', 'ปุ่ม ป่า ฟ้า ฝั่ง ปิ่น', 'ญาติ ฐูป ฎุ ฏู',
-           'น้ำ ที่ ก่อ กี่ ก็ ผู้ ปื้น', 'ฎีกา #12 2/3', 'การค้าระหว่างเมือง', 'อาชีพ', 'แลกของกับ Bpor2_x']
+           'น้ำ ที่ ก่อ กี่ ก็ ผู้ ปื้น', 'ฎีกา #12 2/3', 'การค้าระหว่างเมือง', 'อาชีพ', 'แลกของกับ Bpor2_x',
+           'เบิกยา | คลังยาหลวงแห่งมหานครหลวงใหญ่ GearFord Stormhold']
+TAB_SAMPLES = ['วัสดุ', 'กรรมกร', 'จัดการ', 'สถานะ', 'สัตว์ของฉัน', 'ข้อเสนอการค้า', 'เควส & การค้า', 'นำทาง',
+               'ที่ดินราษฎร์ทั้งหมดของเมือง']
 
 
 if __name__ == '__main__':
