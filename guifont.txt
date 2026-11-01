@@ -95,25 +95,25 @@ frame harbor 3 E6E0:0:132 E6E1:131:129
 frame harbor 4 E6E8:0:132 E6E9:131:129
 frame harbor 5 E6F0:0:132 E6F1:131:129
 frame harbor 6 E6F8:0:132 E6F9:131:129
-tab oak E800 51
-tab treasury E808 51
-tab registry E810 51
-tab coach E818 51
-tab store E820 51
-tab guild E828 51
-tab bank E830 51
-tab clinic E838 51
-tab market E840 51
-tab royal E848 51
-tab forge E850 51
-tab arena E858 51
-tab board E860 51
-tab admin E868 51
-tab stable E870 51
-tab gaol E878 51
-tab heraldry E880 51
-tab throne E888 51
-tab harbor E890 51
+tab oak E800 51 0
+tab treasury E808 51 0
+tab registry E810 51 1
+tab coach E818 51 0
+tab store E820 51 0
+tab guild E828 51 0
+tab bank E830 51 0
+tab clinic E838 51 0
+tab market E840 51 0
+tab royal E848 51 0
+tab forge E850 51 0
+tab arena E858 51 0
+tab board E860 51 0
+tab admin E868 51 0
+tab stable E870 51 0
+tab gaol E878 51 0
+tab heraldry E880 51 0
+tab throne E888 51 0
+tab harbor E890 51 0
 marker E7F0 4 2 8
 space t1 12
 glyph t1 0021 2 9 3

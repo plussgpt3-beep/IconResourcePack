@@ -285,6 +285,14 @@ def bake_tab(theme, out_png):
     return img
 
 
+def board_is_light(img):
+    """Whether a tab board is pale wood: the mean luminance of its opaque pixels over 100 (of 255)."""
+    px = [p for p in img.convert('RGBA').getdata() if p[3] > 200]
+    if not px:
+        return False
+    return sum(0.2126 * p[0] + 0.7152 * p[1] + 0.0722 * p[2] for p in px) / len(px) > 100
+
+
 def write_tabs(ns_dir, lines):
     providers = []
     for theme in THEMES:
@@ -293,7 +301,9 @@ def write_tabs(ns_dir, lines):
         for row in range(6):
             providers.append({'type': 'bitmap', 'file': 'knightsrealm:font/' + name + '.png',
                               'height': 16, 'ascent': tab_ascent(row), 'chars': [tab_char(theme, row)]})
-        lines.append('tab %s %04X %d' % (theme, ord(tab_char(theme, 0)), ink_width(img) + 1))
+        # a pale board (registry's birch) takes dark ink, the dark ones parchment ink (the user, 2026-11-01:
+        # "ทำให้ข้อความหมวดหมู่สีไม่กลืนกับbackground")
+        lines.append('tab %s %04X %d %d' % (theme, ord(tab_char(theme, 0)), ink_width(img) + 1, 1 if board_is_light(img) else 0))
     strip = Image.new('RGBA', (3, 10), (255, 255, 255, 255))
     for y in range(10):
         strip.putpixel((2, y), (215, 215, 215, 255))
