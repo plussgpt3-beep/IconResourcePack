@@ -36,6 +36,16 @@ medallion whose rim shows the Tier (`icons/_tools.py`).
 
 The zip is reproducible: the same icons always give the same SHA-1. `icons.txt` lists the ids in the pack.
 
+## NPC skins (a second, separate pack)
+
+`KnightsRealmNpcSkins.zip` (2026-11-11) holds the skins of the capitals' NPCs: 50 roles (14 city officials, 36 skill
+masters) for each of the two kingdoms, painted in code by `tools/npcskins/skins.py` from the specs in
+`tools/npcskins/npcs.py`. `python3 tools/npcskins/build.py` writes `npcskins/pack/` and the zip (reproducible) and prints
+its SHA-1; `npcskins/skins.txt` lists the role ids. The plugin spawns each NPC as a Mannequin whose profile texture is
+`knightsrealm:entity/npc/<gf|sh>/<id>`, and hands this pack out from `resource-packs.npc-skins` in its own config.yml
+(commit-pinned raw URL and SHA-1), so changing a skin means a new commit here and a new plugin build. The icon pack is
+not touched by any of this.
+
 ## Licence
 
 Copyright (c) 2026 KnightsRealm. **All rights reserved** — see [LICENSE](LICENSE). The repository is public only so the
