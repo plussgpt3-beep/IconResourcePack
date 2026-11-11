@@ -5,7 +5,10 @@ cupboard's back and anything that hangs on a wall are at the south side (z = 16)
 
 Textures are the game's own block textures, so the furniture follows whatever texture pack the player wears and
 matches the houses. Letters: w planks, l beam, c cloth, r second cloth, m iron, d dark iron, g gold, s stone, x wax,
-f flame (glows), k barrel side, t barrel top, b books, p pot, h hay, q parchment.
+f flame (glows), k barrel side, t barrel top, b books, p pot, h hay, q parchment, C carved wood, T gold braid, W linen,
+z water, i marble, a fruit; E the kingdom's device, K a keyboard, G an open book, D a door panel (these four are
+stretched over one face). The textures themselves are painted in textures.py (2026-11-11 22:18: the game's plain block
+textures looked flat on furniture).
 """
 
 TEX = {
@@ -159,3 +162,100 @@ SOLID = {'table': 1, 'table_long': 1, 'counter': 1, 'cupboard': 2, 'shelf_unit':
          'candelabra': 2, 'brazier': 1, 'workbench': 1, 'desk': 1, 'alchemy_table': 1, 'barrel_table': 1, 'throne': 2, 'treasure_chest': 1}
 WIDE = {'table_long': (-1, 1), 'bench': (-1, 1)}                   # cells along the width a piece covers beside its own (left, right)
 LIGHT = {'chandelier': 15, 'candelabra': 14, 'brazier': 15}          # pieces that light the room: the plugin's list sets a light block with them
+
+
+# ------------------------------------------------------------------ 2026-11-11: the second set (the user saw the draft), and carving, braid and devices on the first
+def _sh(els, dx=0, dz=0):
+    return [dict(e, a=(e['a'][0] + dx, e['a'][1], e['a'][2] + dz), b=(e['b'][0] + dx, e['b'][1], e['b'][2] + dz)) for e in els]
+
+
+def _dress(name, test, tex=None, **over):
+    """Another texture on the boxes of a piece that pass the test (the whole box, or single faces)."""
+    n = 0
+    for e in M[name]:
+        if test(e):
+            n += 1
+            if tex: e['tex'] = tex
+            if over: e['over'] = dict(e['over'], **over)
+    assert n, name
+
+
+_dress('cupboard', lambda e: e['a'][2] == 2.3 and e['tex'] == 'l', north='D')
+_dress('counter', lambda e: e['a'][2] == 2.6, north='D')
+_dress('tapestry', lambda e: e['tex'] == 'r', tex='E')
+_dress('tapestry', lambda e: e['tex'] == 'g' and e['a'][1] in (24, 7), tex='T')
+_dress('throne', lambda e: e['a'] == (2, 9, 12.5), north='C')
+_dress('throne', lambda e: e['a'] == (2, 3, 2), north='C', east='C', west='C')
+_dress('pew', lambda e: e['b'][0] - e['a'][0] == 1.5, east='C', west='C')
+_dress('desk', lambda e: e['a'] == (2, 8, 3), north='D')
+_dress('treasure_chest', lambda e: e['a'] == (1, 0, 3), north='C')
+_dress('workbench', lambda e: e['a'][1] == 11 and e['tex'] == 'w', north='C')
+_dress('crate', lambda e: e['a'] == (1, 0, 1), north='C', south='C', east='C', west='C')
+_dress('table_long', lambda e: e['a'][1] == 6, tex='C')
+_dress('chair', lambda e: e['a'][1] in (16, 11) and e['tex'] == 'w', tex='C')
+M['shelf_unit'] += [box(2.5, 11.9, 7, 13.5, 16.5, 14.5, 'b', over={'up': 'l'}), box(8.5, 21.4, 7.5, 13, 25.5, 14, 'b', over={'up': 'l'})]
+M['table'] += [box(1, 12.4, 1, 15, 13, 15, 'C')]
+M['bench'] += [box(-15, 6.4, 4, 31, 7, 4.6, 'C')]
+
+# church and palace
+M['altar'] = ([box(0, 0, 2, 16, 2, 14, 's'), box(2, 2, 4, 14, 11, 12, 's'), box(0, 11, 2, 16, 13, 14, 's'), box(1, 13, 2, 15, 13.5, 14, 'r'), box(4, 6, 1.6, 12, 13, 2, 'E'),
+               box(1, 13.5, 2, 15, 13.8, 3, 'T'), box(1, 13.5, 13, 15, 13.8, 14, 'T'), box(4, 5.4, 1.5, 12, 6, 2.1, 'T'), box(7.5, 13.5, 10, 8.5, 23, 11, 'g'), box(5.5, 19, 10, 10.5, 20, 11, 'g')]
+              + candle(2, 13.8, 8, 5) + candle(12.5, 13.8, 8, 5))
+M['pulpit'] = [box(4, 0, 4, 12, 10, 12, 'C'), box(1, 10, 1, 15, 12, 15, 'l'), box(1, 12, 1, 15, 22, 2.5, 'w', over={'north': 'C'}), box(1, 12, 2.5, 2.5, 22, 15, 'w', over={'west': 'C'}),
+               box(13.5, 12, 2.5, 15, 22, 15, 'w', over={'east': 'C'}), box(0.5, 22, 0.5, 15.5, 23.5, 3, 'l'), box(5, 23.5, 1, 11, 24.3, 2.8, 'q', over={'up': 'G'}), box(5, 15, 0.6, 11, 21, 1, 'E'),
+               box(4, 0, 12, 12, 5, 16, 'w'), box(0.5, 9.4, 0.5, 15.5, 10, 15.5, 'T')]
+M['organ'] = ([box(0, 0, 6, 16, 14, 16, 'w', over={'north': 'C'}), box(0, 14, 12, 16, 31, 16, 'w', over={'north': 'C'}), box(0, 31, 9, 16, 32, 16, 'l'), box(1, 10, 2, 15, 11.5, 6.5, 'x', over={'up': 'K'}),
+               box(0, 0, 2, 1.5, 11.5, 6.5, 'C'), box(14.5, 0, 2, 16, 11.5, 6.5, 'C'), box(0, 29, 8.4, 16, 31, 9, 'T'), box(3, 0, 3, 13, 1, 6, 'l')]
+              + [box(1 + i * 2.1, 14, 10, 2.6 + i * 2.1, 20 + (10, 6, 2, 0, 2, 6, 10)[i], 11.6, 'g' if i in (0, 3, 6) else 'm') for i in range(7)])
+M['font'] = [box(4, 0, 4, 12, 2, 12, 's'), box(6, 2, 6, 10, 9, 10, 's'), box(2, 9, 2, 14, 13, 14, 's'), box(3.5, 13, 3.5, 12.5, 13.2, 12.5, 'z'), box(1.5, 12, 1.5, 14.5, 13.6, 3, 's'),
+             box(1.5, 12, 13, 14.5, 13.6, 14.5, 's'), box(1.5, 12, 3, 3, 13.6, 13, 's'), box(13, 12, 3, 14.5, 13.6, 13, 's'), box(5.5, 5, 5.5, 10.5, 6, 10.5, 'g')]
+M['statue'] = [box(2, 0, 2, 14, 4, 14, 's'), box(1.5, 3.4, 1.5, 14.5, 4, 14.5, 'i'), box(4.5, 4, 6, 7.5, 13, 10, 'i'), box(8.5, 4, 6, 11.5, 13, 10, 'i'), box(4, 13, 5.5, 12, 22, 10.5, 'i'), box(2, 14, 6, 4, 22, 10, 'i'),
+               box(12, 14, 6, 14, 22, 10, 'i'), box(5.5, 22, 5.5, 10.5, 27, 10.5, 'i'), box(7.5, 27, 5.5, 8.5, 29, 10.5, 'g'), box(7.5, 4, 3.5, 8.5, 18, 4.5, 'm'), box(5.5, 17, 3.4, 10.5, 18, 4.6, 'g'),
+               box(1.2, 10, 4.8, 2, 19, 10.5, 'm'), box(4, 16, 10.5, 12, 21, 11, 'r'), box(4.5, 6, 10, 11.5, 16, 10.6, 'r')]
+M['four_poster'] = _sh([box(-8, 0, 0, 24, 5, 32, 'w', over={'north': 'C', 'east': 'C', 'west': 'C'}), box(-7, 5, 1, 23, 8, 31, 'W'), box(-7.2, 5, 1, 23.2, 8.4, 22, 'r'), box(-7.2, 7.8, 21, 23.2, 8.5, 22, 'T'),
+                        box(-5, 8, 24, 6, 10, 30, 'W'), box(10, 8, 24, 21, 10, 30, 'W'), box(-8, 5, 30.5, 24, 18, 32, 'w', over={'north': 'C'}), box(-8, 30, 0, 24, 32, 32, 'w', over={'down': 'c'}),
+                        box(-8, 26, 0, 24, 30, 0.6, 'r'), box(-8, 26, 0.6, -7.4, 30, 32, 'r'), box(23.4, 26, 0.6, 24, 30, 32, 'r'), box(-8, 25, 0, 24, 26, 0.7, 'T'), box(-8, 25, 0.7, -7.3, 26, 32, 'T'),
+                        box(23.3, 25, 0.7, 24, 26, 32, 'T')] + [box(x, 0, z, x + 2, 30, z + 2, 'C') for x in (-8, 22) for z in (0, 30)]
+                       + [box(x, y, z, x + 2, y + 1.5, z + 2, 'g') for x in (-8, 22) for z in (0, 30) for y in (12, 28.5)], dx=8)
+M['royal_table'] = ([box(-8, 13, 1, 24, 15, 15, 'w'), box(-8, 12.4, 1, 24, 13, 15, 'C'), box(-8.2, 15, 5, 24.2, 15.4, 11, 'r'), box(-8.4, 9, 5, -8, 15, 11, 'r'), box(24, 9, 5, 24.4, 15, 11, 'r'),
+                     box(-8.5, 8.2, 4.9, -7.9, 9.2, 11.1, 'T'), box(23.9, 8.2, 4.9, 24.5, 9.2, 11.1, 'T'), box(-3, 15.4, 2, 1, 15.9, 6, 'g'), box(14, 15.4, 10, 18, 15.9, 14, 'g'),
+                     box(7.3, 15.4, 7.3, 8.7, 22, 8.7, 'g'), box(4, 21, 7.5, 12, 22, 8.5, 'g'), box(-6, 15.4, 9, -2, 17, 13, 'a'), box(19.5, 15.4, 2.5, 22.5, 16.6, 5.5, 'p')]
+                    + [box(x, 0, z, x + 3, 13, z + 3, 'C') for x in (-7, 20) for z in (2, 11)] + candle(3.6, 22, 7.2, 3) + candle(10.9, 22, 7.2, 3) + candle(7.25, 22, 7.25, 4) + mug(12, 15.4, 3) + mug(1, 15.4, 11))
+M['banner_stand'] = [box(6, 0, 6, 10, 1.5, 10, 'd'), box(7.3, 1.5, 7.3, 8.7, 31, 8.7, 'l'), box(1, 29, 7.4, 15, 30.5, 8.6, 'l'), box(2, 13, 7.7, 14, 29, 8.3, 'E'), box(2, 9, 7.7, 14, 13, 8.3, 'c'),
+                     box(2, 8, 7.6, 14, 9, 8.4, 'T'), box(0.3, 28.5, 7, 1.5, 31, 9, 'g'), box(14.5, 28.5, 7, 15.7, 31, 9, 'g'), box(2, 6, 7.7, 5, 8, 8.3, 'c'), box(11, 6, 7.7, 14, 8, 8.3, 'c'), box(7, 31, 7, 9, 32, 9, 'g')]
+M['bookstand'] = [box(4, 0, 4, 12, 1.5, 12, 'l'), box(6.5, 1.5, 6.5, 9.5, 14, 9.5, 'C'), box(2, 14, 4, 14, 15.5, 12, 'w', rot=(-22.5, 'x', (8, 14.75, 8))),
+                  box(3, 15.5, 4.6, 13, 16.3, 11.4, 'q', over={'up': 'G'}, rot=(-22.5, 'x', (8, 14.75, 8)))]
+M['bathtub'] = [box(1, 1, 3, 15, 3, 13, 'w'), box(0, 1, 2, 16, 10, 3.5, 'k'), box(0, 1, 12.5, 16, 10, 14, 'k'), box(0, 1, 3.5, 1.5, 10, 12.5, 'k'), box(14.5, 1, 3.5, 16, 10, 12.5, 'k'),
+                box(1.5, 8, 3.5, 14.5, 8.5, 12.5, 'z'), box(0.5, 0, 2.5, 2.5, 1, 4.5, 'd'), box(13.5, 0, 2.5, 15.5, 1, 4.5, 'd'), box(0.5, 0, 11.5, 2.5, 1, 13.5, 'd'), box(13.5, 0, 11.5, 15.5, 1, 13.5, 'd'),
+                box(12, 10, 3.5, 15.5, 10.6, 12.5, 'W')]
+# market, yard and workshop
+M['goods_crate'] = [box(1, 0, 1, 15, 2, 15, 'w'), box(1, 2, 1, 15, 8, 2.5, 'w'), box(1, 2, 13.5, 15, 8, 15, 'w'), box(1, 2, 2.5, 2.5, 8, 13.5, 'w'), box(13.5, 2, 2.5, 15, 8, 13.5, 'w'),
+                    box(0.5, 3.5, 0.5, 15.5, 4.5, 15.5, 'd'), box(2.5, 2, 2.5, 13.5, 8.6, 13.5, 'a'), box(4, 8.6, 4, 8, 10.4, 8, 'a'), box(9, 8.6, 8, 12.5, 10, 11.5, 'a')]
+M['bread_basket'] = [box(2, 0, 3, 14, 5, 13, 'h'), box(1.5, 5, 2.5, 14.5, 6, 13.5, 'h'), box(3, 5, 4, 13, 8, 6.5, 'o'), box(3, 5, 7, 13, 8.5, 9.5, 'o'), box(3, 5, 10, 13, 8, 12.5, 'o'), box(4, 8, 5.5, 12, 10, 8, 'o'),
+                     box(1.5, 2, 2.5, 14.5, 3, 13.5, 'T')]
+M['sacks'] = [box(1, 0, 5, 9, 9, 13, 'o'), box(4, 9, 8, 6, 11, 10, 'o'), box(3.6, 8.6, 7.6, 6.4, 9.4, 10.4, 'T'), box(8, 0, 2, 15, 8, 9, 'q'), box(10.5, 8, 4.5, 12.5, 10, 6.5, 'q'),
+              box(4, 8, 2, 12, 13, 8, 'W', rot=(22.5, 'y', (8, 10, 5)))]
+M['hand_cart'] = [box(1, 6, -4, 15, 8, 18, 'w'), box(1, 8, -4, 2.5, 13, 18, 'w', over={'west': 'C'}), box(13.5, 8, -4, 15, 13, 18, 'w', over={'east': 'C'}), box(2.5, 8, 16.5, 13.5, 13, 18, 'w'),
+                  box(-0.5, 1, 3, 1, 11, 13, 'l', over={'west': 't', 'east': 't'}), box(15, 1, 3, 16.5, 11, 13, 'l', over={'west': 't', 'east': 't'}), box(-1, 5, 7, -0.5, 7, 9, 'd'), box(16.5, 5, 7, 17, 7, 9, 'd'),
+                  box(2, 7, -14, 3.5, 8.5, -4, 'l'), box(12.5, 7, -14, 14, 8.5, -4, 'l'), box(7, 0, -3, 9, 6, -1, 'l'), box(3, 8, 0, 9, 13, 7, 'h'), box(8, 8, 8, 13, 12, 15, 'k', over={'up': 't'}),
+                  box(3, 8, 9, 7.5, 11, 15, 'a')]
+M['wall_lantern'] = [box(7, 18, 12, 9, 26, 16, 'C'), box(7.25, 24.5, 5, 8.75, 26, 13, 'l'), box(7.6, 21, 6, 8.4, 24.5, 6.8, 'd'), box(5.5, 13, 3.9, 10.5, 14, 8.9, 'd'), box(6, 20, 4.4, 10, 21, 8.4, 'd'),
+                     box(5.5, 14, 3.9, 6.3, 20, 4.7, 'd'), box(9.7, 14, 3.9, 10.5, 20, 4.7, 'd'), box(5.5, 14, 8.1, 6.3, 20, 8.9, 'd'), box(9.7, 14, 8.1, 10.5, 20, 8.9, 'd'), box(6.3, 14, 4.7, 9.7, 19.5, 8.1, 'f', glow=True),
+                     box(7.4, 12.2, 5.8, 8.6, 13, 7, 'g')]
+M['bucket'] = [box(5, 0, 5, 11, 7, 11, 'k', over={'down': 't'}), box(4.7, 5, 4.7, 11.3, 6, 11.3, 'd'), box(4.6, 7, 7.6, 5.4, 11, 8.4, 'd'), box(10.6, 7, 7.6, 11.4, 11, 8.4, 'd'),
+               box(4.6, 11, 7.6, 11.4, 11.8, 8.4, 'd'), box(5.6, 6.5, 5.6, 10.4, 6.8, 10.4, 'z')]
+M['mortar'] = [box(4, 0, 4, 12, 2, 12, 's'), box(5, 2, 5, 11, 8, 11, 's'), box(5.8, 7.6, 5.8, 10.2, 8.2, 10.2, 'v'), box(7, 6, 7, 8.5, 15, 8.5, 'l', rot=(22.5, 'z', (8, 8, 8)))]
+M['log_pile'] = [box(0, 0, 2, 16, 5, 7, 'l', over={'east': 't', 'west': 't'}), box(0, 0, 7.5, 16, 5, 12.5, 'l', over={'east': 't', 'west': 't'}), box(0, 5, 4.5, 16, 10, 9.5, 'l', over={'east': 't', 'west': 't'}),
+                 box(1, 5, 10, 15, 9, 14, 'l', over={'east': 't', 'west': 't'}), box(11, 10, 6, 12, 19, 7, 'w'), box(9.5, 16, 5.7, 12.5, 19, 7.3, 'm')]
+M['hay_pile'] = [box(0, 0, 2, 16, 8, 14, 'h'), box(2, 8, 4, 13, 14, 12, 'h'), box(12.5, 2, 6, 13.5, 24, 7, 'l', rot=(-22.5, 'z', (13, 2, 6.5))), box(11.5, 22, 5.6, 14.5, 23, 7.4, 'm', rot=(-22.5, 'z', (13, 2, 6.5)))]
+M['fish_rack'] = ([box(0.5, 0, 7, 2, 24, 9, 'l'), box(14, 0, 7, 15.5, 24, 9, 'l'), box(0, 22, 7.4, 16, 23.2, 8.6, 'l'), box(0, 0, 6.5, 2.5, 1.5, 9.5, 's'), box(13.5, 0, 6.5, 16, 1.5, 9.5, 's')]
+                  + sum([[box(x, 13, 7.6, x + 2, 22, 8.4, 'm'), box(x + 0.3, 11, 7.7, x + 1.7, 13, 8.3, 'm'), box(x + 0.7, 22, 7.8, x + 1.3, 22.4, 8.2, 'o')] for x in (3.5, 7, 10.5)], []))
+M['anvil_stump'] = [box(3, 0, 3, 13, 7, 13, 'l', over={'up': 't'}), box(2.6, 2, 2.6, 13.4, 3.2, 13.4, 'd'), box(4, 7, 5, 12, 9, 11, 'd'), box(5.5, 9, 6.5, 10.5, 11, 9.5, 'd'), box(2.5, 11, 5, 13.5, 14, 11, 'd'),
+                    box(9, 14, 7.5, 15, 15, 8.5, 'w'), box(8, 14, 6.5, 10, 16, 9.5, 'm')]
+M['cooking_pot'] = [box(3, 0, 7, 13, 2, 9, 'l'), box(7, 0, 3, 9, 2, 13, 'l'), box(5, 2, 5, 11, 3, 11, 'e', glow=True), box(6.5, 3, 6.5, 9.5, 6, 9.5, 'f', glow=True), box(0.5, 0, 7.3, 1.9, 20, 8.7, 'd'),
+                    box(14.1, 0, 7.3, 15.5, 20, 8.7, 'd'), box(0.5, 20, 7.3, 15.5, 21.2, 8.7, 'd'), box(7.6, 13, 7.6, 8.4, 20, 8.4, 'd'), box(4.5, 6.5, 4.5, 11.5, 13, 11.5, 'd'), box(5.2, 12.6, 5.2, 10.8, 13.1, 10.8, 'o')]
+
+SOLID.update(altar=1, pulpit=2, organ=2, font=1, statue=2, four_poster=1, royal_table=1, banner_stand=2, bookstand=1, bathtub=1, goods_crate=1, sacks=1, hand_cart=1, log_pile=1, hay_pile=1, fish_rack=2,
+             anvil_stump=1, cooking_pot=1)
+WIDE.update(four_poster=(0, 1), royal_table=(-1, 1))                # the four-poster also fills the two cells behind it: the building list sets those barriers
+LIGHT.update(wall_lantern=14, cooking_pot=13)
