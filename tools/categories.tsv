@@ -136,3 +136,5 @@ cat_my_account	LIME	บัญชี\nของฉัน	บัญชีของ
 cat_bank_manage	ORANGE	บริหาร\nธนาคาร	บริหารธนาคาร
 cat_royal_services	BROWN	บริการ\nหลวง	บริการหลวง
 cat_bandits	RED	ซ่องโจร	ซ่องโจร
+cat_wild_zones	RED	เขต\nอันตราย	เขตอันตราย
+cat_wild_craft	LIME	แปรรูป	แปรรูป
