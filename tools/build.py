@@ -76,8 +76,12 @@ def bevel(img, width=11.0, amount=0.65):
     return Image.fromarray((np.dstack([rgb, a]) * 255).astype(np.uint8), 'RGBA')
 
 
-def finish(render):
-    """512 painting -> 64x64 icon: crop to the object, punch up, outline."""
+GEAR_SIZE = 128     # evolved weapons/armour: twice the detail in hand and in menus
+
+
+def finish(render, size=None):
+    """512 painting -> 64x64 icon (or larger for gear held in hand): crop to the object, punch up, outline."""
+    SIZE_, INNER_ = (size, INNER * size // SIZE) if size else (SIZE, INNER)
     img = bevel(render.convert('RGBA'))
     a = np.asarray(img)[..., 3]
     ys, xs = np.nonzero(a > 8)
@@ -88,7 +92,7 @@ def finish(render):
     sq = Image.new('RGBA', (side, side)); sq.paste(img.crop(box) if min(box) >= 0 else img, (0, 0))
     if min(box) < 0:   # object touches the frame: paste with offset instead
         sq = Image.new('RGBA', (side, side)); sq.alpha_composite(img, (-box[0], -box[1]))
-    small = sq.resize((INNER, INNER), Image.LANCZOS)
+    small = sq.resize((INNER_, INNER_), Image.LANCZOS)
     px = np.asarray(small).astype(np.float32) / 255.0
     rgb, al = px[..., :3], px[..., 3:]
     rgb = np.clip(rgb, 0, 1) ** GAMMA
@@ -97,17 +101,17 @@ def finish(render):
     rgb = np.clip((rgb - 0.5) * CONTRAST + 0.5, 0, 1)
     small = Image.fromarray((np.dstack([rgb, al]) * 255).astype(np.uint8), 'RGBA')
     small = small.filter(ImageFilter.UnsharpMask(radius=1.0, percent=70, threshold=1))
-    out = Image.new('RGBA', (SIZE, SIZE))
-    off = (SIZE - INNER) // 2 - 1          # one pixel up-left: room for the drop shadow
+    out = Image.new('RGBA', (SIZE_, SIZE_))
+    off = (SIZE_ - INNER_) // 2 - 1          # one pixel up-left: room for the drop shadow
     # drop shadow: the silhouette, soft, two pixels down-right (light from the upper left)
-    sh = Image.new('L', (SIZE, SIZE)); sh.paste(small.getchannel('A'), (off + 2, off + 2))
+    sh = Image.new('L', (SIZE_, SIZE_)); sh.paste(small.getchannel('A'), (off + 2, off + 2))
     sh = sh.filter(ImageFilter.GaussianBlur(1.1)).point(lambda v: int(v * 0.75))
-    shadow = Image.new('RGBA', (SIZE, SIZE), (0, 0, 0, 0)); shadow.putalpha(sh)
+    shadow = Image.new('RGBA', (SIZE_, SIZE_), (0, 0, 0, 0)); shadow.putalpha(sh)
     out.alpha_composite(shadow)
     # outline: the silhouette grown by one pixel, in dark brown, under the icon
-    sil = Image.new('L', (SIZE, SIZE)); sil.paste(small.getchannel('A').point(lambda v: 255 if v > 40 else 0), (off, off))
+    sil = Image.new('L', (SIZE_, SIZE_)); sil.paste(small.getchannel('A').point(lambda v: 255 if v > 40 else 0), (off, off))
     grown = sil.filter(ImageFilter.MaxFilter(3))
-    ring = Image.new('RGBA', (SIZE, SIZE), OUTLINE + (0,)); ring.putalpha(grown.point(lambda v: int(v * 0.85)))
+    ring = Image.new('RGBA', (SIZE_, SIZE_), OUTLINE + (0,)); ring.putalpha(grown.point(lambda v: int(v * 0.85)))
     out.alpha_composite(ring)
     out.alpha_composite(small, (off, off))
     return out
@@ -220,7 +224,9 @@ def main():
     for name in icon_ids():
         mod = load_icon(name)
         big = mod.draw()
-        tex = finish(big)
+        if name.startswith('gear_'):
+            import _detail; big = _detail.enhance(big, name)
+        tex = finish(big, GEAR_SIZE if name.startswith('gear_') else None)
         if getattr(mod, 'TEXT', None):
             tex = finish_text(tex, mod.TEXT)
         built[name] = (big, tex)
