@@ -1,6 +1,19 @@
 {
   "model": {
-    "type": "minecraft:model",
-    "model": "knightsrealm:item/gear_helmet_venom_t2"
+    "type": "minecraft:select",
+    "property": "minecraft:display_context",
+    "cases": [
+      {
+        "when": "head",
+        "model": {
+          "type": "minecraft:model",
+          "model": "knightsrealm:item/helm3d/gear_venom_t2"
+        }
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "knightsrealm:item/gear_helmet_venom_t2"
+    }
   }
 }

@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "knightsrealm:gear_ice_t3"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "knightsrealm:gear_ice_t3"
+      }
+    ]
+  }
+}
