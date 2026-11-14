@@ -78,6 +78,7 @@ cat_appoint
 cat_bandits
 cat_bank
 cat_bank_manage
+cat_boss_goods
 cat_brew
 cat_brew_medicine
 cat_browse
@@ -109,11 +110,14 @@ cat_deliver_medicine
 cat_destinations
 cat_drink
 cat_effect
+cat_element
 cat_enchant
 cat_escort_end
 cat_escort_guards
 cat_escort_leave
 cat_food_buff
+cat_forge_evolve
+cat_forge_plus
 cat_government
 cat_handin
 cat_haul_found

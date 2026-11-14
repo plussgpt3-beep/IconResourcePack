@@ -138,3 +138,7 @@ cat_royal_services	BROWN	บริการ\nหลวง	บริการห�
 cat_bandits	RED	ซ่องโจร	ซ่องโจร
 cat_wild_zones	RED	เขต\nอันตราย	เขตอันตราย
 cat_wild_craft	LIME	แปรรูป	แปรรูป
+cat_forge_plus	ORANGE	ตี\nบวก	ตีบวก
+cat_forge_evolve	PURPLE	วิวัฒน์	วิวัฒน์
+cat_element	LIGHT_BLUE	ธาตุ	ธาตุ
+cat_boss_goods	ORANGE	ของ\nบอส	ของเฉพาะบอส
