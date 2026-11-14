@@ -255,6 +255,7 @@ escort
 escort_hire
 floor
 foreman
+forge
 free
 governor
 governor_appoint
