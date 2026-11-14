@@ -81,7 +81,7 @@ def axe(path, tier):
     # blade shape
     big = 1.0 + 0.15 * (tier - 2)
     cx, cy = 312, 120
-    def P(pts): return [(cx + (x - cx) * big, cy + (y - cy) * big) for x, y in pts]
+    def P(pts): return [(cx - (x - cx) * big, cy + (y - cy) * big) for x, y in pts]   # blade faces left, as the game's axes do
     if way == 'b' or tier == 2:      # bearded single bit, long lower hook
         pts = [(300, 70), (410, 30), (452, 120), (440, 230), (380, 290), (360, 200), (300, 170)]
         blade = poly(P(pts))
@@ -92,8 +92,8 @@ def axe(path, tier):
         if elem in ('fire', 'ice'):
             for k in range(5):
                 a = -0.9 + k * 0.45
-                bx, by = cx + 135 * big * np.cos(a), cy + 135 * big * np.sin(a)
-                blade = np.maximum(blade, poly([(bx - 14, by - 6), (bx + 34 * np.cos(a), by + 34 * np.sin(a)), (bx + 8, by + 14)]))
+                bx, by = cx - 135 * big * np.cos(a), cy + 135 * big * np.sin(a)
+                blade = np.maximum(blade, poly([(bx + 14, by - 6), (bx - 34 * np.cos(a), by + 34 * np.sin(a)), (bx - 8, by + 14)]))
     blade = blur(blade, 1.3)
     _halo(c, blade, glow, tier)
     c.over(light(np.clip(1 - np.abs(t) / 16, 0, 1) ** 0.5 * haft,
