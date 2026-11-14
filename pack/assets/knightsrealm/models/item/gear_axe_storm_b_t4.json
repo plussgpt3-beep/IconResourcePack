@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "knightsrealm:item/gear_axe_storm_b_t4"
+  }
+}

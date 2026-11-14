@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "knightsrealm:item/gear_bow_ice_a_t3"
+  }
+}
