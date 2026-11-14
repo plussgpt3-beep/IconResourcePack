@@ -227,7 +227,8 @@ def main():
         p = os.path.join(NS, 'textures', 'item', name + '.png'); os.makedirs(os.path.dirname(p), exist_ok=True)
         tex.save(p)
         write_json(os.path.join(NS, 'models', 'item', name + '.json'),
-                   {'parent': 'minecraft:item/generated', 'textures': {'layer0': 'knightsrealm:item/' + name}})
+                   {'parent': 'minecraft:item/handheld' if name.startswith('gear_') else 'minecraft:item/generated',
+                    'textures': {'layer0': 'knightsrealm:item/' + name}})
         write_json(os.path.join(NS, 'items', name + '.json'),
                    {'model': {'type': 'minecraft:model', 'model': 'knightsrealm:item/' + name}})
         tex.resize((256, 256), Image.LANCZOS).save(os.path.join(ROOT, 'preview', name + '.png'))
