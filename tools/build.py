@@ -226,7 +226,7 @@ def main():
         big = mod.draw()
         if name.startswith('gear_'):
             import _detail; big = _detail.enhance(big, name)
-        tex = finish(big, GEAR_SIZE if name.startswith('gear_') else None)
+        tex = finish(big, GEAR_SIZE if name.startswith(('gear_', 'acc_')) else None)
         if getattr(mod, 'TEXT', None):
             tex = finish_text(tex, mod.TEXT)
         built[name] = (big, tex)
