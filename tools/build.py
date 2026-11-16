@@ -238,6 +238,8 @@ def main():
         write_json(os.path.join(NS, 'items', name + '.json'),
                    {'model': {'type': 'minecraft:model', 'model': 'knightsrealm:item/' + name}})
         tex.resize((256, 256), Image.LANCZOS).save(os.path.join(ROOT, 'preview', name + '.png'))
+    # a held item that draws nothing (a monster's bow the model draws itself, 2026-11-16)
+    write_json(os.path.join(NS, 'items', 'hidden_held.json'), {'model': {'type': 'minecraft:empty'}})
     write_arrows()
     sys.path.insert(0, os.path.join(HERE, 'equip')); import equip
     equip_ids = equip.install(PACK)
@@ -245,7 +247,7 @@ def main():
     first = built.get('treasury', next(iter(built.values())))[1]
     first.save(os.path.join(PACK, 'pack.png'))
     with open(os.path.join(ROOT, 'icons.txt'), 'w', newline='\n') as f:   # the ids in this pack, for the plugin's test
-        f.write('\n'.join(list(icon_ids()) + equip_ids + gui_ids) + '\n')
+        f.write('\n'.join(list(icon_ids()) + equip_ids + gui_ids + ['hidden_held']) + '\n')
 
     if len(sys.argv) > 2 and sys.argv[1] == 'sheet':
         names = []
@@ -274,7 +276,7 @@ def gui_only():
     equip_ids = equip.install(PACK)
     gui_ids = write_gui()
     with open(os.path.join(ROOT, 'icons.txt'), 'w', newline='\n') as f:
-        f.write('\n'.join(list(icon_ids()) + equip_ids + gui_ids) + '\n')
+        f.write('\n'.join(list(icon_ids()) + equip_ids + gui_ids + ['hidden_held']) + '\n')
     write_zip()
 
 
