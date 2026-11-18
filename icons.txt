@@ -63,6 +63,11 @@ apply_worker
 auction
 back
 bag_empty
+bag_t1
+bag_t2
+bag_t3
+bag_t4
+bag_t5
 ballot
 bandit_camp
 bandit_grow
@@ -105,6 +110,7 @@ cat_acc_worn
 cat_announce
 cat_apply
 cat_appoint
+cat_bags
 cat_bandits
 cat_bank
 cat_bank_manage
@@ -467,6 +473,7 @@ land_seize
 land_sell
 land_tax
 land_turn
+leatherworker
 leave
 ledger
 life_cooking

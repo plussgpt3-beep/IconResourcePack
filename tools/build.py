@@ -8,6 +8,8 @@ they take too long), with the finish asked for the same day: darker, sharper, a 
     python3 tools/build.py sheet <id>... -> also preview/sheet.png for review.
 """
 import hashlib, importlib, json, os, sys, zipfile
+if os.name == 'nt':   # Windows: FriBiDi for Pillow's raqm (Thai marks on the ribbons) lives beside the font
+    os.environ['PATH'] = os.path.dirname(os.environ.get('KR_THAI_FONT', 'C:/ServerMinecraft/_sync/fonts/x')) + os.pathsep + os.environ['PATH']
 import numpy as np
 from PIL import Image, ImageDraw, ImageFilter
 
@@ -34,6 +36,8 @@ def icon_ids():
 
 
 FONT = '/usr/share/fonts/truetype/tlwg/Kinnari-Bold.ttf'   # Debian/Ubuntu package fonts-thai-tlwg
+if not os.path.exists(FONT):   # Windows: the same font from the fonts-tlwg release (KR_THAI_FONT overrides)
+    FONT = os.environ.get('KR_THAI_FONT', 'C:/ServerMinecraft/_sync/fonts/Kinnari-Bold.ttf')
 
 
 def finish_text(tex, text):
