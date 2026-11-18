@@ -97,6 +97,29 @@ def ring_merchant(seed=7203):
     return c.image()
 
 
+def ring_guardian(seed=7204):
+    """แหวนพิทักษ์ (2026-11-18, แทนแหวนพ่อค้า): a silver band with a raised kite shield, a cross and a sapphire."""
+    c, rng = _c(seed)
+    engraved_band(c, RING_BOX, 50, SILVER, rng)
+    # a heater shield: flat top, sides curving to a point; blue enamel in a silver rim
+    def heater(x0, x1, top, mid, tip):
+        cx = (x0 + x1) / 2; half = (x1 - x0) / 2
+        pts = [(x0, top), (x1, top), (x1, mid)]
+        for t in np.linspace(0.15, 1, 8):
+            pts.append((cx + half * np.cos(t * np.pi / 2), mid + (tip - mid) * np.sin(t * np.pi / 2)))
+        for t in np.linspace(1, 0.15, 8):
+            pts.append((cx - half * np.cos(t * np.pi / 2), mid + (tip - mid) * np.sin(t * np.pi / 2)))
+        pts.append((x0, mid))
+        return pts
+    metal_shape(c, rng, heater(160, 352, 96, 170, 318), SILVER, r=14, amount=0.25)
+    metal_shape(c, rng, heater(180, 332, 114, 176, 292), (0.22, 0.38, 0.78), r=10, amount=0.35)
+    # a raised silver cross over the enamel
+    metal_shape(c, rng, [(244, 120), (268, 120), (268, 284), (244, 284)], SILVER, r=6, amount=0.2)
+    metal_shape(c, rng, [(186, 164), (326, 164), (326, 188), (186, 188)], SILVER, r=6, amount=0.2)
+    rivet(c, rng, 256, 176, 12, SILVER)
+    return c.image()
+
+
 # ---------- necklaces ----------
 def hang(c, rng, tint, kind='chain', bottom=280):
     t = np.linspace(0, 1, 16)

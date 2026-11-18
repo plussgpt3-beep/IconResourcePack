@@ -19,6 +19,7 @@ acc_ring_fire
 acc_ring_hunter
 acc_ring_ice
 acc_ring_merchant
+acc_ring_guardian
 acc_ring_storm
 acc_ring_venom
 acc_ring_warrior
