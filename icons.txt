@@ -230,6 +230,9 @@ cat_soldiers
 cat_sort
 cat_stall_items
 cat_stall_manage
+cat_stat_reset
+cat_stat_upgrade
+cat_stats
 cat_stock
 cat_switch
 cat_symptoms
@@ -568,6 +571,12 @@ stall
 stall_close
 stamp_approve
 stamp_deny
+stat_agi
+stat_aspd
+stat_int
+stat_points
+stat_str
+stat_vit
 surrender
 survey_rod
 tavern

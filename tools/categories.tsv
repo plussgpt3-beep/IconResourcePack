@@ -150,3 +150,6 @@ cat_acc_neck	ORANGE	สร้อย\nคอ	สร้อยคอ
 cat_acc_ear	LIGHT_BLUE	ต่างหู\nกำไล	ต่างหูและกำไล
 cat_acc_belt	BROWN	เข็มขัด\nเครื่องราง	เข็มขัดและเครื่องราง
 cat_bags	BROWN	กระเป๋า\nเสริม	กระเป๋าเสริม
+cat_stat_upgrade	LIGHT_BLUE	อัปเกรด\nตัวละคร	อัปเกรดตัวละคร
+cat_stats	LIME	ค่า\nสถานะ	ค่าสถานะ
+cat_stat_reset	RED	รีเซ็ต\nแต้ม	รีเซ็ตแต้ม
