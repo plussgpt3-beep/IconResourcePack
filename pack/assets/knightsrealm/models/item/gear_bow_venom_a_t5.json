@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "knightsrealm:item/gear_bow_venom_a_t5"
+  }
+}

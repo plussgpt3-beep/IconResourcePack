@@ -505,3 +505,18 @@ def charm_miner(seed=7253):
     rivet(c, rng, 292, 222, 10, BRASS)
     set_gem(c, 360, 226, 16, 14, (0.55, 0.98, 0.96), SILVER, rng, prongs=4)
     return c.image()
+
+
+def neck_abyss(seed=7215):
+    """สร้อยดวงใจอเวจี (zone 5, 2026-11-20): a blackened iron chain, a horned obsidian frame and a deep heart-red gem."""
+    c, rng = _c(seed)
+    hang(c, rng, BLACK_IRON)
+    bail(c, rng, 286, BLACK_IRON)
+    frame = [(196, 312), (316, 312), (340, 372), (256, 486), (172, 372)]
+    metal_shape(c, rng, frame, (0.22, 0.16, 0.26), r=14, amount=0.35)
+    for sx in (-1, 1):
+        horn = blur(poly([(256 + sx * 52, 318), (256 + sx * 96, 268), (256 + sx * 104, 214), (256 + sx * 84, 262), (256 + sx * 40, 300)]), 1.2)
+        metal_real(c, horn, OLD_GOLD, rng, r=6)
+    facet_gem(c, 256, 384, 44, 62, (0.80, 0.10, 0.30), rng)
+    glow(c, [190, 320, 322, 470], (0.95, 0.20, 0.45), 0.35, 24)
+    return c.image()

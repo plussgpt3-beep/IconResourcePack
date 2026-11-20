@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "knightsrealm:item/gear_helmet_venom_t5"
+  }
+}

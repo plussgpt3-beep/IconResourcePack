@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "knightsrealm:item/gear_boots_storm_t5"
+  }
+}
