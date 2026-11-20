@@ -646,6 +646,14 @@ wild_widow_sac
 wild_wild_fang
 wild_wild_hide
 wild_wyrm_fang
+wild_abyss_shell
+wild_abyss_plate
+wild_hell_horn
+wild_hell_edge
+wild_fire_heart
+wild_ice_heart
+wild_storm_heart
+wild_venom_heart
 workers
 zone_staff
 equip_gear_fire_t2
