@@ -654,6 +654,10 @@ wild_fire_heart
 wild_ice_heart
 wild_storm_heart
 wild_venom_heart
+wild_inferno_crown
+wild_frost_dragon_scale
+wild_overlord_trident
+wild_hydra_heart
 workers
 zone_staff
 equip_gear_fire_t2

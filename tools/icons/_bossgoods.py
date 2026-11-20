@@ -274,12 +274,100 @@ def knight_soul(c, rng):
     paint(c, cage, tone(rng, (0.30, 0.30, 0.34), (0.12, 0.12, 0.14), 8), pillow(cage, 8), depth=40, spec=0.6, gloss=26, soft=0.8)
 
 
+
+# ---- zone 5 แดนอเวจี (2026-11-20) ----
+def inferno_crown(c, rng):
+    # มงกุฎเพลิงนรก: a black obsidian crown, tall spikes burning at the tips, a molten band with a fire gem, horns curling out
+    grad = np.clip((330 - yy) / 260, 0, 1)[..., None]
+    spikes = np.maximum.reduce([poly([(104, 300), (126, 176), (160, 300)]), poly([(168, 300), (198, 112), (232, 300)]),
+                                poly([(226, 300), (256, 52), (286, 300)]), poly([(280, 300), (314, 112), (344, 300)]),
+                                poly([(352, 300), (386, 176), (408, 300)])])
+    obs = tone(rng, (0.16, 0.08, 0.20), (0.04, 0.02, 0.06), 9)
+    paint(c, spikes, obs * (1 - grad * 0.3) + np.array([1.0, 0.36, 0.06]) * grad ** 3 * 0.9, pillow(spikes, 14), depth=70, spec=0.8, gloss=50)
+    for (x, y) in ((126, 172), (198, 108), (256, 48), (314, 108), (386, 172)):
+        glow(c, [x - 30, y - 34, x + 30, y + 26], (1.0, 0.55, 0.12), 0.9, 10)
+    for sx in (-1, 1):
+        x0 = 256 + sx * 150
+        hn = taper([(x0, 330), (x0 + sx * 50, 270), (x0 + sx * 46, 200), (x0 + sx * 20, 168)], 26, 5)
+        paint(c, hn, tone(rng, (0.30, 0.10, 0.08), (0.10, 0.03, 0.03), 8), pillow(hn, 16), depth=60, spec=0.4)
+    band = poly([(100, 296), (412, 296), (396, 396), (116, 396)])
+    paint(c, band, tone(rng, (0.18, 0.08, 0.06), (0.06, 0.02, 0.02), 10), pillow(band, 22), depth=55, spec=0.5)
+    for pts in ([(120, 330), (170, 352), (210, 330)], [(300, 360), (350, 334), (392, 352)], [(140, 380), (190, 372)]):
+        lightning(c, pts, core=(1.0, 0.92, 0.55), halo=(1.0, 0.40, 0.08), w=5)
+    rim = np.maximum(poly([(100, 296), (412, 296)], width=10), poly([(116, 396), (396, 396)], width=10))
+    paint(c, rim, chrome(0.6 * pillow(blur(rim, 1.5), 10), gold_tint(), depth=60), depth=1, spec=0.0, soft=0.8)
+    g = ellipse([222, 312, 290, 380])
+    glow(c, [196, 288, 316, 404], (1.0, 0.45, 0.10), 0.7, 18)
+    d = np.clip(np.hypot(xx - 246, yy - 334) / 38, 0, 1)[..., None]
+    paint(c, g, np.array([1.0, 0.85, 0.45]) * (1 - d) + np.array([0.75, 0.10, 0.02]) * d, pillow(g, 18), depth=40, spec=1.0, gloss=70)
+
+
+def frost_dragon_scale(c, rng):
+    # เกล็ดมังกรเยือกแข็ง: one great scale of frozen bone, cracked, rimmed with ice that glows from within, frost spikes on its edge
+    sc = poly([(256, 60), (380, 150), (410, 300), (330, 430), (256, 462), (182, 430), (102, 300), (132, 150)])
+    glow(c, [90, 50, 422, 470], (0.65, 0.90, 1.0), 0.35, 20)
+    d = np.clip(np.hypot(xx - 256, yy - 250) / 210, 0, 1)[..., None]
+    bone = tone(rng, (0.86, 0.90, 0.94), (0.58, 0.66, 0.74), 9)
+    ice = tone(rng, (0.45, 0.78, 0.98), (0.20, 0.48, 0.80), 9)
+    paint(c, sc, bone * (1 - d ** 2) + ice * d ** 2, pillow(sc, 46), depth=70, spec=0.8, gloss=45)
+    for k, y in enumerate((150, 230, 310, 390)):           # growth ridges
+        w = 120 - abs(k - 1.5) * 28
+        paint(c, poly([(256 - w, y), (256, y - 26), (256 + w, y)], width=7), tone(rng, (0.70, 0.78, 0.86), (0.48, 0.56, 0.66), 6), depth=25, spec=0.6, soft=1)
+    for pts in ([(256, 96), (240, 180), (268, 250), (246, 330)], [(268, 250), (330, 300)], [(240, 180), (180, 230)]):
+        c.over(solid((0.18, 0.40, 0.70)), blur(poly(pts, width=4), 1.2) * 0.85, cast=False)
+        c.over(solid((0.75, 0.95, 1.0)), blur(poly(pts, width=10), 6) * 0.35, cast=False)
+    for (x, y, a) in ((396, 210, 0.5), (402, 330, -0.2), (110, 220, 2.6), (118, 340, 3.4), (256, 470, 1.57)):
+        tip = (x + np.cos(a) * 46, y + np.sin(a) * 46)
+        paint(c, poly([(x - np.sin(a) * 12, y + np.cos(a) * 12), tip, (x + np.sin(a) * 12, y - np.cos(a) * 12)]), solid((0.85, 0.97, 1.0)), depth=20, spec=1.0, gloss=70)
+
+
+def overlord_trident(c, rng):
+    # ตรีศูลจอมมาร: the head of the overlord's trident, three golden tines with lightning crackling between them, a violet crystal
+    def gold(m):
+        return chrome(0.6 * pillow(blur(m, 1.5), 16), gold_tint(), depth=60) * (0.85 + 0.25 * noise(rng, 20, 3)[..., None])
+    shaft = taper([(150, 470), (232, 330)], 22, 20)
+    paint(c, shaft, tone(rng, (0.30, 0.22, 0.40), (0.12, 0.08, 0.18), 6), depth=40, spec=0.5)
+    cross = poly([(150, 300), (340, 300), (330, 336), (160, 336)])
+    tines = np.maximum.reduce([taper([(170, 304), (150, 200), (132, 92)], 20, 4), taper([(246, 300), (246, 160), (246, 40)], 24, 4),
+                               taper([(320, 304), (342, 200), (360, 92)], 20, 4)])
+    for (x0, y0, sx) in ((150, 200, -1), (342, 200, 1)):
+        tines = np.maximum(tines, taper([(x0, y0), (x0 + sx * 26, y0 - 6), (x0 + sx * 30, y0 - 30)], 9, 3))
+    m = np.maximum(tines, cross)
+    paint(c, m, gold(m), depth=1, spec=0.0, soft=0.8)
+    for pts in ([(140, 140), (196, 170), (178, 200), (240, 226)], [(252, 210), (300, 180), (288, 150), (350, 130)], [(150, 92), (200, 70), (246, 92)]):
+        lightning(c, pts, core=(1, 1, 0.9), halo=(1.0, 0.86, 0.30), w=6)
+    g = poly([(246, 300), (276, 330), (246, 372), (216, 330)])
+    glow(c, [196, 280, 296, 392], (0.65, 0.45, 1.0), 0.75, 16)
+    d = np.clip(np.hypot(xx - 238, yy - 322) / 40, 0, 1)[..., None]
+    paint(c, g, np.array([0.92, 0.84, 1.0]) * (1 - d) + np.array([0.36, 0.18, 0.78]) * d, pillow(g, 14), depth=45, spec=1.0, gloss=70)
+
+
+def hydra_heart(c, rng):
+    # หัวใจไฮดรา: a dark, scaled heart with three thick vessels (one for each head), a toxic core glowing through, venom dripping
+    heart = np.maximum.reduce([ellipse([116, 150, 270, 320]), ellipse([242, 150, 396, 320]), poly([(126, 262), (386, 262), (256, 450)])])
+    flesh = tone(rng, (0.20, 0.34, 0.12), (0.10, 0.06, 0.14), 8)
+    paint(c, heart, flesh * (0.85 + 0.3 * noise(rng, 60, 2)[..., None]), pillow(heart, 50), depth=75, spec=0.5, gloss=30)
+    for x0, x1 in ((190, 150), (256, 256), (322, 362)):        # three vessels rising
+        v = taper([(x0, 190), ((x0 + x1) / 2, 120), (x1, 64)], 26, 16)
+        paint(c, v, tone(rng, (0.34, 0.14, 0.40), (0.14, 0.05, 0.18), 6), pillow(v, 12), depth=45, spec=0.4)
+        paint(c, ellipse([x1 - 14, 50, x1 + 14, 76]), solid((0.08, 0.03, 0.10)), depth=10, spec=0.2)
+    for pts in ([(160, 230), (220, 270), (210, 340)], [(352, 230), (300, 280), (310, 350)], [(256, 200), (240, 260), (262, 300)]):
+        c.over(solid((0.62, 1.0, 0.30)), blur(poly(pts, width=5), 1.5) * 0.9, cast=False)
+        c.over(solid((0.40, 1.0, 0.20)), blur(poly(pts, width=12), 7) * 0.4, cast=False)
+    glow(c, [196, 250, 316, 370], (0.45, 1.0, 0.25), 0.8, 22)
+    drip = np.maximum(taper([(256, 440), (256, 470)], 9, 7), ellipse([243, 462, 269, 492]))
+    glow(c, [226, 432, 286, 500], (0.5, 1.0, 0.3), 0.5, 10)
+    c.over(solid((0.62, 1.0, 0.36)), blur(drip, 1.5), cast=False)
+
+
 SEED = {'boar_tusk': 7101, 'stag_antler': 7102, 'widow_sac': 7103, 'ember_spore': 7104, 'bear_pelt': 7105, 'hag_orb': 7106,
         'queen_stinger': 7107, 'titan_core': 7108, 'lizard_scale': 7109, 'lich_crown': 7110, 'demon_chain': 7111, 'wyrm_fang': 7112,
-        'alpha_fang': 7113, 'ancient_heart': 7114, 'bandit_crown': 7115, 'knight_soul': 7116}
+        'alpha_fang': 7113, 'ancient_heart': 7114, 'bandit_crown': 7115, 'knight_soul': 7116,
+        'inferno_crown': 7117, 'frost_dragon_scale': 7118, 'overlord_trident': 7119, 'hydra_heart': 7120}
 ZONE = {'boar_tusk': 1, 'stag_antler': 1, 'widow_sac': 1, 'ember_spore': 2, 'bear_pelt': 2, 'hag_orb': 2,
         'queen_stinger': 3, 'titan_core': 3, 'lizard_scale': 3, 'lich_crown': 4, 'demon_chain': 4, 'wyrm_fang': 4,
-        'alpha_fang': 1, 'ancient_heart': 2, 'bandit_crown': 3, 'knight_soul': 4}
+        'alpha_fang': 1, 'ancient_heart': 2, 'bandit_crown': 3, 'knight_soul': 4,
+        'inferno_crown': 5, 'frost_dragon_scale': 5, 'overlord_trident': 5, 'hydra_heart': 5}
 
 
 def draw(name):
