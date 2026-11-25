@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:item/generated",
+  "parent": "knightsrealm:item/held/blade_t5",
   "textures": {
     "layer0": "knightsrealm:item/gear_sword_storm_b_t5"
   }

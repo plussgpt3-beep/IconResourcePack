@@ -242,6 +242,8 @@ def main():
         write_json(os.path.join(NS, 'items', name + '.json'),
                    {'model': {'type': 'minecraft:model', 'model': 'knightsrealm:item/' + name}})
         tex.resize((256, 256), Image.LANCZOS).save(os.path.join(ROOT, 'preview', name + '.png'))
+    # evolved weapons: bigger in hand every tier, glowing aura from tier 3 (tools/held.py, 2026-11-25)
+    import held; held.install(NS)
     # a held item that draws nothing (a monster's bow the model draws itself, 2026-11-16)
     write_json(os.path.join(NS, 'items', 'hidden_held.json'), {'model': {'type': 'minecraft:empty'}})
     write_arrows()

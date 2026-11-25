@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:item/handheld",
+  "parent": "knightsrealm:item/held/blade_t3",
   "textures": {
     "layer0": "knightsrealm:item/gear_axe_fire_b_t3"
   }

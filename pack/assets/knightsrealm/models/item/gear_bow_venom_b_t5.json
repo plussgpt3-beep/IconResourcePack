@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:item/generated",
+  "parent": "knightsrealm:item/held/bow_t5",
   "textures": {
     "layer0": "knightsrealm:item/gear_bow_venom_b_t5"
   }

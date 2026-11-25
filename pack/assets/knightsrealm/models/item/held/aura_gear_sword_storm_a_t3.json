@@ -1,0 +1,42 @@
+{
+  "textures": {
+    "aura": "knightsrealm:item/held/aura_gear_sword_storm_a_t3",
+    "particle": "knightsrealm:item/held/aura_gear_sword_storm_a_t3"
+  },
+  "elements": [
+    {
+      "from": [
+        -2,
+        -2,
+        8
+      ],
+      "to": [
+        18,
+        18,
+        8
+      ],
+      "shade": false,
+      "light_emission": 7,
+      "faces": {
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#aura"
+        },
+        "north": {
+          "uv": [
+            16,
+            0,
+            0,
+            16
+          ],
+          "texture": "#aura"
+        }
+      }
+    }
+  ]
+}

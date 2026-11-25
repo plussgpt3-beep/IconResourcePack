@@ -1,6 +1,30 @@
 {
   "model": {
-    "type": "minecraft:model",
-    "model": "knightsrealm:item/gear_bow_venom_a_t5"
+    "type": "minecraft:select",
+    "property": "minecraft:display_context",
+    "cases": [
+      {
+        "when": [
+          "gui"
+        ],
+        "model": {
+          "type": "minecraft:model",
+          "model": "knightsrealm:item/gear_bow_venom_a_t5"
+        }
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:composite",
+      "models": [
+        {
+          "type": "minecraft:model",
+          "model": "knightsrealm:item/gear_bow_venom_a_t5"
+        },
+        {
+          "type": "minecraft:model",
+          "model": "knightsrealm:item/held/aura_gear_bow_venom_a_t5"
+        }
+      ]
+    }
   }
 }
