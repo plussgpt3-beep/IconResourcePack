@@ -1,7 +1,8 @@
 {
   "textures": {
     "aura": "knightsrealm:item/held/aura_gear_sword_fire_b_t5",
-    "particle": "knightsrealm:item/held/aura_gear_sword_fire_b_t5"
+    "particle": "knightsrealm:item/held/aura_gear_sword_fire_b_t5",
+    "glow": "knightsrealm:item/held/glow_gear_sword_fire_b_t5"
   },
   "elements": [
     {
@@ -37,6 +38,126 @@
           "texture": "#aura"
         }
       }
+    },
+    {
+      "from": [
+        0,
+        0,
+        8.56
+      ],
+      "to": [
+        16,
+        16,
+        8.56
+      ],
+      "shade": false,
+      "light_emission": 15,
+      "faces": {
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#glow"
+        }
+      }
+    },
+    {
+      "from": [
+        0,
+        0,
+        7.44
+      ],
+      "to": [
+        16,
+        16,
+        7.44
+      ],
+      "shade": false,
+      "light_emission": 15,
+      "faces": {
+        "north": {
+          "uv": [
+            16,
+            0,
+            0,
+            16
+          ],
+          "texture": "#glow"
+        }
+      }
     }
-  ]
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        -90,
+        55
+      ],
+      "translation": [
+        0.0,
+        6.66,
+        0.03
+      ],
+      "scale": [
+        1.27,
+        1.27,
+        1.27
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        0,
+        90,
+        -55
+      ],
+      "translation": [
+        0.0,
+        6.66,
+        0.03
+      ],
+      "scale": [
+        1.27,
+        1.27,
+        1.27
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        4.26,
+        1.51
+      ],
+      "scale": [
+        0.86,
+        0.86,
+        0.86
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        4.26,
+        1.51
+      ],
+      "scale": [
+        0.86,
+        0.86,
+        0.86
+      ]
+    }
+  }
 }

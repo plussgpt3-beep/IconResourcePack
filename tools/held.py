@@ -25,15 +25,15 @@ WEAPON = re.compile(r'^gear_(sword|axe|bow)_(fire|ice|storm|venom)(?:_[ab])?_t([
 # size in hand against a vanilla tool: third person / first person (first person kept smaller: it fills the screen)
 SCALE = {2: (1.00, 1.00), 3: (1.15, 1.08), 4: (1.30, 1.16), 5: (1.50, 1.26)}
 # aura: (light_emission, halo radius px @128, strength, frames, pulse low..high, sparks)
-AURA = {3: (7, 5.0, 0.60, 1, (1.0, 1.0), 0),
-        4: (11, 8.0, 0.85, 8, (0.65, 1.0), 0),
-        5: (15, 11.0, 1.00, 16, (0.70, 1.0), 16)}
+AURA = {3: (7, 5.0, 0.55, 1, (1.0, 1.0), 0),
+        4: (11, 8.0, 0.80, 6, (0.75, 1.0), 0),
+        5: (15, 11.0, 0.95, 10, (0.78, 1.0), 18)}
 GLOW = {'fire': ((1.00, 0.42, 0.08), (1.00, 0.86, 0.40)),     # (halo, sparks / core)
         'ice': ((0.35, 0.78, 1.00), (0.88, 0.98, 1.00)),
         'storm': ((0.62, 0.45, 1.00), (0.92, 0.88, 1.00)),
         'venom': ((0.40, 0.95, 0.25), (0.82, 1.00, 0.55))}
 GRIP = np.array([-4.5, -4.5, 0.0])     # where the hand holds a blade, model px from the centre (handle lower left)
-AURA_RES = 64                          # aura texture size (before the padding)
+AURA_RES = 128                         # aura texture size (before the padding): full icon detail
 PAD = 2                                # aura plane reaches 2 model px past the item square (room for the halo)
 
 VANILLA = {   # minecraft:item/handheld and minecraft:item/bow (26.3 client jar)
@@ -75,53 +75,94 @@ def _blur(a, r):
     return np.asarray(im.filter(ImageFilter.GaussianBlur(r))).astype(np.float32) / 255.0
 
 
+def _waves(xx, yy, ph, seed, n=4, scale=1.0):
+    """Looping wisps: a few travelling sine waves with whole-number speeds, so frame N wraps to frame 0."""
+    rng = np.random.default_rng(seed)
+    acc = np.zeros_like(xx)
+    for i in range(n):
+        ang = rng.uniform(-0.6, 0.6) - np.pi / 4                 # mostly along the blade (lower left -> upper right)
+        f = rng.uniform(0.05, 0.11) * scale
+        acc += np.sin((xx * np.cos(ang) - yy * np.sin(ang)) * f - 2 * np.pi * ph * (i % 2 + 1) + rng.uniform(0, 6.3))
+    return 0.5 + 0.5 * acc / n
+
+
 def aura_texture(tex, name, elem, tier):
     light, rad, strength, frames, (lo, hi), sparks = AURA[tier]
-    w = AURA_RES                                                  # a soft glow: half the icon's detail is plenty
+    w = AURA_RES
     rad = rad * w / 128
     tex = tex.convert('RGBA').resize((w, w), Image.LANCZOS)
     pad = w * PAD // 16
     side = w + 2 * pad
     a = np.zeros((side, side), np.float32)
-    a[pad:pad + w, pad:pad + w] = np.asarray(tex.convert('RGBA'))[..., 3].astype(np.float32) / 255.0
+    a[pad:pad + w, pad:pad + w] = np.asarray(tex)[..., 3].astype(np.float32) / 255.0
     sil = (a > 0.35).astype(np.float32)
-    halo = np.clip(_blur(sil, rad) * 2.4, 0, 1) ** 0.9          # wide soft glow
-    rim = np.clip(_blur(sil, rad * 0.35) * 2.0, 0, 1)           # bright edge hugging the outline
+    outside = 1 - sil
+    edge = np.clip(_blur(sil, 1.2) * 2.2, 0, 1) * outside          # crisp lit line hugging the outline
+    mid = np.clip(_blur(sil, rad * 0.45) * 2.2, 0, 1)                # main glow
+    far = np.clip(_blur(sil, rad * 1.3) * 2.6, 0, 1) ** 1.2          # faint wide haze
     col, core = (np.array(c, np.float32) for c in GLOW[elem])
-    rng = np.random.default_rng(zlib.crc32(name.encode()))
-    ys, xs = np.nonzero(sil > 0)
-    spark = [(xs[j], ys[j], rng.uniform(0, 1), rng.uniform(0.5, 1.0), rng.uniform(-0.4, 0.4))
+    seed = zlib.crc32(name.encode())
+    rng = np.random.default_rng(seed)
+    ys, xs = np.nonzero(edge > 0.3)
+    spark = [(xs[j], ys[j], rng.uniform(0, 1), rng.uniform(0.5, 1.0), rng.uniform(-0.3, 0.3), rng.uniform(0.7, 1.3))
              for j in rng.integers(0, len(xs), sparks)] if sparks and len(xs) else []
     yy, xx = np.mgrid[0:side, 0:side].astype(np.float32)
     out = []
     for f in range(frames):
         ph = f / frames
-        k = lo + (hi - lo) * (0.5 - 0.5 * np.cos(2 * np.pi * ph))       # pulse
-        alpha = np.clip((halo * 0.8 + rim * 0.5) * strength * k, 0, 0.95)
-        rgb = col[None, None, :] * (1 - rim[..., None] * 0.45) + core[None, None, :] * rim[..., None] * 0.45
-        for (sx, sy, off, spd, drift) in spark:                          # embers rising off the weapon and fading
+        k = lo + (hi - lo) * (0.5 - 0.5 * np.cos(2 * np.pi * ph))   # pulse
+        wisp = _waves(xx, yy, ph, seed, scale=128 / w) if frames > 1 else 0.6
+        flick = 0.55 + 0.9 * wisp                                    # energy streaming along the weapon
+        alpha = (edge * 0.95 + mid * 0.55 * flick + far * 0.30 * flick) * strength * k
+        heat = np.clip(edge * 0.9 + mid * 0.35 * wisp, 0, 1)[..., None]   # hotter (whiter) next to the metal
+        rgb = col[None, None, :] * (1 - heat) + core[None, None, :] * heat
+        for (sx, sy, off, spd, drift, size) in spark:                # sparks leaving the edge, rising, fading
             t = (ph + off) % 1.0
-            px = sx + drift * t * w * 0.35
-            py = sy - t * spd * w * 0.45
-            life = np.sin(np.pi * t)
+            px = sx + drift * t * w * 0.3
+            py = sy - t * spd * w * 0.35
+            life = np.sin(np.pi * t) ** 0.7
             d2 = (xx - px) ** 2 + (yy - py) ** 2
-            dot = np.exp(-d2 / (2 * 1.0 ** 2)) * life
-            alpha = np.maximum(alpha, np.clip(dot, 0, 1))
+            dot = np.clip(np.exp(-d2 / (2 * (size * w / 128) ** 2)) * 1.4, 0, 1) * life
+            alpha = np.maximum(alpha, dot)
             rgb = rgb * (1 - dot[..., None]) + core[None, None, :] * dot[..., None]
-        out.append(np.dstack([np.clip(rgb, 0, 1), alpha]))
+        alpha = alpha * outside + alpha * sil * 0.0                  # nothing drawn over the weapon itself
+        out.append(np.dstack([np.clip(rgb, 0, 1), np.clip(alpha, 0, 0.95)]))
     strip = np.concatenate(out, axis=0)
     img = Image.fromarray((strip * 255).astype(np.uint8), 'RGBA')
-    meta = {'animation': {'interpolate': True, 'frametime': 3 if tier == 5 else 5}} if frames > 1 else None
+    meta = {'animation': {'interpolate': True, 'frametime': 3 if tier == 5 else 4}} if frames > 1 else None
     return img, meta, light
 
 
-def aura_model(name, light):
+def glow_texture(tex, elem):
+    """The weapon's own bright parts (gems, runes, the element burning in the metal), lit full-bright in the dark."""
+    px = np.asarray(tex.convert('RGBA')).astype(np.float32) / 255.0
+    rgb, a = px[..., :3], px[..., 3]
+    col = np.array(GLOW[elem][0], np.float32)
+    mx, mn = rgb.max(-1), rgb.min(-1)
+    sat = (mx - mn) / np.maximum(mx, 1e-3)
+    near = 1 - np.clip(np.abs(rgb / np.maximum(mx[..., None], 1e-3) - col / col.max()).sum(-1) / 0.9, 0, 1)
+    m = np.clip((mx - 0.55) / 0.3, 0, 1) * np.clip(np.maximum(sat * 1.4, near) , 0, 1) * (a > 0.5)
+    m = np.clip(m * 1.3, 0, 1)
+    out = np.dstack([rgb, m])
+    return Image.fromarray((out * 255).astype(np.uint8), 'RGBA'), float(m.sum()) > 20
+
+
+def aura_model(name, kind, tier, light, glow):
     lo, hi = -PAD, 16 + PAD
-    tex = '#aura'
-    return {'textures': {'aura': 'knightsrealm:item/held/aura_' + name, 'particle': 'knightsrealm:item/held/aura_' + name},
-            'elements': [{'from': [lo, lo, 8], 'to': [hi, hi, 8], 'shade': False, 'light_emission': light,
-                          'faces': {'south': {'uv': [0, 0, 16, 16], 'texture': tex},
-                                    'north': {'uv': [16, 0, 0, 16], 'texture': tex}}}]}
+    a = 'knightsrealm:item/held/aura_' + name
+    els = [{'from': [lo, lo, 8], 'to': [hi, hi, 8], 'shade': False, 'light_emission': light,
+            'faces': {'south': {'uv': [0, 0, 16, 16], 'texture': '#aura'},
+                      'north': {'uv': [16, 0, 0, 16], 'texture': '#aura'}}}]
+    tx = {'aura': a, 'particle': a}
+    if glow:   # the bright parts again, a hair in front of each face of the weapon, full-bright
+        tx['glow'] = 'knightsrealm:item/held/glow_' + name
+        els += [{'from': [0, 0, 8.56], 'to': [16, 16, 8.56], 'shade': False, 'light_emission': 15,
+                 'faces': {'south': {'uv': [0, 0, 16, 16], 'texture': '#glow'}}},
+                {'from': [0, 0, 7.44], 'to': [16, 16, 7.44], 'shade': False, 'light_emission': 15,
+                 'faces': {'north': {'uv': [16, 0, 0, 16], 'texture': '#glow'}}}]
+    # a composite part keeps its own display transforms, so it carries the weapon's pose (copied, not by parent:
+    # a parent chain ending in builtin/generated would turn it back into a layer0 sprite)
+    return {'textures': tx, 'elements': els, 'display': parent(kind, tier)['display']}
 
 
 def _write(path, data):
@@ -158,7 +199,10 @@ def install(ns=NS):
             img.save(os.path.join(held_tex, 'aura_' + name + '.png'), optimize=True)
             if meta:
                 _write(os.path.join(held_tex, 'aura_' + name + '.png.mcmeta'), meta)
-            _write(os.path.join(held_mod, 'aura_' + name + '.json'), aura_model(name, light))
+            gimg, glow = glow_texture(Image.open(os.path.join(ns, 'textures', 'item', f)), elem)
+            if glow:
+                gimg.save(os.path.join(held_tex, 'glow_' + name + '.png'), optimize=True)
+            _write(os.path.join(held_mod, 'aura_' + name + '.json'), aura_model(name, kind, tier, light, glow))
             item = {'type': 'minecraft:select', 'property': 'minecraft:display_context',
                     'cases': [{'when': ['gui'], 'model': item}],
                     'fallback': {'type': 'minecraft:composite', 'models': [
