@@ -25,7 +25,7 @@ WEAPON = re.compile(r'^gear_(sword|axe|bow)_(fire|ice|storm|venom)(?:_[ab])?_t([
 # size in hand against a vanilla tool: third person / first person (first person kept smaller: it fills the screen)
 SCALE = {2: (1.00, 1.00), 3: (1.15, 1.08), 4: (1.30, 1.16), 5: (1.50, 1.26)}
 # aura: (light_emission, halo radius px @128, strength, frames, pulse low..high, sparks)
-AURA = {3: (7, 5.0, 0.55, 1, (1.0, 1.0), 0),
+AURA = {3: (7, 5.0, 0.55, 6, (0.80, 1.0), 4),
         4: (11, 8.0, 0.80, 6, (0.75, 1.0), 0),
         5: (15, 11.0, 0.95, 10, (0.78, 1.0), 18)}
 GLOW = {'fire': ((1.00, 0.42, 0.08), (1.00, 0.86, 0.40)),     # (halo, sparks / core)
@@ -112,7 +112,7 @@ def aura_texture(tex, name, elem, tier):
         ph = f / frames
         k = lo + (hi - lo) * (0.5 - 0.5 * np.cos(2 * np.pi * ph))   # pulse
         wisp = _waves(xx, yy, ph, seed, scale=128 / w) if frames > 1 else 0.6
-        flick = 0.55 + 0.9 * wisp                                    # energy streaming along the weapon
+        flick = 0.35 + 1.3 * wisp                                    # energy streaming along the weapon
         alpha = (edge * 0.95 + mid * 0.55 * flick + far * 0.30 * flick) * strength * k
         heat = np.clip(edge * 0.9 + mid * 0.35 * wisp, 0, 1)[..., None]   # hotter (whiter) next to the metal
         rgb = col[None, None, :] * (1 - heat) + core[None, None, :] * heat
