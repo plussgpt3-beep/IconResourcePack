@@ -1,6 +1,1781 @@
 {
-  "parent": "minecraft:block/crop",
   "textures": {
-    "crop": "knightsrealm:item/plant_garlic_3"
-  }
+    "blade_garlic": "knightsrealm:item/p3/blade_garlic",
+    "garlic_bulb_0": "knightsrealm:item/p3/garlic_bulb_0",
+    "garlic_bulb_1": "knightsrealm:item/p3/garlic_bulb_1",
+    "garlic_bulb_2": "knightsrealm:item/p3/garlic_bulb_2",
+    "garlic_bulb_3": "knightsrealm:item/p3/garlic_bulb_3",
+    "garlic_bulb_4": "knightsrealm:item/p3/garlic_bulb_4",
+    "stem_green": "knightsrealm:item/p3/stem_green",
+    "particle": "knightsrealm:item/p3/blade_garlic"
+  },
+  "elements": [
+    {
+      "from": [
+        7.4,
+        -1.6,
+        8.0
+      ],
+      "to": [
+        8.6,
+        -0.4,
+        11.0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            6,
+            6,
+            10,
+            10
+          ],
+          "texture": "#stem_green"
+        },
+        "south": {
+          "uv": [
+            6,
+            6,
+            10,
+            10
+          ],
+          "texture": "#stem_green"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            4,
+            16
+          ],
+          "texture": "#stem_green"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            4,
+            16
+          ],
+          "texture": "#stem_green"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            4,
+            16
+          ],
+          "texture": "#stem_green"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            4,
+            16
+          ],
+          "texture": "#stem_green"
+        }
+      },
+      "rotation": {
+        "origin": [
+          8.0,
+          -1.0,
+          8.0
+        ],
+        "x": -90.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "from": [
+        7.35,
+        2.0,
+        8.0
+      ],
+      "to": [
+        8.65,
+        2.0,
+        10.875
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0,
+            0.0,
+            16,
+            4.0
+          ],
+          "texture": "#blade_garlic"
+        },
+        "down": {
+          "uv": [
+            0,
+            4.0,
+            16,
+            0.0
+          ],
+          "texture": "#blade_garlic"
+        }
+      },
+      "rotation": {
+        "origin": [
+          8.0,
+          2.0,
+          8.0
+        ],
+        "x": -80.25,
+        "y": -9.367,
+        "z": 0.0
+      }
+    },
+    {
+      "from": [
+        7.271,
+        4.833,
+        8.48
+      ],
+      "to": [
+        8.571,
+        4.833,
+        11.355
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0,
+            4.0,
+            16,
+            8.0
+          ],
+          "texture": "#blade_garlic"
+        },
+        "down": {
+          "uv": [
+            0,
+            8.0,
+            16,
+            4.0
+          ],
+          "texture": "#blade_garlic"
+        }
+      },
+      "rotation": {
+        "origin": [
+          7.921,
+          4.833,
+          8.48
+        ],
+        "x": -68.543,
+        "y": -9.367,
+        "z": 0.0
+      }
+    },
+    {
+      "from": [
+        7.1,
+        7.509,
+        9.518
+      ],
+      "to": [
+        8.4,
+        7.509,
+        12.393
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0,
+            8.0,
+            16,
+            12.0
+          ],
+          "texture": "#blade_garlic"
+        },
+        "down": {
+          "uv": [
+            0,
+            12.0,
+            16,
+            8.0
+          ],
+          "texture": "#blade_garlic"
+        }
+      },
+      "rotation": {
+        "origin": [
+          7.75,
+          7.509,
+          9.518
+        ],
+        "x": -56.837,
+        "y": -9.367,
+        "z": 0.0
+      }
+    },
+    {
+      "from": [
+        6.844,
+        9.916,
+        11.07
+      ],
+      "to": [
+        8.144,
+        9.916,
+        13.945
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0,
+            12.0,
+            16,
+            16.0
+          ],
+          "texture": "#blade_garlic"
+        },
+        "down": {
+          "uv": [
+            0,
+            16.0,
+            16,
+            12.0
+          ],
+          "texture": "#blade_garlic"
+        }
+      },
+      "rotation": {
+        "origin": [
+          7.494,
+          9.916,
+          11.07
+        ],
+        "x": -45.131,
+        "y": -9.367,
+        "z": 0.0
+      }
+    },
+    {
+      "from": [
+        7.35,
+        2.0,
+        8.0
+      ],
+      "to": [
+        8.65,
+        2.0,
+        10.875
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0,
+            0.0,
+            16,
+            4.0
+          ],
+          "texture": "#blade_garlic"
+        },
+        "down": {
+          "uv": [
+            0,
+            4.0,
+            16,
+            0.0
+          ],
+          "texture": "#blade_garlic"
+        }
+      },
+      "rotation": {
+        "origin": [
+          8.0,
+          2.0,
+          8.0
+        ],
+        "x": -79.093,
+        "y": 147.388,
+        "z": 0.0
+      }
+    },
+    {
+      "from": [
+        7.643,
+        4.823,
+        7.542
+      ],
+      "to": [
+        8.943,
+        4.823,
+        10.417
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0,
+            4.0,
+            16,
+            8.0
+          ],
+          "texture": "#blade_garlic"
+        },
+        "down": {
+          "uv": [
+            0,
+            8.0,
+            16,
+            4.0
+          ],
+          "texture": "#blade_garlic"
+        }
+      },
+      "rotation": {
+        "origin": [
+          8.293,
+          4.823,
+          7.542
+        ],
+        "x": -64.824,
+        "y": 147.388,
+        "z": 0.0
+      }
+    },
+    {
+      "from": [
+        8.302,
+        7.425,
+        6.512
+      ],
+      "to": [
+        9.602,
+        7.425,
+        9.387
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0,
+            8.0,
+            16,
+            12.0
+          ],
+          "texture": "#blade_garlic"
+        },
+        "down": {
+          "uv": [
+            0,
+            12.0,
+            16,
+            8.0
+          ],
+          "texture": "#blade_garlic"
+        }
+      },
+      "rotation": {
+        "origin": [
+          8.952,
+          7.425,
+          6.512
+        ],
+        "x": -50.556,
+        "y": 147.388,
+        "z": 0.0
+      }
+    },
+    {
+      "from": [
+        9.287,
+        9.645,
+        4.973
+      ],
+      "to": [
+        10.587,
+        9.645,
+        7.848
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0,
+            12.0,
+            16,
+            16.0
+          ],
+          "texture": "#blade_garlic"
+        },
+        "down": {
+          "uv": [
+            0,
+            16.0,
+            16,
+            12.0
+          ],
+          "texture": "#blade_garlic"
+        }
+      },
+      "rotation": {
+        "origin": [
+          9.937,
+          9.645,
+          4.973
+        ],
+        "x": -36.287,
+        "y": 147.388,
+        "z": 0.0
+      }
+    },
+    {
+      "from": [
+        7.35,
+        2.0,
+        8.0
+      ],
+      "to": [
+        8.65,
+        2.0,
+        10.875
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0,
+            0.0,
+            16,
+            4.0
+          ],
+          "texture": "#blade_garlic"
+        },
+        "down": {
+          "uv": [
+            0,
+            4.0,
+            16,
+            0.0
+          ],
+          "texture": "#blade_garlic"
+        }
+      },
+      "rotation": {
+        "origin": [
+          8.0,
+          2.0,
+          8.0
+        ],
+        "x": -82.147,
+        "y": 275.325,
+        "z": 0.0
+      }
+    },
+    {
+      "from": [
+        6.959,
+        4.848,
+        8.036
+      ],
+      "to": [
+        8.259,
+        4.848,
+        10.911
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0,
+            4.0,
+            16,
+            8.0
+          ],
+          "texture": "#blade_garlic"
+        },
+        "down": {
+          "uv": [
+            0,
+            8.0,
+            16,
+            4.0
+          ],
+          "texture": "#blade_garlic"
+        }
+      },
+      "rotation": {
+        "origin": [
+          7.609,
+          4.848,
+          8.036
+        ],
+        "x": -64.851,
+        "y": 275.325,
+        "z": 0.0
+      }
+    },
+    {
+      "from": [
+        5.742,
+        7.451,
+        8.15
+      ],
+      "to": [
+        7.042,
+        7.451,
+        11.025
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0,
+            8.0,
+            16,
+            12.0
+          ],
+          "texture": "#blade_garlic"
+        },
+        "down": {
+          "uv": [
+            0,
+            12.0,
+            16,
+            8.0
+          ],
+          "texture": "#blade_garlic"
+        }
+      },
+      "rotation": {
+        "origin": [
+          6.392,
+          7.451,
+          8.15
+        ],
+        "x": -47.555,
+        "y": 275.325,
+        "z": 0.0
+      }
+    },
+    {
+      "from": [
+        3.81,
+        9.572,
+        8.33
+      ],
+      "to": [
+        5.11,
+        9.572,
+        11.205
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0,
+            12.0,
+            16,
+            16.0
+          ],
+          "texture": "#blade_garlic"
+        },
+        "down": {
+          "uv": [
+            0,
+            16.0,
+            16,
+            12.0
+          ],
+          "texture": "#blade_garlic"
+        }
+      },
+      "rotation": {
+        "origin": [
+          4.46,
+          9.572,
+          8.33
+        ],
+        "x": -30.258,
+        "y": 275.325,
+        "z": 0.0
+      }
+    },
+    {
+      "from": [
+        7.35,
+        2.0,
+        8.0
+      ],
+      "to": [
+        8.65,
+        2.0,
+        10.875
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0,
+            0.0,
+            16,
+            4.0
+          ],
+          "texture": "#blade_garlic"
+        },
+        "down": {
+          "uv": [
+            0,
+            4.0,
+            16,
+            0.0
+          ],
+          "texture": "#blade_garlic"
+        }
+      },
+      "rotation": {
+        "origin": [
+          8.0,
+          2.0,
+          8.0
+        ],
+        "x": -77.378,
+        "y": 418.294,
+        "z": 0.0
+      }
+    },
+    {
+      "from": [
+        7.884,
+        4.806,
+        8.33
+      ],
+      "to": [
+        9.184,
+        4.806,
+        11.205
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0,
+            4.0,
+            16,
+            8.0
+          ],
+          "texture": "#blade_garlic"
+        },
+        "down": {
+          "uv": [
+            0,
+            8.0,
+            16,
+            4.0
+          ],
+          "texture": "#blade_garlic"
+        }
+      },
+      "rotation": {
+        "origin": [
+          8.534,
+          4.806,
+          8.33
+        ],
+        "x": -58.677,
+        "y": 418.294,
+        "z": 0.0
+      }
+    },
+    {
+      "from": [
+        9.156,
+        7.261,
+        9.116
+      ],
+      "to": [
+        10.456,
+        7.261,
+        11.991
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0,
+            8.0,
+            16,
+            12.0
+          ],
+          "texture": "#blade_garlic"
+        },
+        "down": {
+          "uv": [
+            0,
+            12.0,
+            16,
+            8.0
+          ],
+          "texture": "#blade_garlic"
+        }
+      },
+      "rotation": {
+        "origin": [
+          9.806,
+          7.261,
+          9.116
+        ],
+        "x": -39.975,
+        "y": 418.294,
+        "z": 0.0
+      }
+    },
+    {
+      "from": [
+        11.03,
+        9.109,
+        10.274
+      ],
+      "to": [
+        12.33,
+        9.109,
+        13.149
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0,
+            12.0,
+            16,
+            16.0
+          ],
+          "texture": "#blade_garlic"
+        },
+        "down": {
+          "uv": [
+            0,
+            16.0,
+            16,
+            12.0
+          ],
+          "texture": "#blade_garlic"
+        }
+      },
+      "rotation": {
+        "origin": [
+          11.68,
+          9.109,
+          10.274
+        ],
+        "x": -21.274,
+        "y": 418.294,
+        "z": 0.0
+      }
+    },
+    {
+      "from": [
+        7.35,
+        2.0,
+        8.0
+      ],
+      "to": [
+        8.65,
+        2.0,
+        10.875
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0,
+            0.0,
+            16,
+            4.0
+          ],
+          "texture": "#blade_garlic"
+        },
+        "down": {
+          "uv": [
+            0,
+            4.0,
+            16,
+            0.0
+          ],
+          "texture": "#blade_garlic"
+        }
+      },
+      "rotation": {
+        "origin": [
+          8.0,
+          2.0,
+          8.0
+        ],
+        "x": -77.179,
+        "y": 550.878,
+        "z": 0.0
+      }
+    },
+    {
+      "from": [
+        7.23,
+        4.803,
+        7.373
+      ],
+      "to": [
+        8.53,
+        4.803,
+        10.248
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0,
+            4.0,
+            16,
+            8.0
+          ],
+          "texture": "#blade_garlic"
+        },
+        "down": {
+          "uv": [
+            0,
+            8.0,
+            16,
+            4.0
+          ],
+          "texture": "#blade_garlic"
+        }
+      },
+      "rotation": {
+        "origin": [
+          7.88,
+          4.803,
+          7.373
+        ],
+        "x": -54.456,
+        "y": 550.878,
+        "z": 0.0
+      }
+    },
+    {
+      "from": [
+        6.914,
+        7.143,
+        5.732
+      ],
+      "to": [
+        8.214,
+        7.143,
+        8.607
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0,
+            8.0,
+            16,
+            12.0
+          ],
+          "texture": "#blade_garlic"
+        },
+        "down": {
+          "uv": [
+            0,
+            12.0,
+            16,
+            8.0
+          ],
+          "texture": "#blade_garlic"
+        }
+      },
+      "rotation": {
+        "origin": [
+          7.564,
+          7.143,
+          5.732
+        ],
+        "x": -31.733,
+        "y": 550.878,
+        "z": 0.0
+      }
+    },
+    {
+      "from": [
+        6.453,
+        8.655,
+        3.331
+      ],
+      "to": [
+        7.753,
+        8.655,
+        6.206
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0,
+            12.0,
+            16,
+            16.0
+          ],
+          "texture": "#blade_garlic"
+        },
+        "down": {
+          "uv": [
+            0,
+            16.0,
+            16,
+            12.0
+          ],
+          "texture": "#blade_garlic"
+        }
+      },
+      "rotation": {
+        "origin": [
+          7.103,
+          8.655,
+          3.331
+        ],
+        "x": -9.01,
+        "y": 550.878,
+        "z": 0.0
+      }
+    },
+    {
+      "from": [
+        7.35,
+        2.0,
+        8.0
+      ],
+      "to": [
+        8.65,
+        2.0,
+        10.875
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0,
+            0.0,
+            16,
+            4.0
+          ],
+          "texture": "#blade_garlic"
+        },
+        "down": {
+          "uv": [
+            0,
+            4.0,
+            16,
+            0.0
+          ],
+          "texture": "#blade_garlic"
+        }
+      },
+      "rotation": {
+        "origin": [
+          8.0,
+          2.0,
+          8.0
+        ],
+        "x": -78.204,
+        "y": 679.929,
+        "z": 0.0
+      }
+    },
+    {
+      "from": [
+        6.972,
+        4.814,
+        8.45
+      ],
+      "to": [
+        8.272,
+        4.814,
+        11.325
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0,
+            4.0,
+            16,
+            8.0
+          ],
+          "texture": "#blade_garlic"
+        },
+        "down": {
+          "uv": [
+            0,
+            8.0,
+            16,
+            4.0
+          ],
+          "texture": "#blade_garlic"
+        }
+      },
+      "rotation": {
+        "origin": [
+          7.622,
+          4.814,
+          8.45
+        ],
+        "x": -53.798,
+        "y": 679.929,
+        "z": 0.0
+      }
+    },
+    {
+      "from": [
+        5.879,
+        7.134,
+        9.749
+      ],
+      "to": [
+        7.179,
+        7.134,
+        12.624
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0,
+            8.0,
+            16,
+            12.0
+          ],
+          "texture": "#blade_garlic"
+        },
+        "down": {
+          "uv": [
+            0,
+            12.0,
+            16,
+            8.0
+          ],
+          "texture": "#blade_garlic"
+        }
+      },
+      "rotation": {
+        "origin": [
+          6.529,
+          7.134,
+          9.749
+        ],
+        "x": -29.391,
+        "y": 679.929,
+        "z": 0.0
+      }
+    },
+    {
+      "from": [
+        4.266,
+        8.545,
+        11.666
+      ],
+      "to": [
+        5.566,
+        8.545,
+        14.541
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0,
+            12.0,
+            16,
+            16.0
+          ],
+          "texture": "#blade_garlic"
+        },
+        "down": {
+          "uv": [
+            0,
+            16.0,
+            16,
+            12.0
+          ],
+          "texture": "#blade_garlic"
+        }
+      },
+      "rotation": {
+        "origin": [
+          4.916,
+          8.545,
+          11.666
+        ],
+        "x": -4.985,
+        "y": 679.929,
+        "z": 0.0
+      }
+    },
+    {
+      "from": [
+        7.35,
+        2.0,
+        8.0
+      ],
+      "to": [
+        8.65,
+        2.0,
+        10.875
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0,
+            0.0,
+            16,
+            4.0
+          ],
+          "texture": "#blade_garlic"
+        },
+        "down": {
+          "uv": [
+            0,
+            4.0,
+            16,
+            0.0
+          ],
+          "texture": "#blade_garlic"
+        }
+      },
+      "rotation": {
+        "origin": [
+          8.0,
+          2.0,
+          8.0
+        ],
+        "x": -73.421,
+        "y": 833.482,
+        "z": 0.0
+      }
+    },
+    {
+      "from": [
+        8.102,
+        4.755,
+        7.673
+      ],
+      "to": [
+        9.402,
+        4.755,
+        10.548
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0,
+            4.0,
+            16,
+            8.0
+          ],
+          "texture": "#blade_garlic"
+        },
+        "down": {
+          "uv": [
+            0,
+            8.0,
+            16,
+            4.0
+          ],
+          "texture": "#blade_garlic"
+        }
+      },
+      "rotation": {
+        "origin": [
+          8.752,
+          4.755,
+          7.673
+        ],
+        "x": -45.822,
+        "y": 833.482,
+        "z": 0.0
+      }
+    },
+    {
+      "from": [
+        9.94,
+        6.817,
+        6.875
+      ],
+      "to": [
+        11.24,
+        6.817,
+        9.75
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0,
+            8.0,
+            16,
+            12.0
+          ],
+          "texture": "#blade_garlic"
+        },
+        "down": {
+          "uv": [
+            0,
+            12.0,
+            16,
+            8.0
+          ],
+          "texture": "#blade_garlic"
+        }
+      },
+      "rotation": {
+        "origin": [
+          10.59,
+          6.817,
+          6.875
+        ],
+        "x": -18.222,
+        "y": 833.482,
+        "z": 0.0
+      }
+    },
+    {
+      "from": [
+        12.445,
+        7.716,
+        5.787
+      ],
+      "to": [
+        13.745,
+        7.716,
+        8.662
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0,
+            12.0,
+            16,
+            16.0
+          ],
+          "texture": "#blade_garlic"
+        },
+        "down": {
+          "uv": [
+            0,
+            16.0,
+            16,
+            12.0
+          ],
+          "texture": "#blade_garlic"
+        }
+      },
+      "rotation": {
+        "origin": [
+          13.095,
+          7.716,
+          5.787
+        ],
+        "x": 9.377,
+        "y": 833.482,
+        "z": 0.0
+      }
+    },
+    {
+      "from": [
+        6.966,
+        -1.68,
+        7.566
+      ],
+      "to": [
+        9.034,
+        -1.16,
+        8.434
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture": "#garlic_bulb_0"
+        },
+        "north": {
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture": "#garlic_bulb_0"
+        },
+        "south": {
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture": "#garlic_bulb_1"
+        },
+        "west": {
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture": "#garlic_bulb_0"
+        },
+        "east": {
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture": "#garlic_bulb_1"
+        }
+      },
+      "shade": false
+    },
+    {
+      "from": [
+        7.566,
+        -1.68,
+        6.966
+      ],
+      "to": [
+        8.434,
+        -1.16,
+        9.034
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture": "#garlic_bulb_0"
+        },
+        "north": {
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture": "#garlic_bulb_0"
+        },
+        "south": {
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture": "#garlic_bulb_1"
+        },
+        "west": {
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture": "#garlic_bulb_0"
+        },
+        "east": {
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture": "#garlic_bulb_1"
+        }
+      },
+      "shade": false
+    },
+    {
+      "from": [
+        7.256,
+        -1.68,
+        7.256
+      ],
+      "to": [
+        8.744,
+        -1.16,
+        8.744
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture": "#garlic_bulb_0"
+        },
+        "north": {
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture": "#garlic_bulb_0"
+        },
+        "south": {
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture": "#garlic_bulb_1"
+        },
+        "west": {
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture": "#garlic_bulb_0"
+        },
+        "east": {
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture": "#garlic_bulb_1"
+        }
+      },
+      "shade": false
+    },
+    {
+      "from": [
+        6.635,
+        -1.16,
+        7.427
+      ],
+      "to": [
+        9.365,
+        -0.64,
+        8.573
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture": "#garlic_bulb_1"
+        },
+        "south": {
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture": "#garlic_bulb_2"
+        },
+        "west": {
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture": "#garlic_bulb_1"
+        },
+        "east": {
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture": "#garlic_bulb_2"
+        }
+      },
+      "shade": false
+    },
+    {
+      "from": [
+        7.427,
+        -1.16,
+        6.635
+      ],
+      "to": [
+        8.573,
+        -0.64,
+        9.365
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture": "#garlic_bulb_1"
+        },
+        "south": {
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture": "#garlic_bulb_2"
+        },
+        "west": {
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture": "#garlic_bulb_1"
+        },
+        "east": {
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture": "#garlic_bulb_2"
+        }
+      },
+      "shade": false
+    },
+    {
+      "from": [
+        7.017,
+        -1.16,
+        7.017
+      ],
+      "to": [
+        8.983,
+        -0.64,
+        8.983
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture": "#garlic_bulb_1"
+        },
+        "south": {
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture": "#garlic_bulb_2"
+        },
+        "west": {
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture": "#garlic_bulb_1"
+        },
+        "east": {
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture": "#garlic_bulb_2"
+        }
+      },
+      "shade": false
+    },
+    {
+      "from": [
+        6.966,
+        -0.64,
+        7.566
+      ],
+      "to": [
+        9.034,
+        -0.12,
+        8.434
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture": "#garlic_bulb_4"
+        },
+        "north": {
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture": "#garlic_bulb_2"
+        },
+        "south": {
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture": "#garlic_bulb_3"
+        },
+        "west": {
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture": "#garlic_bulb_2"
+        },
+        "east": {
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture": "#garlic_bulb_3"
+        }
+      },
+      "shade": false
+    },
+    {
+      "from": [
+        7.566,
+        -0.64,
+        6.966
+      ],
+      "to": [
+        8.434,
+        -0.12,
+        9.034
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture": "#garlic_bulb_4"
+        },
+        "north": {
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture": "#garlic_bulb_2"
+        },
+        "south": {
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture": "#garlic_bulb_3"
+        },
+        "west": {
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture": "#garlic_bulb_2"
+        },
+        "east": {
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture": "#garlic_bulb_3"
+        }
+      },
+      "shade": false
+    },
+    {
+      "from": [
+        7.256,
+        -0.64,
+        7.256
+      ],
+      "to": [
+        8.744,
+        -0.12,
+        8.744
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture": "#garlic_bulb_4"
+        },
+        "north": {
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture": "#garlic_bulb_2"
+        },
+        "south": {
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture": "#garlic_bulb_3"
+        },
+        "west": {
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture": "#garlic_bulb_2"
+        },
+        "east": {
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture": "#garlic_bulb_3"
+        }
+      },
+      "shade": false
+    }
+  ]
 }

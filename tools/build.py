@@ -295,13 +295,14 @@ def main():
     write_json(os.path.join(NS, 'items', 'hidden_held.json'), {'model': {'type': 'minecraft:empty'}})
     write_arrows()
     write_tripwire()
+    import plants3d; plants3d.install(NS, write_json)   # real 3D crop models plant_<crop>_<1-4> (2026-11-27)
     sys.path.insert(0, os.path.join(HERE, 'equip')); import equip
     equip_ids = equip.install(PACK)
     gui_ids = write_gui()
     first = built.get('treasury', next(iter(built.values())))[1]
     first.save(os.path.join(PACK, 'pack.png'))
     with open(os.path.join(ROOT, 'icons.txt'), 'w', newline='\n') as f:   # the ids in this pack, for the plugin's test
-        f.write('\n'.join(list(icon_ids()) + equip_ids + gui_ids + ['hidden_held']) + '\n')
+        f.write('\n'.join(list(icon_ids()) + __import__('plants3d').ids() + equip_ids + gui_ids + ['hidden_held']) + '\n')
 
     if len(sys.argv) > 2 and sys.argv[1] == 'sheet':
         names = []
@@ -330,7 +331,7 @@ def gui_only():
     equip_ids = equip.install(PACK)
     gui_ids = write_gui()
     with open(os.path.join(ROOT, 'icons.txt'), 'w', newline='\n') as f:
-        f.write('\n'.join(list(icon_ids()) + equip_ids + gui_ids + ['hidden_held']) + '\n')
+        f.write('\n'.join(list(icon_ids()) + __import__('plants3d').ids() + equip_ids + gui_ids + ['hidden_held']) + '\n')
     write_zip()
 
 
