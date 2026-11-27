@@ -1,0 +1,9 @@
+"""หมวด "ตำราอาหาร" (หม้อปรุงอาหาร, 2026-11-27)."""
+from _category import ribbon
+
+COLOR = 'ORANGE'
+TEXT = 'ตำรา\nอาหาร'
+
+
+def draw():
+    return ribbon(COLOR, 2702)

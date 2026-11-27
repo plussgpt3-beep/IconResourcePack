@@ -19,5 +19,6 @@ STAGES = {
     'stage10': ('เครื่องประดับ', 'acc_ring_fire acc_ring_ice acc_ring_storm acc_ring_venom acc_ring_warrior acc_ring_hunter acc_ring_merchant acc_neck_alpha acc_neck_heartwood acc_neck_crown acc_neck_soul acc_ear_hawk acc_ear_calm acc_brace_leather acc_brace_scale acc_brace_travel acc_belt_warrior acc_belt_pouch acc_belt_medic acc_charm_medic acc_charm_wool acc_charm_miner'.split()),
     'stage11': ('กระเป๋าเสริม', 'bag_t1 bag_t2 bag_t3 bag_t4 bag_t5 leatherworker'.split()),
     'stage12': ('อัปเกรดตัวละคร', 'stat_points stat_str stat_agi stat_aspd stat_vit stat_int'.split()),
+    'stage13': ('อาหาร (หม้อปรุงอาหาร)', 'cook_pot cook_start cook_cooking cook_none cook_take cook_book cook_return dish_farmer_stew dish_minty_fish dish_berry_pie dish_honey_bread dish_rabbit_stew dish_ginseng_chicken dish_turmeric_salmon dish_apple_pork dish_pumpkin_soup dish_warlord_platter dish_spiced_mutton dish_royal_honey_cake'.split()),
     'stage9': ('หมวดหมู่ (ป้ายซ้ายแถว, ตัวหนังสือ)', [l.split('\t')[0] for l in open(__import__('os').path.join(__import__('os').path.dirname(__file__), 'categories.tsv'), encoding='utf-8') if l.strip() and not l.startswith('#')]),
 }

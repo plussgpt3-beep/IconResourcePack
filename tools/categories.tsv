@@ -153,3 +153,6 @@ cat_bags	BROWN	กระเป๋า\nเสริม	กระเป๋าเ�
 cat_stat_upgrade	LIGHT_BLUE	อัปเกรด\nตัวละคร	อัปเกรดตัวละคร
 cat_stats	LIME	ค่า\nสถานะ	ค่าสถานะ
 cat_stat_reset	RED	รีเซ็ต\nแต้ม	รีเซ็ตแต้ม
+cat_pot	ORANGE	ใน\nหม้อ	ในหม้อ
+cat_recipes	ORANGE	ตำรา\nอาหาร	ตำราอาหาร
+cat_food_order	ORANGE	สั่ง\nอาหาร	สั่งอาหาร
