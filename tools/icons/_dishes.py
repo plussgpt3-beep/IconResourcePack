@@ -284,3 +284,87 @@ def glaze_lines(c, cx, cy, rx, ry):
         m = np.maximum(m, poly([(cx + k * 50 - 40, cy - ry), (cx + k * 50 + 40, cy + ry)], width=8))
     m = blur(m * ellipse([cx - rx * 0.85, cy - ry * 0.8, cx + rx * 0.85, cy + ry * 0.8]), 1)
     c.over(np.zeros((N, N, 3)) + np.array([0.30, 0.12, 0.04]), m * 0.7, cast=False)
+
+
+# ---------- phase 2 dishes (พืชใหม่, 2026-11-27) ----------
+
+def rice_mound(c, rng, cx, cy, rx=130, ry=80, rgb=(0.96, 0.95, 0.90), fried=False):
+    """A mound of cooked rice: a dome covered in plump grains (golden and flecked when fried)."""
+    m = blur(ellipse([cx - rx, cy - ry, cx + rx, cy + ry * 0.7]), 1.2)
+    base = (0.92, 0.78, 0.46) if fried else rgb
+    c.over(light(_dome(cx, cy, rx, ry) * m * 0.9, grain(rng, base, 14, 0.15), depth=50, spec=0.25) * edge_darken(m, 8, 0.25), m)
+    ys, xs = np.nonzero(m > 0.7)
+    g = np.zeros((N, N), np.float32)
+    for _ in range(170):
+        i = rng.integers(len(xs)); x, y = xs[i], ys[i]
+        a = rng.uniform(0, np.pi)
+        g = np.maximum(g, blur(poly([(x - 7 * np.cos(a), y - 7 * np.sin(a)), (x + 7 * np.cos(a), y + 7 * np.sin(a))], width=6), 0.8))
+    g *= m
+    c.over(light(pillow(g, 2, 0.8) * 0.6 + _dome(cx, cy, rx, ry) * 0.5, flat(base) * 1.05, depth=25, spec=0.5, gloss=40), g * 0.9, cast=False)
+    return m
+
+
+def omelette(c, rng, cx, cy, rx=110, ry=60):
+    """A puffy Thai-style omelette: smooth golden top risen in soft bubbles, a lacy crisp brown frill round the edge."""
+    edge = noise(rng, 14, 2)
+    rr = np.hypot((xx - cx) / rx, (yy - cy) / ry)
+    m = blur(((rr < 0.86 + 0.16 * edge)).astype(np.float32), 1.5)
+    frill = np.clip((rr - 0.62) / 0.3, 0, 1)
+    bubbles = np.clip(noise(rng, 5, 2) - 0.45, 0, 1) * 2.2
+    alb = np.zeros((N, N, 3)) + np.array([0.99, 0.80, 0.28])
+    alb = alb * (0.92 + 0.1 * noise(rng, 30, 1))[..., None]
+    browned = np.clip(frill * (0.6 + 0.8 * noise(rng, 22, 2)) + 0.35 * np.clip(bubbles - 0.5, 0, 1), 0, 1)[..., None]
+    alb = alb * (1 - browned) + np.array([0.66, 0.38, 0.10]) * browned
+    h = pillow(m, 26, 0.6) * 0.7 + 0.22 * blur(bubbles, 6) * (1 - frill) + 0.08 * noise(rng, 40, 1) * frill
+    c.over(light(h * m, np.clip(alb, 0, 1), depth=60, spec=0.6, gloss=45) * edge_darken(m, 6, 0.3), m)
+
+
+def tomato_slice(c, rng, cx, cy, r=42):
+    m = blur(ellipse([cx - r, cy - r * 0.55, cx + r, cy + r * 0.55]), 1)
+    c.over(light(0.3 * pillow(m, 6), _col((0.85, 0.14, 0.08), rng, 0.15), depth=25, spec=0.6, gloss=40), m)
+    f = blur(ellipse([cx - r * 0.82, cy - r * 0.44, cx + r * 0.82, cy + r * 0.44]), 1)
+    c.over(np.zeros((N, N, 3)) + np.array([0.95, 0.32, 0.20]), f * 0.8, cast=False)
+    for a in np.linspace(0, 2 * np.pi, 4, endpoint=False):   # the seed chambers
+        x, y = cx + np.cos(a + 0.4) * r * 0.42, cy + np.sin(a + 0.4) * r * 0.22
+        s = blur(ellipse([x - r * 0.22, y - r * 0.12, x + r * 0.22, y + r * 0.12]), 1)
+        c.over(np.zeros((N, N, 3)) + np.array([0.98, 0.70, 0.30]), s * 0.8, cast=False)
+
+
+def chili_ring(c, rng, cx, cy, r=12, rgb=(0.85, 0.08, 0.05)):
+    m = blur(ellipse([cx - r, cy - r * 0.7, cx + r, cy + r * 0.7]), 0.8)
+    c.over(light(0.4 * pillow(m, 3), _col(rgb, rng, 0.1), depth=20, spec=0.7, gloss=40), m)
+    h = blur(ellipse([cx - r * 0.5, cy - r * 0.35, cx + r * 0.5, cy + r * 0.35]), 0.8)
+    c.over(np.zeros((N, N, 3)) + np.array([0.98, 0.85, 0.55]), h * 0.8, cast=False)
+
+
+def greens(c, rng, cx, cy, r, rgb=(0.45, 0.70, 0.30), n=6):
+    """Torn leafy pieces (cabbage, lettuce, basil) heaped loosely."""
+    for _ in range(n):
+        x, y = cx + rng.uniform(-r, r), cy + rng.uniform(-r * 0.5, r * 0.5)
+        s = rng.uniform(0.5, 0.9) * r * 0.6
+        ang = np.sort(rng.uniform(0, 2 * np.pi, 8))
+        rad = s * rng.uniform(0.55, 1.1, 8)
+        m = blur(poly([(x + np.cos(t) * q, y + np.sin(t) * q * 0.6) for t, q in zip(ang, rad)]), 1.2)
+        col = _col(tuple(np.clip(np.array(rgb) * rng.uniform(0.8, 1.2), 0, 1)), rng, 0.25)
+        c.over(light(pillow(m, s * 0.4, 0.6) * 0.7, col, depth=35, spec=0.4) * edge_darken(m, 5, 0.3), m)
+        v = blur(poly([(x - s * 0.7, y + s * 0.2), (x + s * 0.7, y - s * 0.2)], width=4), 1) * m
+        c.over(np.zeros((N, N, 3)) + np.array([0.85, 0.95, 0.70]), v * 0.6, cast=False)
+
+
+def lemongrass_bits(c, rng, area, n=6):
+    ys, xs = np.nonzero(area > 0.8)
+    for _ in range(n):
+        i = rng.integers(len(xs)); x, y = xs[i], ys[i]
+        a = rng.uniform(-0.6, 0.6)
+        m = blur(poly([(x - 18 * np.cos(a), y - 18 * np.sin(a)), (x + 18 * np.cos(a), y + 18 * np.sin(a))], width=10), 1) * area
+        c.over(light(0.4 * pillow(m, 3), _col((0.80, 0.84, 0.52), rng, 0.2), depth=20, spec=0.4), m)
+
+
+def shallot_rings(c, rng, area, n=8):
+    ys, xs = np.nonzero(area > 0.8)
+    for _ in range(n):
+        i = rng.integers(len(xs)); x, y = xs[i], ys[i]
+        r = rng.uniform(12, 18)
+        o = ellipse([x - r, y - r * 0.6, x + r, y + r * 0.6]) - ellipse([x - r * 0.65, y - r * 0.38, x + r * 0.65, y + r * 0.38])
+        m = blur(np.clip(o, 0, 1), 0.8) * area
+        c.over(light(0.3 * pillow(m, 2), _col((0.86, 0.62, 0.66), rng, 0.15), depth=15, spec=0.6, gloss=40), m)

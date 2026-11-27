@@ -121,6 +121,23 @@ def finish(render, size=None):
     return out
 
 
+CROP_SIZE = 64   # plant growth stages (CROP = True): a block/crop texture, 4x vanilla like the icons ("สมจริงกว่านี้", 2026-11-27)
+
+
+def finish_crop(render):
+    """512 side view of a plant standing on the bottom edge -> 32x32 cutout texture for a block/crop model.
+    Not cropped or outlined: the plant must stay where it was drawn so it stands on the ground."""
+    small = render.convert('RGBA').resize((CROP_SIZE, CROP_SIZE), Image.LANCZOS)
+    px = np.asarray(small).astype(np.float32) / 255.0
+    rgb, al = px[..., :3], px[..., 3:]
+    rgb = np.clip(rgb, 0, 1) ** GAMMA
+    lum = (rgb * [0.299, 0.587, 0.114]).sum(axis=2, keepdims=True)
+    rgb = np.clip(lum + (rgb - lum) * SATURATION, 0, 1)
+    rgb = np.clip((rgb - 0.5) * CONTRAST + 0.5, 0, 1)
+    al = (al > 0.45).astype(np.float32)
+    return Image.fromarray((np.dstack([rgb, al]) * 255).astype(np.uint8), 'RGBA')
+
+
 def write_json(path, data):
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, 'w', encoding='utf-8', newline='\n') as f:
@@ -230,13 +247,15 @@ def main():
         big = mod.draw()
         if name.startswith('gear_'):
             import _detail; big = _detail.enhance(big, name)
-        tex = finish(big, GEAR_SIZE if name.startswith(('gear_', 'acc_')) else None)
+        crop = getattr(mod, 'CROP', False)
+        tex = finish_crop(big) if crop else finish(big, GEAR_SIZE if name.startswith(('gear_', 'acc_')) else None)
         if getattr(mod, 'TEXT', None):
             tex = finish_text(tex, mod.TEXT)
         built[name] = (big, tex)
         p = os.path.join(NS, 'textures', 'item', name + '.png'); os.makedirs(os.path.dirname(p), exist_ok=True)
         tex.save(p)
         write_json(os.path.join(NS, 'models', 'item', name + '.json'),
+                   {'parent': 'minecraft:block/crop', 'textures': {'crop': 'knightsrealm:item/' + name}} if crop else
                    {'parent': 'minecraft:item/handheld' if name.startswith('gear_') else 'minecraft:item/generated',
                     'textures': {'layer0': 'knightsrealm:item/' + name}})
         write_json(os.path.join(NS, 'items', name + '.json'),

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "knightsrealm:item/plant_shallot_3"
+  }
+}
