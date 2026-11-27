@@ -190,6 +190,34 @@ def write_catalog():
 ARROW_CHARS = ''.join(chr(0xE100 + i) for i in range(8))
 
 
+def write_tripwire():
+    """พืชใหม่ (the user, 2026-11-27): a new crop stands on a tripwire block set disarmed; the plugin is the only thing
+    that makes a disarmed wire last (vanilla sets it only as shears cut one), so every disarmed state draws nothing and
+    no string shows under the crop's model. The armed states keep the vanilla models."""
+    shapes = {   # (n, e, s, w) -> (model suffix, y rotation), as in the vanilla blockstate
+        (0, 0, 0, 0): ('ns', 0), (1, 0, 0, 0): ('n', 0), (0, 0, 1, 0): ('n', 180), (0, 1, 0, 0): ('n', 90), (0, 0, 0, 1): ('n', 270),
+        (1, 1, 0, 0): ('ne', 0), (0, 1, 1, 0): ('ne', 90), (0, 0, 1, 1): ('ne', 180), (1, 0, 0, 1): ('ne', 270),
+        (1, 0, 1, 0): ('ns', 0), (0, 1, 0, 1): ('ns', 90),
+        (1, 1, 1, 0): ('nse', 0), (0, 1, 1, 1): ('nse', 90), (1, 0, 1, 1): ('nse', 180), (1, 1, 0, 1): ('nse', 270),
+        (1, 1, 1, 1): ('nsew', 0)}
+    variants = {}
+    b = lambda v: 'true' if v else 'false'
+    for attached in (0, 1):
+        for (n, e, s, w), (shape, y) in shapes.items():
+            for disarmed in (0, 1):
+                key = f'attached={b(attached)},disarmed={b(disarmed)},east={b(e)},north={b(n)},south={b(s)},west={b(w)}'
+                if disarmed:
+                    variants[key] = {'model': 'knightsrealm:block/crop_base'}
+                else:
+                    v = {'model': 'minecraft:block/tripwire_' + ('attached_' if attached else '') + shape}
+                    if y:
+                        v['y'] = y
+                    variants[key] = v
+    write_json(os.path.join(PACK, 'assets', 'minecraft', 'blockstates', 'tripwire.json'), {'variants': variants})
+    write_json(os.path.join(NS, 'models', 'block', 'crop_base.json'),
+               {'textures': {'particle': 'minecraft:block/farmland'}, 'elements': []})
+
+
 def write_arrows():
     big, cell = 160, 16
     sheet = Image.new('RGBA', (cell * 8, cell), (0, 0, 0, 0))
@@ -266,6 +294,7 @@ def main():
     # a held item that draws nothing (a monster's bow the model draws itself, 2026-11-16)
     write_json(os.path.join(NS, 'items', 'hidden_held.json'), {'model': {'type': 'minecraft:empty'}})
     write_arrows()
+    write_tripwire()
     sys.path.insert(0, os.path.join(HERE, 'equip')); import equip
     equip_ids = equip.install(PACK)
     gui_ids = write_gui()

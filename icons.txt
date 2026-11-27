@@ -225,6 +225,7 @@ cat_round
 cat_royal_medicine
 cat_royal_pharmacy
 cat_royal_services
+cat_seeds
 cat_services
 cat_settings
 cat_shop_manage
